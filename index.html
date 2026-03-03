@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bacha Hussin | Front-End Developer & Amazon VA</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portfolio of Bacha Hussin - Front-End Developer, Database Enthusiast, and Amazon Virtual Assistant based in Lahore, Pakistan.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923126838112" target="_blank" class="whatsapp-float" title="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- AI Chatbot UI -->
+        <div class="chatbot-container" id="chatbot">
+            <div class="chatbot-header">
+                <div class="chatbot-info">
+                    <div class="chatbot-avatar">
+                        <i class="fas fa-robot"></i>
+                        <span class="online-status"></span>
+                    </div>
+                    <div>
+                        <span class="chatbot-name">Bacha's AI Assistant</span>
+                        <span class="chatbot-status">Online • Polite & Helpful</span>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-body" id="chatbot-body">
+                <div class="chat-message bot">
+                    Hello! I'm Bacha's AI Assistant. How can I help you today?
+                </div>
+                <!-- Suggested Questions will be injected here -->
+                <div class="suggested-questions" id="suggested-questions"></div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" id="chatbot-input" placeholder="Ask me about Bacha..." autocomplete="off">
+                <button id="chatbot-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <button class="chatbot-toggle" id="chatbot-toggle" title="Chat with AI">
+            <i class="fas fa-comments"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-toggle" id="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="profile-section">
+                <div class="profile-img-container">
+                    <img src="h2.png" alt="Bacha Hussin" class="profile-img">
+                </div>
+                <h2 class="profile-name">Bacha Hussin</h2>
+                <p class="profile-role">Dev & Amazon Expert</p>
+            </div>
+
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">
+                            <i class="fas fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">
+                            <i class="fas fa-user"></i>
+                            <span>About Me</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#testimonials" class="nav-link">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>Feedback</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Theme Toggle inside sidebar -->
+            <div class="sidebar-theme-toggle" id="theme-toggle" title="Switch Theme">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                <span class="theme-label">Theme</span>
+            </div>
+
+            <div class="social-links">
+                <a href="https://wa.me/3126838112" target="_blank" class="social-icon"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="https://github.com/Bachahussain" target="_blank" class="social-icon"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/hussain-adil-800250232/" target="_blank" class="social-icon"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:hussainllc11@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Hero Section -->
+            <section id="home" class="hero" style="background-position: center 30%;">
+                <div class="fade-up" style="margin-top: 100px;">
+                    <div class="status-indicator">
+                        <span class="pulse-dot"></span>
+                        Available for new projects
+                    </div>
+                    <h1>I'm <span class="name">Bacha Hussin</span></h1>
+                    <div class="typing-text">
+                        I'm a <span id="typing-element"></span><span class="cursor"></span>
+                    </div>
+                    <p>Based in Lahore, Pakistan. | BSC Student at PUCIT</p>
+                    <p style="font-style: italic; max-width: 600px; margin-top: -15px; color: #94a3b8;">"Blending
+                        technical precision with creativity and authentic human connection."</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <span class="magnetic-btn"><a href="#contact" class="cta-button">Hire Me</a></span>
+                        <span class="magnetic-btn"><a href="#portfolio" class="cta-button"
+                                style="background: transparent; border: 2px solid var(--accent-teal);">View
+                                Work</a></span>
+                        <span class="magnetic-btn"><a href="CV.pdf" download="Bacha_Hussin_CV.pdf" target="_blank"
+                                class="cta-button"
+                                style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px);">
+                                <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>Download CV
+                            </a></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about">
+                <div class="section-watermark">About</div>
+                <header class="section-header fade-up">
+                    <h2 class="section-title">About Me</h2>
+                </header>
+
+                <div class="about-grid fade-up">
+                    <!-- Animating Cartoon (Lottie) -->
+                    <div class="about-image">
+                        <div id="lottie-cartoon" style="width: 100%; height: 400px;"></div>
+                    </div>
+
+                    <div class="about-content">
+                        <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--text-dark);">Synthesizing <span
+                                style="color: var(--accent-teal);">Code</span> with <span
+                                style="color: var(--accent-teal);">Commerce</span></h3>
+
+                        <p style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 20px; line-height: 1.8;">
+                            I am a results-driven <strong>Front-End Developer</strong> and <strong>Amazon Business
+                                Specialist</strong> currently pursuing my Bachelor of Computer Science at <span
+                                style="color: var(--accent-teal); font-weight: 600;">PUCIT</span>. My professional
+                            philosophy is built on the intersection of technical precision and human-centric design.
+                        </p>
+
+                        <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem;">
+                            Currently collaborating with industry professionals as an <strong>Amazon Virtual
+                                Assistant</strong>, I specialize in high-impact listing optimization and strategic
+                            market intelligence. Whether I'm architecting a database or scaling an e-commerce brand, my
+                            goal remains the same: <em>To deliver solutions that balance peak performance with authentic
+                                connection.</em>
+                        </p>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-graduation-cap"
+                                    style="color: var(--accent-teal); margin-bottom: 10px;"></i>
+                                <span class="stat-number">PUCIT</span>
+                                <span class="stat-label">BCS Scholar</span>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fab fa-amazon" style="color: var(--accent-teal); margin-bottom: 10px;"></i>
+                                <span class="stat-number">Expert</span>
+                                <span class="stat-label">Amazon Ranker</span>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-brain" style="color: var(--accent-teal); margin-bottom: 10px;"></i>
+                                <span class="stat-number">Remote</span>
+                                <span class="stat-label">UoPeople ADR</span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="margin-top: 50px; background: rgba(20, 184, 166, 0.05); padding: 30px; border-radius: 20px; border-left: 5px solid var(--accent-teal);">
+                            <h4
+                                style="color: var(--text-dark); margin-bottom: 20px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-rocket"></i> Core Expertise
+                            </h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: var(--accent-teal); margin-top: 5px;"></i>
+                                    <div>
+                                        <strong style="display: block; color: var(--text-dark);">SEO &
+                                            Conversion</strong>
+                                        <span style="font-size: 0.9rem; color: var(--text-muted);">High-conversion
+                                            copywriting for Amazon listings (Keyword Rich).</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                    <i class="fas fa-bullhorn" style="color: var(--accent-teal); margin-top: 5px;"></i>
+                                    <div>
+                                        <strong style="display: block; color: var(--text-dark);">Social Media
+                                            Marketing</strong>
+                                        <span style="font-size: 0.9rem; color: var(--text-muted);">Strategic brand
+                                            growth and high-engagement social campaigns.</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: var(--accent-teal); margin-top: 5px;"></i>
+                                    <div>
+                                        <strong style="display: block; color: var(--text-dark);">Front-End Developer
+                                        </strong>
+                                        <span style="font-size: 0.9rem; color: var(--text-muted);">Responsive UI/UX
+                                            development with a focus on modern aesthetics.</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                    <i class="fas fa-passport" style="color: var(--accent-teal); margin-top: 5px;"></i>
+                                    <div>
+                                        <strong style="display: block; color: var(--text-dark);">Business
+                                            Registration</strong>
+                                        <span style="font-size: 0.9rem; color: var(--text-muted);">UK Ltd & USA LLC
+                                            registration and compliance research.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personal Story Section -->
+            <section id="story" class="section-card" style="margin: 0 40px 100px;">
+                <div class="about-grid fade-up" style="align-items: center;">
+                    <div class="about-content">
+                        <div class="status-indicator"
+                            style="background: rgba(255,107,107,0.1); color: #ff6b6b; border-color: rgba(255,107,107,0.2);">
+                            <span class="pulse-dot" style="background: #ff6b6b;"></span>
+                            Behind the Scenes
+                        </div>
+                        <h2 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px;">
+                            Nice to meet you. <br> I'm <span class="name">Bacha</span>
+                        </h2>
+
+                        <div class="philosophy-text" style="font-size: 1.1rem; color: #94a3b8; line-height: 1.8;">
+                            <p style="margin-bottom: 25px;">
+                                "I believe that code is just the tool, but the real magic happens when we solve human
+                                problems. Every pixel and every line of search optimization is a step toward building a
+                                meaningful digital legacy."
+                            </p>
+                            <p style="margin-bottom: 25px;">
+                                Beyond the screen, I am a lifelong student of growth. Whether it's exploring new
+                                perspectives at PUCIT or analyzing market shifts, I stay driven by curiosity and the
+                                pursuit of excellence.
+                            </p>
+                            <p
+                                style="font-style: italic; border-left: 3px solid var(--accent-teal); padding-left: 20px; color: var(--white);">
+                                "Success is not just about being the best, it's about being better than you were
+                                yesterday."
+                            </p>
+                        </div>
+
+                        <!-- Professional Code Card -->
+                        <div class="code-card">
+                            <div class="code-header">
+                                <div class="code-controls">
+                                    <div class="control red"></div>
+                                    <div class="control yellow"></div>
+                                    <div class="control green"></div>
+                                </div>
+                                <div class="code-file">developer.js</div>
+                            </div>
+                            <div class="code-body">
+                                <span class="code-line"><span class="code-comment">// Front-End Developer & Amazon
+                                        Expert</span></span>
+                                <span class="code-line"><span class="code-keyword">const</span> <span
+                                        class="code-variable">developer</span> <span class="code-operator">=</span>
+                                    <span class="code-bracket">{</span></span>
+                                <span class="code-line"> <span class="code-property">name</span><span
+                                        class="code-operator">:</span> <span class="code-string">'Bacha
+                                        Hussin'</span><span class="code-operator">,</span></span>
+                                <span class="code-line"> <span class="code-property">skills</span><span
+                                        class="code-operator">:</span> <span class="code-bracket">[</span><span
+                                        class="code-string">'HTML5'</span><span class="code-operator">,</span> <span
+                                        class="code-string">'CSS3'</span><span class="code-operator">,</span> <span
+                                        class="code-string">'JavaScript'</span><span class="code-operator">,</span>
+                                    <span class="code-string">'MongoDB'</span><span class="code-bracket">]</span><span
+                                        class="code-operator">,</span></span>
+                                <span class="code-line"> <span class="code-property">expertise</span><span
+                                        class="code-operator">:</span> <span class="code-bracket">[</span><span
+                                        class="code-string">'Amazon VA'</span><span class="code-operator">,</span> <span
+                                        class="code-string">'SEO'</span><span class="code-operator">,</span> <span
+                                        class="code-string">'UI/UX'</span><span class="code-bracket">]</span><span
+                                        class="code-operator">,</span></span>
+                                <span class="code-line"> <span class="code-property">learning</span><span
+                                        class="code-operator">:</span> <span class="code-string">'Always'</span></span>
+                                <span class="code-line"><span class="code-bracket">}</span><span
+                                        class="code-operator">;</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========== VLOG / PHOTO GALLERY SECTION ========== -->
+                    <div class="vlog-gallery-section">
+                        <div class="vlog-gallery-header">
+                            <h3><i class="fas fa-camera-retro"></i> Photo Gallery</h3>
+                            <p>Moments that define the journey</p>
+                        </div>
+                        <div class="vlog-gallery-grid" id="vlog-gallery">
+                            <!--
+                                ==========================================================
+                                HOW TO ADD / CHANGE PHOTOS MANUALLY:
+                                ==========================================================
+                                Each photo is a separate "vlog-gallery-item" div.
+                                To add a new photo:
+                                  1. Copy one of the blocks below
+                                  2. Change the src="..." to your image file name
+                                  3. Change the alt="..." to describe the photo
+                                  4. Change the <span> caption text
+                                
+                                To remove a photo:
+                                  Just delete the entire <div class="vlog-gallery-item">...</div> block
+                                
+                                To change a photo:
+                                  Simply update the src="..." path to a new image file
+                                ==========================================================
+                            -->
+
+                            <!-- Photo 1 -->
+                            <div class="vlog-gallery-item" data-caption="Professional Portrait">
+                                <img src="h2.png" alt="Professional Portrait">
+                                <div class="vlog-item-overlay">
+                                    <span>Professional Portrait</span>
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+
+                            <!-- Photo 2 -->
+                            <div class="vlog-gallery-item" data-caption="Working Session">
+                                <img src="photo1.jpeg" alt="Working Session">
+                                <div class="vlog-item-overlay">
+                                    <span>Working Session</span>
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+
+                            <!-- Photo 3 -->
+                            <div class="vlog-gallery-item" data-caption="Creative Moments">
+                                <img src="a2.jpeg" alt="Creative Moments">
+                                <div class="vlog-item-overlay">
+                                    <span>Creative Moments</span>
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+
+                            <!-- Photo 4 -->
+                            <div class="vlog-gallery-item" data-caption="Team Collaboration">
+                                <img src="a4.jpeg" alt="Team Collaboration">
+                                <div class="vlog-item-overlay">
+                                    <span>Team Collaboration</span>
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+
+                            <!-- Photo 5 -->
+                            <div class="vlog-gallery-item" data-caption="Behind the Scenes">
+                                <img src="a6.jpeg" alt="Behind the Scenes">
+                                <div class="vlog-item-overlay">
+                                    <span>Behind the Scenes</span>
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+
+                            <!-- Photo 6 -->
+                            <div class="vlog-gallery-item" data-caption="Inspiration">
+                                <img src="photo5.jpeg" alt="Inspiration">
+                                <div class="vlog-item-overlay">
+                                    <span>Inspiration</span>
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+
+                            <!--
+                                ==========================================================
+                                ADD MORE PHOTOS HERE by copying the block below:
+                                ==========================================================
+                                <div class="vlog-gallery-item" data-caption="Your Caption">
+                                    <img src="YOUR_IMAGE_FILE.jpg" alt="Description">
+                                    <div class="vlog-item-overlay">
+                                        <span>Your Caption</span>
+                                        <i class="fas fa-expand"></i>
+                                    </div>
+                                </div>
+                                ==========================================================
+                            -->
+                        </div>
+                    </div>
+                    <!-- ========== END VLOG GALLERY ========== -->
+
+                </div>
+            </section>
+
+            <!-- Lightbox Modal for Gallery -->
+            <div class="lightbox-modal" id="lightbox-modal">
+                <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
+                <button class="lightbox-nav lightbox-prev" id="lightbox-prev"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="lightbox-nav lightbox-next" id="lightbox-next"><i
+                        class="fas fa-chevron-right"></i></button>
+                <div class="lightbox-content">
+                    <img src="" alt="Gallery Photo" id="lightbox-img">
+                    <p class="lightbox-caption" id="lightbox-caption"></p>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <section id="services">
+                <div class="section-watermark">Services</div>
+                <header class="section-header fade-up">
+                    <h2 class="section-title">Professional Services</h2>
+                </header>
+
+                <div class="services-grid fade-up">
+                    <div class="service-card section-card">
+                        <i class="fas fa-code service-icon"></i>
+                        <h3>Web Development</h3>
+                        <p>Specializing in HTML, CSS, and JavaScript to build high-performance web applications.</p>
+                    </div>
+                    <div class="service-card section-card">
+                        <i class="fab fa-amazon service-icon"></i>
+                        <h3>Amazon Business</h3>
+                        <p>Expert listing optimization, competitor intelligence, and market strategy for global brands.
+                        </p>
+                    </div>
+                    <div class="service-card section-card">
+                        <i class="fas fa-database service-icon"></i>
+                        <h3>Data Solutions</h3>
+                        <p>Developing structured data architectures using SQL, MySQL, and MongoDB.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack Section -->
+            <section id="skills">
+                <div class="section-watermark">Tech Stack</div>
+                <header class="section-header fade-up">
+                    <h2 class="section-title">Tools & Technologies</h2>
+                </header>
+
+                <div class="tools-grid fade-up">
+                    <!-- Git -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=git" alt="Git">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Git</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NextAuth -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=nextjs" alt="NextAuth">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">NextAuth</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google API -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=google" alt="Google API">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Google API</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jupyter -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=jupyter" alt="Jupyter">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Jupyter</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LaTeX -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=latex" alt="LaTeX">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">LaTeX</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pandas -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=pandas" alt="Pandas">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Pandas</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tensorflow -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=tensorflow" alt="Tensorflow">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Tensorflow</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selenium -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=selenium" alt="Selenium">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Selenium</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Firebase -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=firebase" alt="Firebase">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Firebase</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Helium 10 -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <i class="fas fa-rocket" style="color: #00aaff;"></i>
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Helium 10</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jungle Scout -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <i class="fas fa-search-dollar" style="color: #ff9900;"></i>
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">Jungle Scout</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MongoDB -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">MongoDB</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=js" alt="JavaScript">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">JavaScript</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HTML5 -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://skillicons.dev/icons?i=html" alt="HTML5">
+                        </div>
+                        <div class="tool-info">
+                            <span class="tool-name">HTML5</span>
+                            <div class="skill-level-container">
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                                <div class="level-bar filled"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio">
+                <div class="section-watermark">Portfolio</div>
+                <header class="section-header fade-up">
+                    <h2 class="section-title">My Projects</h2>
+                </header>
+
+                <div class="portfolio-filters fade-up">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Web Design</button>
+                    <button class="filter-btn">Amazon VA</button>
+                    <button class="filter-btn">Database</button>
+                </div>
+
+                <div class="portfolio-grid fade-up">
+                    <!-- NEW CLIENT PROJECT: Gemstone Store -->
+                    <div class="portfolio-item">
+                        <a href="https://bachahussain.github.io/gem_store/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800"
+                                alt="Gemstone Store">
+                            <div class="portfolio-overlay">
+                                <h3>Gemstone Online Store</h3>
+                                <p>Web Design | HTML, CSS, JS</p>
+                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
+                                    Project →</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Digital Agency Website -->
+                    <div class="portfolio-item">
+                        <a href="https://bachahussain.github.io/Digital-Agency-/" target="_blank">
+                            <img src="digital-agency.png" alt="Digital Agency Website">
+                            <div class="portfolio-overlay">
+                                <h3>Digital Agency Website</h3>
+                                <p>Web Design | HTML, CSS, JS</p>
+                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
+                                    Project →</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Web Project 1 -->
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800"
+                            alt="E-commerce UI">
+                        <div class="portfolio-overlay">
+                            <h3>E-commerce Frontend</h3>
+                            <p>Web Design</p>
+                        </div>
+                    </div>
+                    <!-- Amazon VA Project 1 -->
+                    <div class="portfolio-item">
+                        <a href="https://www.amazon.com/dp/B08XWN7C1R" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800"
+                                alt="Amazon Listing Mastery">
+                            <div class="portfolio-overlay">
+                                <h3>Amazon Listing Mastery</h3>
+                                <p>Amazon VA</p>
+                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Case
+                                    Study →</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Amazon VA Project 2 -->
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=800"
+                            alt="Competitor analysis">
+                        <div class="portfolio-overlay">
+                            <h3>Competitor Strategy Analysis</h3>
+                            <p>Amazon VA</p>
+                        </div>
+                    </div>
+                    <!-- Web Project 2 -->
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
+                            alt="Personal Portfolio">
+                        <div class="portfolio-overlay">
+                            <h3>Vibrant Portfolio Website</h3>
+                            <p>Web Design</p>
+                        </div>
+                    </div>
+                    <!-- Amazon VA Project 3 -->
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800"
+                            alt="Keyword research">
+                        <div class="portfolio-overlay">
+                            <h3>Keyword Research Strategy</h3>
+                            <p>Amazon VA</p>
+                        </div>
+                    </div>
+                    <!-- Database Project -->
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800"
+                            alt="Library management">
+                        <div class="portfolio-overlay">
+                            <h3>Digital Library Database</h3>
+                            <p>Database</p>
+                        </div>
+                    </div>
+                    <!-- Amazon VA Project: Product Hunting -->
+                    <div class="portfolio-item">
+                        <a href="#" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800"
+                                alt="Winning Product Hunting">
+                            <div class="portfolio-overlay">
+                                <h3>Winning Product Hunting</h3>
+                                <p>Amazon VA | Product Research</p>
+                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View
+                                    Strategy →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Infinite Marquee Section -->
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <div class="marquee-item"><span>/</span> Web Development</div>
+                    <div class="marquee-item"><span>/</span> Amazon FBA Expert</div>
+                    <div class="marquee-item"><span>/</span> JavaScript Ninja</div>
+                    <div class="marquee-item"><span>/</span> UI/UX Designer</div>
+                    <div class="marquee-item"><span>/</span> Data Architect</div>
+                    <div class="marquee-item"><span>/</span> SEO Specialist</div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="marquee-item"><span>/</span> Web Development</div>
+                    <div class="marquee-item"><span>/</span> Amazon FBA Expert</div>
+                    <div class="marquee-item"><span>/</span> JavaScript Ninja</div>
+                    <div class="marquee-item"><span>/</span> UI/UX Designer</div>
+                    <div class="marquee-item"><span>/</span> Data Architect</div>
+                    <div class="marquee-item"><span>/</span> SEO Specialist</div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <section id="testimonials">
+                <div class="section-watermark">Feedback</div>
+                <header class="section-header fade-up">
+                    <h2 class="section-title">Testimonials</h2>
+                </header>
+
+                <div class="testimonials-slider fade-up">
+                    <div class="testimonial-card">
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+                                alt="John S." class="client-img">
+                            <div>
+                                <span class="client-name">John S.</span>
+                                <span class="client-role">Amazon Seller (USA)</span>
+                            </div>
+                        </div>
+                        <p class="quote-text">"Bacha's listing optimization helped us increase our organic reach by 40%
+                            in just two months. Highly professional and data-driven!"</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
+                                alt="Alex M." class="client-img">
+                            <div>
+                                <span class="client-name">Alex M.</span>
+                                <span class="client-role">Web Development Client</span>
+                            </div>
+                        </div>
+                        <p class="quote-text">"A rare talent who understands both high-end code and complex business
+                            logic. The gemstones project he delivered exceeded all expectations."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <div class="section-watermark">Contact</div>
+                <header class="section-header fade-up">
+                    <h2 class="section-title">Get In Touch</h2>
+                </header>
+
+                <div class="contact-container fade-up">
+                    <div class="contact-details">
+                        <div class="contact-info-item">
+                            <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Lahore, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>+3126838112</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hussainllc11@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <form id="portfolio-contact-form">
+                            <div class="form-group">
+                                <input type="text" name="user_name" id="user_name" class="form-input"
+                                    placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="user_email" id="user_email" class="form-input"
+                                    placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="title" id="title" class="form-input" placeholder="Subject"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" class="form-input" placeholder="Your Message"
+                                    required></textarea>
+                            </div>
+                            <!-- Hidden time field for the template -->
+                            <input type="hidden" name="time" id="contact-time">
+
+                            <button type="submit" id="submit-btn" class="cta-button" style="width: 100%;">Send
+                                Message</button>
+                            <div id="form-status" class="status-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="site-footer">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>Bacha <span>Hussin</span></h3>
+                        <p>Front-End Developer & Amazon Expert</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#services">Services</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://wa.me/3126838112" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://github.com/Bachahussain" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/hussain-adil-800250232/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="mailto:hussainllc11@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <div class="footer-divider"></div>
+                    <p class="footer-copy">&copy; 2026 Bacha Hussin. All rights reserved. | Designed with <i
+                            class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Lottie Animation Web Player -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
