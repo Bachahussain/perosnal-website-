@@ -19,6 +19,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -174,7 +177,7 @@
                         <span class="magnetic-btn"><a href="#portfolio" class="cta-button"
                                 style="background: transparent; border: 2px solid var(--accent-teal);">View
                                 Work</a></span>
-                        <span class="magnetic-btn"><a href="CV.pdf" download="Bacha_Hussain_CV.pdf" target="_blank"
+                        <span class="magnetic-btn"><a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank"
                                 class="cta-button"
                                 style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px);">
                                 <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>Download CV
@@ -182,6 +185,31 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Trust Stats Bar -->
+            <div class="stats-bar-container fade-up">
+                <div class="stats-bar shadow-lg">
+                    <div class="stat-item">
+                        <span class="stat-value" data-target="50">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-target="15">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-target="2">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-target="100">0</span><span class="stat-plus">%</span>
+                        <span class="stat-label">Quality Commitment</span>
+                    </div>
+                </div>
+            </div>
 
             <!-- About Section -->
             <section id="about">
@@ -355,85 +383,165 @@
                         </div>
                     </div>
 
-                    <!-- ========== VLOG / PHOTO GALLERY SECTION ========== -->
-                    <div class="vlog-gallery-section">
-                        <div class="vlog-gallery-header">
-                            <h3><i class="fas fa-camera-retro"></i> Photo Gallery</h3>
-                            <p>Moments that define the journey</p>
+                    <!-- Career Journey Timeline Section -->
+                    <section id="experience" class="py-5">
+                        <div class="container">
+                            <div class="experience-header-grid fade-up">
+                                <div class="visual-col">
+                                    <div id="project-galaxy" class="galaxy-canvas"></div>
+                                </div>
+                                <div class="content-col">
+                                    <h2 class="section-title">Career Journey</h2>
+                                    <p class="text-muted">A timeline of my professional growth & expertise</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-wrapper">
+                                <div class="timeline-center-line"></div>
+
+                                <div class="timeline-row">
+                                    <!-- 2025: Right Side Layout (Info on Left) -->
+                                    <div class="timeline-block block-right fade-up">
+                                        <div class="timeline-info">
+                                            <div class="info-year">2025</div>
+                                            <div class="info-focus">
+                                                <span><i class="fas fa-microchip"></i> AI Research</span>
+                                                <span><i class="fas fa-server"></i> Scalability</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-dot-center"></div>
+                                        <div class="timeline-card highlight">
+                                            <span class="year-badge">2025</span>
+                                            <h4>AI & Scalable Systems</h4>
+                                            <p>Specializing in <strong>AI Integration</strong> and high-performance
+                                                architectures. Building smart applications using Gemini AI.</p>
+                                            <div class="timeline-tags">
+                                                <span>AI Integration</span>
+                                                <span>Next.js 14</span>
+                                                <span>Automation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2024: Left Side Layout (Info on Right) -->
+                                    <div class="timeline-block block-left fade-up">
+                                        <div class="timeline-card">
+                                            <span class="year-badge">2024</span>
+                                            <h4>Community Impact</h4>
+                                            <p>Built the <strong>AFG Student Community</strong> platform. Collaborating
+                                                with international clients for digital excellence.</p>
+                                            <div class="timeline-tags">
+                                                <span>Full Stack</span>
+                                                <span>Firebase</span>
+                                                <span>Community Tech</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-dot-center"></div>
+                                        <div class="timeline-info">
+                                            <div class="info-year">2024</div>
+                                            <div class="info-focus">
+                                                <span><i class="fas fa-users"></i> Community</span>
+                                                <span><i class="fas fa-globe"></i> Global Reach</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2023: Right Side Layout (Info on Left) -->
+                                    <div class="timeline-block block-right fade-up">
+                                        <div class="timeline-info">
+                                            <div class="info-year">2023</div>
+                                            <div class="info-focus">
+                                                <span><i class="fas fa-code"></i> MERN Mastery</span>
+                                                <span><i class="fas fa-database"></i> API Design</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-dot-center"></div>
+                                        <div class="timeline-card">
+                                            <span class="year-badge">2023</span>
+                                            <h4>MERN Stack Mastery</h4>
+                                            <p>Deep dived into the <strong>MERN Stack</strong>. Developed pixel-perfect
+                                                frontends and robust REST APIs.</p>
+                                            <div class="timeline-tags">
+                                                <span>React.js</span>
+                                                <span>Node.js</span>
+                                                <span>MongoDB</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2022: Left Side Layout (Info on Right) -->
+                                    <div class="timeline-block block-left fade-up">
+                                        <div class="timeline-card">
+                                            <span class="year-badge">2022</span>
+                                            <h4>The Foundation</h4>
+                                            <p>Commenced Bachelor of Computer Science at <strong>Punjab University
+                                                    (PUCIT)</strong>. Focused on DSA and Software Ethics.</p>
+                                            <div class="timeline-tags">
+                                                <span>PUCIT</span>
+                                                <span>DSA</span>
+                                                <span>C++</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-dot-center"></div>
+                                        <div class="timeline-info">
+                                            <div class="info-year">2022</div>
+                                            <div class="info-focus">
+                                                <span><i class="fas fa-graduation-cap"></i> PUCIT</span>
+                                                <span><i class="fas fa-brain"></i> DSA Core</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="vlog-gallery-grid" id="vlog-gallery">
-                            <!-- Photo 1 -->
-                            <div class="vlog-gallery-item" data-caption="Professional Portrait">
-                                <img src="h2.png" alt="Professional Portrait">
-                                <div class="vlog-item-overlay">
-                                    <span>Professional Portrait</span>
-                                    <i class="fas fa-expand"></i>
-                                </div>
+                    </section>
+
+                    <!-- ========== MY WORK PROCESS ========== -->
+                    <section id="process" class="py-5 bg-soft-dark">
+                        <div class="container">
+                            <div class="section-header text-center mb-5 fade-up">
+                                <h2 class="section-title">My Professional Process</h2>
+                                <p class="text-muted">How I turn your vision into a high-performance reality</p>
                             </div>
 
-                            <!-- Photo 2 -->
-                            <div class="vlog-gallery-item" data-caption="Working Session">
-                                <img src="photo1.jpeg" alt="Working Session">
-                                <div class="vlog-item-overlay">
-                                    <span>Working Session</span>
-                                    <i class="fas fa-expand"></i>
+                            <div class="process-steps fade-up">
+                                <div class="process-step">
+                                    <div class="step-number">01</div>
+                                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                                    <h4>Discovery</h4>
+                                    <p>I dive deep into your project goals, target audience, and business requirements
+                                        to ensure a solid foundation.</p>
                                 </div>
-                            </div>
-
-                            <!-- Photo 3 -->
-                            <div class="vlog-gallery-item" data-caption="Creative Moments">
-                                <img src="a2.jpeg" alt="Creative Moments">
-                                <div class="vlog-item-overlay">
-                                    <span>Creative Moments</span>
-                                    <i class="fas fa-expand"></i>
+                                <div class="step-connector"></div>
+                                <div class="process-step">
+                                    <div class="step-number">02</div>
+                                    <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
+                                    <h4>Strategy</h4>
+                                    <p>Architecting the solution — from database schema design to choosing the perfect
+                                        frontend framework for your needs.</p>
                                 </div>
-                            </div>
-
-                            <!-- Photo 4 -->
-                            <div class="vlog-gallery-item" data-caption="Team Collaboration">
-                                <img src="a4.jpeg" alt="Team Collaboration">
-                                <div class="vlog-item-overlay">
-                                    <span>Team Collaboration</span>
-                                    <i class="fas fa-expand"></i>
+                                <div class="step-connector"></div>
+                                <div class="process-step">
+                                    <div class="step-number">03</div>
+                                    <div class="step-icon"><i class="fas fa-layer-group"></i></div>
+                                    <h4>Development</h4>
+                                    <p>Writing clean, efficient code using the MERN stack with constant testing for peak
+                                        performance and security.</p>
                                 </div>
-                            </div>
-
-                            <!-- Photo 5 -->
-                            <div class="vlog-gallery-item" data-caption="Behind the Scenes">
-                                <img src="a6.jpeg" alt="Behind the Scenes">
-                                <div class="vlog-item-overlay">
-                                    <span>Behind the Scenes</span>
-                                    <i class="fas fa-expand"></i>
-                                </div>
-                            </div>
-
-                            <!-- Photo 6 -->
-                            <div class="vlog-gallery-item" data-caption="Inspiration">
-                                <img src="photo5.jpeg" alt="Inspiration">
-                                <div class="vlog-item-overlay">
-                                    <span>Inspiration</span>
-                                    <i class="fas fa-expand"></i>
+                                <div class="step-connector"></div>
+                                <div class="process-step">
+                                    <div class="step-number">04</div>
+                                    <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                                    <h4>Delivery</h4>
+                                    <p>Launching your project with full SEO optimization and providing ongoing support
+                                        to ensure long-term success.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- ========== END VLOG GALLERY ========== -->
+                    </section>
 
                 </div>
             </section>
-
-            <!-- Lightbox Modal for Gallery -->
-            <div class="lightbox-modal" id="lightbox-modal">
-                <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
-                <button class="lightbox-nav lightbox-prev" id="lightbox-prev"><i
-                        class="fas fa-chevron-left"></i></button>
-                <button class="lightbox-nav lightbox-next" id="lightbox-next"><i
-                        class="fas fa-chevron-right"></i></button>
-                <div class="lightbox-content">
-                    <img src="" alt="Gallery Photo" id="lightbox-img">
-                    <p class="lightbox-caption" id="lightbox-caption"></p>
-                </div>
-            </div>
 
             <!-- Services Section -->
             <section id="services">
@@ -673,11 +781,10 @@
                     <!-- PUNJ-AFG Connect -->
                     <div class="portfolio-item">
                         <a href="https://afg-student-community.vercel.app" target="_blank">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
-                                alt="PUNJ-AFG Connect">
+                            <img src="afg_community_project.png" alt="PUNJ-AFG Connect Portfolio">
                             <div class="portfolio-overlay">
                                 <h3>PUNJ-AFG Connect</h3>
-                                <p>Full Stack | Next.js · Firebase · AI Chatbot</p>
+                                <p>Full Stack | Next.js · Firebase · Community Platform</p>
                                 <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
                                     Project →</span>
                             </div>
@@ -775,7 +882,7 @@
                                 alt="John S." class="client-img">
                             <div>
                                 <span class="client-name">John S.</span>
-                                <span class="client-role">Startup Founder (USA)</span>
+                                <span class="client-role">Founder @ TechGrow (USA)</span>
                             </div>
                         </div>
                         <p class="quote-text">"Bacha built our complete web platform from scratch. The frontend is
@@ -784,14 +891,94 @@
                     <div class="testimonial-card">
                         <div class="client-info">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
-                                alt="Alex M." class="client-img">
+                                alt="Maria L." class="client-img">
                             <div>
-                                <span class="client-name">Alex M.</span>
-                                <span class="client-role">Web Development Client</span>
+                                <span class="client-name">Maria L.</span>
+                                <span class="client-role">Creative Director (UAE)</span>
                             </div>
                         </div>
                         <p class="quote-text">"A rare talent who understands both beautiful design and complex backend
                             logic. The community portal he delivered exceeded all our expectations."</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150"
+                                alt="David K." class="client-img">
+                            <div>
+                                <span class="client-name">David K.</span>
+                                <span class="client-role">E-commerce Entrepreneur</span>
+                            </div>
+                        </div>
+                        <p class="quote-text">"The dashboard Bacha created for my business was a game changer. Super
+                            fast loading speeds and very intuitive UI. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150"
+                                alt="Sarah J." class="client-img">
+                            <div>
+                                <span class="client-name">Sarah J.</span>
+                                <span class="client-role">Digital Marketing Consultant</span>
+                            </div>
+                        </div>
+                        <p class="quote-text">"Incredible attention to detail. He doesn't just build what you ask for,
+                            he suggests better ways to do it. Truly a professional partner."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== FAQ SECTION ========== -->
+            <section id="faq" class="py-5">
+                <div class="container">
+                    <div class="section-header text-center mb-5 fade-up">
+                        <h2 class="section-title">Common Questions</h2>
+                        <p class="text-muted">Answering project-related queries from my clients</p>
+                    </div>
+
+                    <div class="faq-container mx-auto" style="max-width: 800px;">
+                        <div class="faq-item fade-up shadow-sm">
+                            <div class="faq-question">
+                                <span>How long does a typical project take?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standard landing pages typically take 1-2 weeks. Full-scale web applications (MERN
+                                    stack) usually require 4-8 weeks depending on the complexity of features and
+                                    integrations.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-up shadow-sm" style="animation-delay: 0.1s;">
+                            <div class="faq-question">
+                                <span>What technologies do you specialize in?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>I am an expert in the <strong>MERN Stack</strong> (MongoDB, Express, React, Node.js).
+                                    I also frequently use <strong>Next.js</strong> for SEO-focused projects and
+                                    <strong>Firebase</strong> for rapid backend deployment.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-up shadow-sm" style="animation-delay: 0.2s;">
+                            <div class="faq-question">
+                                <span>Do you offer post-launch support?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely. I provide 3 months of priority support for all projects to handle any
+                                    bugs or minor updates. Extended maintenance packages are also available.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-up shadow-sm" style="animation-delay: 0.3s;">
+                            <div class="faq-question">
+                                <span>Can you work with an existing codebase?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, I am experienced in taking over existing projects, refactoring legacy code, and
+                                    adding new features to established applications seamlessly.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -891,7 +1078,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- Lottie Animation Web Player -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-    <!-- Custom Script -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Three.js for Project Galaxy -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 

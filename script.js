@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Typing Animation
     const typingElement = document.getElementById('typing-element');
-    const roles = ['Front-End Developer', 'Amazon Expert', 'Database Enthusiast', 'Freelancer'];
+    const roles = ['Full Stack Web Developer', 'MERN Stack Developer', 'React & Node.js Expert', 'Next.js Developer', 'Freelancer'];
     let roleIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 150;
 
     function type() {
@@ -251,66 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 14. Vlog Gallery Lightbox
-    const lightboxModal = document.getElementById('lightbox-modal');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxClose = document.getElementById('lightbox-close');
-    const lightboxPrev = document.getElementById('lightbox-prev');
-    const lightboxNext = document.getElementById('lightbox-next');
-    const galleryItems = document.querySelectorAll('.vlog-gallery-item');
-    let currentLightboxIndex = 0;
-
-    function openLightbox(index) {
-        currentLightboxIndex = index;
-        const item = galleryItems[index];
-        const img = item.querySelector('img');
-        const caption = item.getAttribute('data-caption') || '';
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = caption;
-        lightboxModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        lightboxModal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function navigateLightbox(direction) {
-        currentLightboxIndex = (currentLightboxIndex + direction + galleryItems.length) % galleryItems.length;
-        const item = galleryItems[currentLightboxIndex];
-        const img = item.querySelector('img');
-        lightboxImg.style.opacity = '0';
-        setTimeout(() => {
-            lightboxImg.src = img.src;
-            lightboxCaption.textContent = item.getAttribute('data-caption') || '';
-            lightboxImg.style.opacity = '1';
-        }, 200);
-    }
-
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => openLightbox(index));
-    });
-
-    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if (lightboxPrev) lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
-    if (lightboxNext) lightboxNext.addEventListener('click', () => navigateLightbox(1));
-
-    // Close lightbox on background click
-    if (lightboxModal) {
-        lightboxModal.addEventListener('click', (e) => {
-            if (e.target === lightboxModal) closeLightbox();
-        });
-    }
-
-    // Keyboard navigation for lightbox
-    document.addEventListener('keydown', (e) => {
-        if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') navigateLightbox(-1);
-        if (e.key === 'ArrowRight') navigateLightbox(1);
-    });
 
     // 15. AI Chatbot Logic
     const chatbot = document.getElementById('chatbot');
@@ -323,42 +263,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (chatbotToggle) {
         const bachaKnowledge = {
-            profile: { name: "Bacha Hussin", location: "Lahore, Pakistan", education: "BSC Student at PUCIT" },
+            profile: {
+                name: "Bacha Hussain",
+                location: "Lahore, Pakistan",
+                education: "Computer Science Student at Punjab University",
+                role: "Full Stack Web Developer"
+            },
             domains: {
-                computer_science: {
-                    keywords: ["programming", "coding", "software", "development", "data", "database", "algorithm", "python", "javascript", "html", "css", "mongodb"],
-                    response: "Bacha's CS background at PUCIT has equipped him with deep knowledge in Software Engineering and Database Management. He specializes in Full-Stack development (JS, MongoDB)."
+                fullstack: {
+                    keywords: ["full stack", "fullstack", "mern", "web app", "application", "complete website"],
+                    response: "Bacha is a Full Stack Web Developer specializing in the MERN stack. He builds complete web applications from pixel-perfect frontends to robust backends using React, Node.js, MongoDB and Next.js."
                 },
-                amazon_hunting: {
-                    keywords: ["hunting", "product hunting", "niche", "research", "opportunity", "market analysis", "helium 10", "jungle scout"],
-                    response: "Product Hunting is Bacha's forte. He uses Helium 10 and Jungle Scout to identify high-demand, low-competition niches with focus on ROI and data-driven scoring."
+                frontend: {
+                    keywords: ["frontend", "front end", "react", "nextjs", "next.js", "tailwind", "html", "css", "javascript", "ui", "ux", "design", "responsive"],
+                    response: "For frontend development, Bacha specializes in React.js, Next.js 14, TypeScript, Tailwind CSS, and Framer Motion animations. He builds beautiful, responsive, and high-performance user interfaces."
                 },
-                amazon_sourcing: {
-                    keywords: ["sourcing", "supplier", "alibaba", "1688", "factory", "logistics", "shipping"],
-                    response: "For Product Sourcing, Bacha specializes in identifying suppliers on Alibaba. He handles negotiation, quality control, and logistics planning."
+                backend: {
+                    keywords: ["backend", "back end", "node", "nodejs", "express", "api", "rest", "server", "authentication", "auth"],
+                    response: "On the backend, Bacha builds with Node.js, Express.js, and REST APIs. He also works with NextAuth.js for authentication and Firebase for backend services."
                 },
-                amazon_listing: {
-                    keywords: ["listing", "optimization", "keywords", "seo", "a+ content", "ebc", "titles", "bullet points"],
-                    response: "Listing Optimization is where Bacha blends SEO with psychology. He crafts high-converting titles and descriptions using high-volume keywords."
+                database: {
+                    keywords: ["database", "mongodb", "mysql", "firebase", "firestore", "data", "sql"],
+                    response: "Bacha works with MongoDB, MySQL, and Firebase Firestore for database solutions. He designs scalable data architectures for web applications of all sizes."
                 },
-                amazon_design: {
-                    keywords: ["designing", "product design", "ui", "ux", "visual", "brand", "packaging", "images"],
-                    response: "Product Designing & Brand Visuals: Bacha coordinates high-quality product photography, A+ content design, and premium brand stores."
+                ai: {
+                    keywords: ["ai", "artificial intelligence", "chatbot", "gemini", "integration", "machine learning"],
+                    response: "Bacha integrates AI features into web applications including Google Gemini Pro chatbots, AI-powered community support systems, and smart automation features."
                 },
-                ecommerce_general: {
-                    keywords: ["ecommerce", "e-commerce", "selling", "online business", "fba", "fbm", "wholesale", "private label"],
-                    response: "Bacha handles Amazon Private Label and FBA Wholesale with end-to-end support from brand registry to PPC management."
+                projects: {
+                    keywords: ["project", "portfolio", "work", "built", "example", "demo", "live"],
+                    response: "Bacha's best project is PUNJ-AFG Connect — a full stack community portal built with Next.js 14, TypeScript, Firebase, and Google Gemini AI chatbot. You can see it live at afg-student-community.vercel.app. He also built a Digital Agency website, Gemstone Store, and Gym Management System."
+                },
+                ecommerce: {
+                    keywords: ["ecommerce", "e-commerce", "shop", "store", "shopify", "woocommerce", "online store"],
+                    response: "Bacha builds custom ecommerce websites using React, Node.js, MongoDB and integrates payment systems like Stripe and PayPal. He can build complete online stores with admin dashboards."
+                },
+                hire: {
+                    keywords: ["hire", "contact", "work together", "project", "freelance", "upwork", "available"],
+                    response: "Bacha is available for freelance projects on Upwork! He specializes in Full Stack web development starting at $15/hr. You can contact him via WhatsApp or email to discuss your project requirements."
                 }
             },
-            references: {
-                amazon_university: "Check out [Amazon Seller University](https://sell.amazon.com/learn) or the [Amazon Ads Learning Console](https://learningconsole.amazonadsystem.com/) for professional seller education."
-            },
             fallbacks: [
-                "Great question! I'm gathering more details. Would you like to hear about his Amazon expertise or development skills?",
-                "I'm not sure about that, but Bacha would love to discuss it! Want his contact details?",
-                "I focus on Bacha's professional domain (CS & Amazon Expert). What else would you like to know?"
+                "Great question! Bacha specializes in Full Stack Web Development. Would you like to know more about his React skills or backend expertise?",
+                "I'm not sure about that specific topic, but Bacha would love to discuss your project! Want his contact details?",
+                "I focus on Bacha's professional expertise in Full Stack Web Development. What would you like to know about his skills or projects?"
             ],
-            questions: ["Tell me about Product Hunting", "What is your CS background?", "Help with Amazon Listing SEO", "How do you handle Sourcing?", "Show Amazon University links", "How can I hire you?"]
+            questions: [
+                "What is your tech stack?",
+                "Show me your best project",
+                "Can you build an ecommerce site?",
+                "Do you work with React & Node.js?",
+                "What is your hourly rate?",
+                "How can I hire you?"
+            ]
         };
 
         let chatHistory = [];
@@ -405,15 +362,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             if (!resp) {
-                if (low.includes("university") || low.includes("learn") || low.includes("reference"))
-                    resp = bachaKnowledge.references.amazon_university;
+                if (low.includes("rate") || low.includes("price") || low.includes("cost") || low.includes("charge"))
+                    resp = "Bacha's hourly rate starts at $15/hr on Upwork. For fixed-price projects, rates vary depending on complexity. Basic websites start from $50 and full stack apps from $150.";
                 else if (low.includes("contact") || low.includes("hire") || low.includes("whatsapp"))
-                    resp = `Contact Bacha via WhatsApp at [+92 3126838112](https://wa.me/3126838112) or email hussainllc11@gmail.com.`;
-                else if (low.includes("who") || low.includes("name") || low.includes("yourself"))
-                    resp = `I am Bacha's AI assistant. He's a Developer and Amazon Expert based in Lahore, studying at PUCIT.`;
+                    resp = `You can hire Bacha on Upwork or contact him via WhatsApp at [+92 3126838112](https://wa.me/923126838112) or email hussainllc11@gmail.com.`;
+                else if (low.includes("who") || low.includes("name") || low.includes("yourself") || low.includes("about"))
+                    resp = `I am Bacha's AI assistant. Bacha Hussain is a Full Stack Web Developer based in Lahore, Pakistan. He specializes in React, Node.js, MongoDB, Next.js and AI integration.`;
+                else if (low.includes("education") || low.includes("university") || low.includes("degree") || low.includes("study"))
+                    resp = `Bacha is studying Bachelor of Computer Science at Punjab University, Lahore. He also has an Associate Degree in Computer Science and a Government-certified Amazon course certificate from NAVTTC.`;
             }
             if (!resp) resp = bachaKnowledge.fallbacks[Math.floor(Math.random() * bachaKnowledge.fallbacks.length)];
-            const closures = [" Does this help?", " Anything else you'd like to explore?", " Need more details?"];
+            const closures = [" Does this help?", " Anything else you'd like to know?", " Want more details?"];
             return resp + closures[Math.floor(Math.random() * closures.length)];
         }
 
@@ -437,4 +396,177 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbotSend.addEventListener('click', handleChat);
         chatbotInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleChat(); });
     }
+
+    // 15a. Stats Counter Animation
+    const statsSection = document.querySelector('.stats-bar-container');
+    const stats = document.querySelectorAll('.stat-value');
+    let animated = false;
+
+    function countUp() {
+        stats.forEach(stat => {
+            const target = +stat.getAttribute('data-target');
+            const inc = target / 100;
+            let count = 0;
+
+            const updateCount = () => {
+                if (count < target) {
+                    count += inc;
+                    stat.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 20);
+                } else {
+                    stat.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !animated) {
+            countUp();
+            animated = true;
+        }
+    }, { threshold: 0.5 });
+
+    if (statsSection) statsObserver.observe(statsSection);
+
+    // 15b. FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            faqItems.forEach(faq => faq.classList.remove('active'));
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // 16. Career Journey Timeline Reveal Animation
+    const scrollRevealItems = document.querySelectorAll('.timeline-block, .fade-up');
+    const scrollRevealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const scrollRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, scrollRevealOptions);
+
+    scrollRevealItems.forEach(item => {
+        scrollRevealObserver.observe(item);
+    });
+
+    // 17. Project Galaxy (3D Sphere)
+    initProjectGalaxy();
 });
+
+// Project Galaxy Implementation
+function initProjectGalaxy() {
+    const container = document.getElementById('project-galaxy');
+    if (!container) return;
+
+    // SCENE SETUP
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    // GALAXY GROUP
+    const galaxy = new THREE.Group();
+    scene.add(galaxy);
+
+    // DUMMY PROJECT TEXTURES (Using Placeholder colors/symbols for high-end look)
+    const projectColors = [0x14b8a6, 0x0d9488, 0x1e293b, 0x0f172a, 0x334155];
+    const cardCount = 35;
+    const radius = 4.5;
+
+    for (let i = 0; i < cardCount; i++) {
+        // Fibonacci Sphere algorithm for even distribution
+        const lat = Math.acos(1 - 2 * (i / cardCount));
+        const lon = Math.PI * (1 + Math.sqrt(5)) * i;
+
+        const x = radius * Math.sin(lat) * Math.cos(lon);
+        const y = radius * Math.sin(lat) * Math.sin(lon);
+        const z = radius * Math.cos(lat);
+
+        const geometry = new THREE.PlaneGeometry(0.8, 0.5);
+        const material = new THREE.MeshBasicMaterial({
+            color: projectColors[i % projectColors.length],
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        const card = new THREE.Mesh(geometry, material);
+        card.position.set(x, y, z);
+        card.lookAt(0, 0, 0); // All cards face the center initially
+        
+        // Add a simple border/glow effect per card
+        const edges = new THREE.EdgesGeometry(geometry);
+        const lineMaterial = new THREE.LineBasicMaterial({ color: 0x14b8a6, transparent: true, opacity: 0.5 });
+        const border = new THREE.LineSegments(edges, lineMaterial);
+        card.add(border);
+
+        galaxy.add(card);
+    }
+
+    // STARDUST BACKGROUND
+    const starGeometry = new THREE.BufferGeometry();
+    const starCoords = [];
+    for (let i = 0; i < 1500; i++) {
+        starCoords.push((Math.random() - 0.5) * 20);
+        starCoords.push((Math.random() - 0.5) * 20);
+        starCoords.push((Math.random() - 0.5) * 20);
+    }
+    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starCoords, 3));
+    const starMaterial = new THREE.PointsMaterial({ color: 0x14b8a6, size: 0.02, transparent: true, opacity: 0.6 });
+    const stars = new THREE.Points(starGeometry, starMaterial);
+    scene.add(stars);
+
+    camera.position.z = 8;
+
+    // INTERACTION & ANIMATION
+    let mouseX = 0;
+    let targetRotationY = 0;
+
+    container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        mouseX = ((e.clientX - rect.left) / container.clientWidth) * 2 - 1;
+        targetRotationY = mouseX * 0.5;
+    });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        galaxy.rotation.y += 0.003; // Base rotation
+        galaxy.rotation.x += 0.001;
+
+        stars.rotation.y += 0.0005;
+        
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // RESPONSIVE RESIZE
+    window.addEventListener('resize', () => {
+        if (!container) return;
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+}
