@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Typing Animation
     const typingElement = document.getElementById('typing-element');
-    const roles = ['Full Stack Web Developer', 'MERN Stack Developer', 'React & Node.js Expert', 'Next.js Developer', 'Freelancer'];
+    const roles = ['Full Stack Web Developer', 'React & Node.js Expert', 'Next.js Developer', 'Freelancer'];
     let roleIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 150;
 
     function type() {
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
             follower.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
         });
-        document.querySelectorAll('a, button, .portfolio-item, .vlog-gallery-item').forEach(link => {
+        document.querySelectorAll('a, button, .portfolio-item').forEach(link => {
             link.addEventListener('mouseenter', () => {
                 cursor.style.transform += ' scale(2)';
                 follower.style.transform += ' scale(1.5)';
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
             domains: {
                 fullstack: {
                     keywords: ["full stack", "fullstack", "mern", "web app", "application", "complete website"],
-                    response: "Bacha is a Full Stack Web Developer specializing in the MERN stack. He builds complete web applications from pixel-perfect frontends to robust backends using React, Node.js, MongoDB and Next.js."
+                    response: "Bacha is a Full Stack Web Developer specializing in building complete web applications. He creates pixel-perfect frontends and robust backends using React, Node.js, MongoDB and Next.js."
                 },
                 frontend: {
                     keywords: ["frontend", "front end", "react", "nextjs", "next.js", "tailwind", "html", "css", "javascript", "ui", "ux", "design", "responsive"],
