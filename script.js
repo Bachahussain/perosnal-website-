@@ -404,17 +404,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function countUp() {
         stats.forEach(stat => {
-            const target = +stat.getAttribute('data-target');
-            const inc = target / 100;
+            const target = Number(stat.getAttribute('data-target')) || 0;
+            const duration = 700; // milliseconds
+            const stepTime = 15;
+            const steps = Math.max(Math.round(duration / stepTime), 1);
+            const increment = target / steps;
             let count = 0;
 
             const updateCount = () => {
+                count += increment;
+                stat.innerText = Math.min(Math.ceil(count), target);
                 if (count < target) {
-                    count += inc;
-                    stat.innerText = Math.ceil(count);
-                    setTimeout(updateCount, 20);
-                } else {
-                    stat.innerText = target;
+                    setTimeout(updateCount, stepTime);
                 }
             };
             updateCount();
@@ -426,9 +427,16 @@ document.addEventListener('DOMContentLoaded', () => {
             countUp();
             animated = true;
         }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.25 });
 
-    if (statsSection) statsObserver.observe(statsSection);
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            countUp();
+            animated = true;
+        }
+    }
 
     // 15b. FAQ Accordion Logic
     const faqItems = document.querySelectorAll('.faq-item');
@@ -436,10 +444,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
+
             // Close all other items
             faqItems.forEach(faq => faq.classList.remove('active'));
-            
+
             // Toggle current item
             if (!isActive) {
                 item.classList.add('active');
@@ -514,7 +522,7 @@ function initProjectGalaxy() {
         const card = new THREE.Mesh(geometry, material);
         card.position.set(x, y, z);
         card.lookAt(0, 0, 0); // All cards face the center initially
-        
+
         // Add a simple border/glow effect per card
         const edges = new THREE.EdgesGeometry(geometry);
         const lineMaterial = new THREE.LineBasicMaterial({ color: 0x14b8a6, transparent: true, opacity: 0.5 });
@@ -551,12 +559,12 @@ function initProjectGalaxy() {
 
     function animate() {
         requestAnimationFrame(animate);
-        
+
         galaxy.rotation.y += 0.003; // Base rotation
         galaxy.rotation.x += 0.001;
 
         stars.rotation.y += 0.0005;
-        
+
         renderer.render(scene, camera);
     }
 
