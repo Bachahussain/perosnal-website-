@@ -390,7 +390,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('profile.png');
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('photo1.jpg');
     background-size: cover;
     background-position: center 20%;
     color: var(--white);
@@ -1834,12 +1834,12 @@ textarea.form-input {
         text-align: center;
         gap: 30px;
     }
-    
+
     .experience-header-grid .content-col {
         text-align: center;
         order: 1;
     }
-    
+
     .visual-col {
         order: 2;
         height: 400px;
@@ -1866,11 +1866,11 @@ textarea.form-input {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, 
-        transparent, 
-        var(--accent-teal) 15%, 
-        var(--accent-teal) 85%, 
-        transparent);
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--accent-teal) 15%,
+            var(--accent-teal) 85%,
+            transparent);
     transform: translateX(-50%);
     opacity: 0.3;
 }
@@ -1931,8 +1931,13 @@ textarea.form-input {
     justify-content: flex-end;
 }
 
-.block-left .year-badge { right: 30px; }
-.block-right .year-badge { left: 30px; }
+.block-left .year-badge {
+    right: 30px;
+}
+
+.block-right .year-badge {
+    left: 30px;
+}
 
 .timeline-dot-center {
     position: absolute;
@@ -1965,11 +1970,13 @@ textarea.form-input {
 }
 
 .block-right {
-    flex-direction: row; /* Info Left, Card Right */
+    flex-direction: row;
+    /* Info Left, Card Right */
 }
 
 .block-left {
-    flex-direction: row-reverse; /* Card Left, Info Right */
+    flex-direction: row-reverse;
+    /* Card Left, Info Right */
 }
 
 /* Side Info (Filling the space) */
@@ -1987,7 +1994,8 @@ textarea.form-input {
 .info-year {
     font-size: 6rem;
     font-weight: 900;
-    color: var(--grid-color); /* Use grid-color as it adapts to theme brightness */
+    color: var(--grid-color);
+    /* Use grid-color as it adapts to theme brightness */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -2042,40 +2050,54 @@ textarea.form-input {
     transform: translateY(-50%);
 }
 
-.block-right .timeline-card::before { left: -30px; }
-.block-left .timeline-card::before { right: -30px; }
+.block-right .timeline-card::before {
+    left: -30px;
+}
+
+.block-left .timeline-card::before {
+    right: -30px;
+}
 
 /* Responsive Timeline */
 @media (max-width: 991px) {
-    .timeline-info { width: 40%; }
-    .timeline-card { width: 50%; }
-    .info-year { font-size: 4rem; }
+    .timeline-info {
+        width: 40%;
+    }
+
+    .timeline-card {
+        width: 50%;
+    }
+
+    .info-year {
+        font-size: 4rem;
+    }
 }
 
 @media (max-width: 768px) {
     .timeline-center-line {
         left: 30px;
     }
-    
+
     .timeline-block {
         flex-direction: column !important;
         align-items: flex-start !important;
         padding-left: 60px;
         margin-bottom: 40px;
     }
-    
+
     .timeline-info {
-        display: none; /* Hide side info on small screens to avoid clutter */
+        display: none;
+        /* Hide side info on small screens to avoid clutter */
     }
-    
+
     .timeline-card {
         width: 100%;
     }
-    
+
     .timeline-dot-center {
         left: 30px;
     }
-    
+
     .timeline-card::before {
         display: none;
     }
@@ -2091,7 +2113,8 @@ textarea.form-input {
 }
 
 .stats-bar {
-    background: var(--sidebar-bg); /* Use sidebar-bg as it's already theme-aware */
+    background: var(--sidebar-bg);
+    /* Use sidebar-bg as it's already theme-aware */
     backdrop-filter: blur(20px);
     border: 1px solid rgba(20, 184, 166, 0.1);
     border-radius: 30px;
@@ -2145,8 +2168,14 @@ textarea.form-input {
         padding: 30px;
         border-radius: 20px;
     }
-    .stat-divider { display: none; }
-    .stats-bar-container { margin-top: 50px; }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .stats-bar-container {
+        margin-top: 50px;
+    }
 }
 
 /* ===== WORK PROCESS SECTION ===== */
@@ -2229,7 +2258,10 @@ textarea.form-input {
         align-items: stretch;
         gap: 30px;
     }
-    .step-connector { display: none; }
+
+    .step-connector {
+        display: none;
+    }
 }
 
 /* ===== FAQ SECTION ===== */
@@ -2287,4 +2319,4 @@ textarea.form-input {
 
 .faq-item.active .faq-answer {
     max-height: 200px;
-}
+}
