@@ -390,9 +390,11 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('photo1.jpg');
+    background-color: #0f172a;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('./photo1.jpg');
     background-size: cover;
-    background-position: center 20%;
+    background-position: center center;
+    background-repeat: no-repeat;
     color: var(--white);
     padding-left: 10%;
 }
