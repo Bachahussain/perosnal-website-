@@ -1825,14 +1825,26 @@ textarea.form-input {
     position: absolute;
     bottom: 30px;
     left: 30px;
-    width: calc(100% - 60px);
-    max-width: 380px;
-    padding: 28px 24px;
+    left: 30px;
+    right: 30px;
+    width: auto;
+    max-width: 840px;
+    padding: 28px 32px;
     border-radius: 28px;
     background: rgba(10, 18, 33, 0.92);
     border: 1px solid rgba(20, 184, 166, 0.18);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.summary-copy {
+    min-width: 300px;
+    max-width: 520px;
 }
 
 .panel-label {
@@ -1846,12 +1858,25 @@ textarea.form-input {
 }
 
 .panel-text {
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.75;
-    margin: 16px 0 22px;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+    margin: 14px 0 0;
+    max-width: 520px;
 }
 
 .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: min(520px, 100%);
+}
+
+@media (max-width: 680px) {
+    .highlight-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
     display: grid;
     gap: 14px;
 }
@@ -1907,6 +1932,16 @@ textarea.form-input {
         transform: translateX(-50%);
         width: calc(100% - 40px);
         max-width: none;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summary-copy {
+        width: 100%;
+    }
+
+    .highlight-grid {
+        width: 100%;
     }
 }
 
