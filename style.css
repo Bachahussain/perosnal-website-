@@ -1825,7 +1825,6 @@ textarea.form-input {
     position: absolute;
     bottom: 30px;
     left: 30px;
-    left: 30px;
     right: 30px;
     width: auto;
     max-width: 840px;
@@ -1836,15 +1835,28 @@ textarea.form-input {
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
     z-index: 2;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
 }
 
 .summary-copy {
-    min-width: 300px;
+    min-width: 260px;
     max-width: 520px;
+}
+
+.summary-copy h3 {
+    margin: 0;
+    line-height: 1.1;
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    letter-spacing: -0.03em;
+    max-width: 520px;
+}
+
+.summary-copy .panel-text {
+    margin-top: 16px;
+    margin-bottom: 0;
 }
 
 .panel-label {
@@ -1876,9 +1888,6 @@ textarea.form-input {
         grid-template-columns: 1fr;
         width: 100%;
     }
-}
-    display: grid;
-    gap: 14px;
 }
 
 .highlight-item {
