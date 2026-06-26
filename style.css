@@ -1850,36 +1850,32 @@ textarea.form-input {
     left: 30px;
     right: 30px;
     width: auto;
-    max-width: 840px;
-    padding: 28px 32px;
+    max-width: 100%;
+    padding: 32px 36px;
     border-radius: 28px;
     background: rgba(10, 18, 33, 0.92);
     border: 1px solid rgba(20, 184, 166, 0.18);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
     z-index: 2;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
+    gap: 40px;
 }
 
 .summary-copy {
-    min-width: 260px;
-    max-width: 520px;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .summary-copy h3 {
     margin: 0;
-    line-height: 1.1;
-    font-size: clamp(2rem, 3.2vw, 2.8rem);
-    letter-spacing: -0.03em;
-    max-width: 520px;
-}
-
-.summary-copy .panel-text {
-    margin-top: 16px;
-    margin-bottom: 0;
+    line-height: 1.2;
+    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .panel-label {
@@ -1894,16 +1890,17 @@ textarea.form-input {
 
 .panel-text {
     color: rgba(255, 255, 255, 0.78);
-    line-height: 1.6;
-    margin: 14px 0 0;
-    max-width: 520px;
+    line-height: 1.65;
+    margin: 16px 0 0;
+    font-size: 1rem;
 }
 
 .highlight-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
     gap: 12px;
-    width: min(520px, 100%);
+    width: min-content;
+    white-space: nowrap;
 }
 
 @media (max-width: 680px) {
@@ -1964,8 +1961,8 @@ textarea.form-input {
         transform: translateX(-50%);
         width: calc(100% - 40px);
         max-width: none;
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
     .summary-copy {
@@ -1974,6 +1971,7 @@ textarea.form-input {
 
     .highlight-grid {
         width: 100%;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
