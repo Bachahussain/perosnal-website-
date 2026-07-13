@@ -2,46 +2,6 @@
  * Portfolio Website Logic - Enhanced Professional Version
  */
 
-/* ===== PRELOADER CONTROLLER ===== */
-(function () {
-    var preloader = document.getElementById('preloader');
-    if (!preloader) return;
-
-    // Check reduced-motion preference
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Lock scroll while preloader is visible
-    document.documentElement.style.overflow = 'hidden';
-
-    function dismissPreloader() {
-        // Fade out
-        preloader.classList.add('preloader--hidden');
-
-        // After transition ends, fully remove from layout and restore scroll
-        preloader.addEventListener('transitionend', function handler() {
-            preloader.removeEventListener('transitionend', handler);
-            preloader.style.display = 'none';
-            document.documentElement.style.overflow = '';
-        });
-
-        // Fallback in case transitionend doesn't fire (e.g. reduced-motion)
-        setTimeout(function () {
-            preloader.style.display = 'none';
-            document.documentElement.style.overflow = '';
-        }, 700);
-    }
-
-    if (prefersReduced) {
-        // Skip animation — hide immediately on load
-        window.addEventListener('load', dismissPreloader);
-    } else {
-        // Normal flow: dismiss after ~2 seconds so animations have time to play
-        // (0.15s delay + 0.6s rise + 1.8s bar fill all complete within ~2s)
-        setTimeout(dismissPreloader, 2000);
-    }
-})();
-/* ===== END PRELOADER CONTROLLER ===== */
-
 document.addEventListener('DOMContentLoaded', () => {
 
 

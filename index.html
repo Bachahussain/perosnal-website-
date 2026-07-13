@@ -25,6 +25,36 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Preloader: inline script runs before first paint so the overlay is guaranteed visible -->
+    <script>
+        (function () {
+            // Lock scroll immediately
+            document.documentElement.style.overflow = 'hidden';
+
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function dismissPreloader() {
+                var pl = document.getElementById('preloader');
+                if (!pl) return;
+                pl.classList.add('preloader--hidden');
+                // Restore scroll and fully remove overlay after fade
+                setTimeout(function () {
+                    pl.style.display = 'none';
+                    document.documentElement.style.overflow = '';
+                }, 600); // matches the 0.55s CSS transition + small buffer
+            }
+
+            if (prefersReduced) {
+                window.addEventListener('load', dismissPreloader);
+            } else {
+                // 2.3 s gives: 0.15s delay + 0.6s rise + 1.8s bar fill + buffer
+                window.addEventListener('load', function () {
+                    setTimeout(dismissPreloader, 2300);
+                });
+            }
+        })();
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFEFCKTF50"></script>
     <script>
