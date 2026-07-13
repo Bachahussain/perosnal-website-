@@ -58,7 +58,7 @@
     letter-spacing: 6px;
     opacity: 0;
     transform: translateY(10px);
-    animation: welcome-fade 0.8s ease forwards 0.2s;
+    animation: welcome-fade 1.0s ease forwards 0.4s;
 }
 
 @keyframes welcome-fade {
@@ -78,8 +78,8 @@
     display: inline-block;
     opacity: 0;
     transform: translateY(20px) scale(0.8);
-    animation: type-letter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    animation-delay: calc(0.4s + (var(--i) * 0.08s));
+    animation: type-letter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: calc(0.8s + (var(--i) * 0.15s));
 }
 
 .preloader-name .accent {
@@ -101,7 +101,7 @@
     border-radius: 99px;
     overflow: hidden;
     opacity: 0;
-    animation: welcome-fade 0.5s ease forwards 0.8s; /* Fade in bar slightly later */
+    animation: welcome-fade 0.8s ease forwards 1.2s; /* Fade in bar slightly later */
 }
 
 /* Filling bar */
@@ -110,7 +110,7 @@
     width: 0%;
     background: #14b8a6;
     border-radius: 99px;
-    animation: preloader-fill 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+    animation: preloader-fill 2.0s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
 }
 
 @keyframes preloader-fill {
