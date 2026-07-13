@@ -71,24 +71,25 @@
     font-size: clamp(2.4rem, 6vw, 4.5rem);
     color: #f8fafc;
     white-space: nowrap;
-    opacity: 0;
-    letter-spacing: 15px; /* Spaced out initially */
-    transform: scale(1.1) translateZ(0); /* slightly coming from screen */
-    filter: blur(8px);
-    animation: text-come-together 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
     margin-bottom: 12px;
 }
 
-.preloader-name span {
+.preloader-name .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    animation: type-letter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: calc(0.4s + (var(--i) * 0.08s));
+}
+
+.preloader-name .accent {
     color: #14b8a6;
 }
 
-@keyframes text-come-together {
+@keyframes type-letter {
     to {
         opacity: 1;
-        letter-spacing: -0.02em;
-        transform: scale(1) translateZ(0);
-        filter: blur(0);
+        transform: translateY(0) scale(1);
     }
 }
 
