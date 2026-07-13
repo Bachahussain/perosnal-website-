@@ -1,3 +1,95 @@
+/* ===== PRELOADER ===== */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.55s ease, visibility 0.55s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+#preloader.preloader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    /* starts below then slides up */
+    transform: translateY(20px);
+    opacity: 0;
+    animation: preloader-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+.preloader-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    letter-spacing: -0.02em;
+    color: #f8fafc;
+    white-space: nowrap;
+}
+
+.preloader-name span {
+    color: #14b8a6;
+}
+
+/* Progress bar track */
+.preloader-bar-wrap {
+    width: clamp(160px, 30vw, 280px);
+    height: 3px;
+    background: rgba(20, 184, 166, 0.15);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+/* Filling bar */
+.preloader-bar {
+    height: 100%;
+    width: 0%;
+    background: #14b8a6;
+    border-radius: 99px;
+    animation: preloader-fill 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+@keyframes preloader-rise {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes preloader-fill {
+    0%   { width: 0%; }
+    60%  { width: 75%; }
+    85%  { width: 92%; }
+    100% { width: 100%; }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .preloader-inner {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .preloader-bar {
+        animation: none;
+        width: 100%;
+    }
+    #preloader {
+        transition: none;
+    }
+}
+/* ===== END PRELOADER ===== */
+
 /* Design System - Modern Professional Dark/Teal */
 :root {
     --primary-dark: #0f172a;
