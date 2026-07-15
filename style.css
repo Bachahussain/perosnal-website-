@@ -1408,7 +1408,6 @@ textarea.form-input {
     background: var(--accent-teal);
 }
 
-/* Code Card */
 .code-card {
     background: #0d1117;
     border-radius: 12px;
@@ -1418,6 +1417,7 @@ textarea.form-input {
     margin-top: 40px;
     border: 1px solid #30363d;
     transition: var(--transition-smooth);
+    width: 100%;
     max-width: 500px;
 }
 
@@ -1472,7 +1472,9 @@ textarea.form-input {
 
 .code-line {
     display: block;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .code-comment {
@@ -2151,12 +2153,14 @@ textarea.form-input {
 
 .timeline-block {
     position: relative;
-    width: calc(50% - 13px);
+    flex: 1 1 calc(50% - 13px);
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 18px;
     padding: 0;
     min-width: 300px;
+    box-sizing: border-box;
 }
 
 .timeline-dot-center {
