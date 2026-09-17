@@ -1506,8 +1506,8 @@ textarea.form-input {
 /* Story Grid & Premium CV Frame */
 .story-grid {
     display: grid;
-    grid-template-columns: 1fr 1.15fr;
-    gap: 40px;
+    grid-template-columns: 0.85fr 1.35fr;
+    gap: 35px;
     align-items: center;
 }
 
@@ -1527,13 +1527,13 @@ textarea.form-input {
 
 .cv-frame {
     width: 100%;
-    max-width: 650px;
-    background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(20, 184, 166, 0.25);
-    border-radius: 24px;
-    padding: 24px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 0 35px rgba(20, 184, 166, 0.15);
+    max-width: 850px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4), 0 0 50px rgba(20, 184, 166, 0.2);
     transition: all 0.4s ease;
     position: relative;
 }
@@ -1541,20 +1541,20 @@ textarea.form-input {
 .cv-frame:hover {
     transform: translateY(-8px);
     border-color: var(--accent-teal);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 45px rgba(20, 184, 166, 0.3);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45), 0 0 60px rgba(20, 184, 166, 0.35);
 }
 
 .cv-frame-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
-    padding-bottom: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cv-frame-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--white);
     letter-spacing: 0.5px;
@@ -1563,39 +1563,39 @@ textarea.form-input {
 }
 
 .cv-download-btn {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--accent-teal);
     background: rgba(20, 184, 166, 0.12);
     border: 1px solid rgba(20, 184, 166, 0.3);
-    padding: 7px 18px;
+    padding: 8px 22px;
     border-radius: 20px;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .cv-download-btn:hover {
     background: var(--accent-teal);
     color: var(--white);
-    box-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
 }
 
 .cv-image-container {
     background: #ffffff;
-    border-radius: 16px;
-    padding: 14px;
+    border-radius: 20px;
+    padding: 18px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .cv-preview-img {
     width: 100%;
     height: auto;
-    max-height: 750px;
+    max-height: 950px;
     display: block;
-    border-radius: 8px;
+    border-radius: 12px;
     object-fit: contain;
 }
 
