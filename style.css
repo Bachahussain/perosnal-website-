@@ -1503,6 +1503,101 @@ textarea.form-input {
     border: none;
 }
 
+/* Story Grid & Premium CV Frame */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+@media (max-width: 991px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.cv-frame-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cv-frame {
+    width: 100%;
+    max-width: 480px;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(20, 184, 166, 0.25);
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(20, 184, 166, 0.15);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.cv-frame:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-teal);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(20, 184, 166, 0.3);
+}
+
+.cv-frame-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cv-frame-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.cv-download-btn {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-teal);
+    background: rgba(20, 184, 166, 0.12);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cv-download-btn:hover {
+    background: var(--accent-teal);
+    color: var(--white);
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
+}
+
+.cv-image-container {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cv-preview-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
 .code-body {
     display: block;
     padding: 20px 24px;
