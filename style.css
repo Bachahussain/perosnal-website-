@@ -1496,17 +1496,24 @@ textarea.form-input {
     font-size: 0.85rem;
 }
 
-.code-body {
-    padding: 25px;
-    font-size: 0.95rem;
-    line-height: 1.6;
+.code-card pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
 }
 
-.code-line {
+.code-body {
     display: block;
+    padding: 20px 24px;
+    font-family: 'Fira Code', 'Courier New', Consolas, Monaco, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #abb2bf;
+    text-align: left;
     white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow-x: auto;
 }
 
 .code-comment {
