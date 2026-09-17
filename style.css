@@ -550,6 +550,17 @@ section {
 
 .hero .name {
     color: var(--accent-teal);
+    display: inline-block;
+    text-shadow: 
+        0px -1px 1px #5eead4,
+        1px 1px 0px #0f9f8f,
+        2px 2px 0px #0d8a7c,
+        3px 3px 0px #0b7569,
+        4px 4px 0px #096056,
+        5px 5px 0px #074b43,
+        6px 6px 0px #053630,
+        7px 7px 0px #03211d,
+        8px 8px 12px rgba(0, 0, 0, 0.6);
 }
 
 .typing-text {
@@ -578,10 +589,31 @@ section {
     }
 }
 
-.hero p {
+.hero-location-edu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     font-size: 1.2rem;
     color: #94a3b8;
     margin-bottom: 30px;
+}
+
+.hero-info-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-info-icon {
+    color: var(--accent-teal);
+    font-size: 1.15em;
+    vertical-align: middle;
+}
+
+.hero-info-dot {
+    color: #94a3b8;
+    margin: 0 4px;
 }
 
 .cta-button {
