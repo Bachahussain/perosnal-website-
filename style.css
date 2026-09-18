@@ -535,9 +535,11 @@ section {
     justify-content: center;
     align-items: flex-start;
     background-color: #0f172a;
-    background-image: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.7)), url('./hero-bg.png');
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.82) 0%, rgba(15,23,42,0.55) 55%, rgba(15,23,42,0.25) 100%),
+        url('./background-image.png');
     background-size: cover;
-    background-position: center center;
+    background-position: center right;
     background-repeat: no-repeat;
     background-attachment: scroll;
     color: var(--white);
@@ -2102,10 +2104,15 @@ textarea.form-input {
     .hero {
         padding-left: 5%;
         padding-right: 5%;
-        background-position: top center;
+        /* On mobile: shift right so the face stays visible */
+        background-position: 70% center;
         background-size: cover;
         background-attachment: scroll;
         min-height: 100svh;
+        /* Stronger dark overlay on mobile for text readability */
+        background-image:
+            linear-gradient(rgba(15,23,42,0.80), rgba(15,23,42,0.80)),
+            url('./background-image.png');
     }
 
     .section-watermark {
