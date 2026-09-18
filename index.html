@@ -27,33 +27,33 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css?v=5">
 
-    <!-- Preloader: inline script runs before first paint so the overlay is guaranteed visible -->
+    <!-- Preloader: Fast instant loader -->
     <script>
         (function () {
-            // Lock scroll immediately
             document.documentElement.style.overflow = 'hidden';
-
-            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             function dismissPreloader() {
                 var pl = document.getElementById('preloader');
-                if (!pl) return;
+                if (!pl || pl.classList.contains('preloader--hidden')) return;
                 pl.classList.add('preloader--hidden');
-                // Restore scroll and fully remove overlay after fade
                 setTimeout(function () {
                     pl.style.display = 'none';
                     document.documentElement.style.overflow = '';
-                }, 600); // matches the 0.55s CSS transition + small buffer
+                }, 250);
             }
 
-            if (prefersReduced) {
-                window.addEventListener('load', dismissPreloader);
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(dismissPreloader, 0);
             } else {
-                // 3.5 s gives time for the slower writing animation
+                window.addEventListener('DOMContentLoaded', function () {
+                    setTimeout(dismissPreloader, 0);
+                });
                 window.addEventListener('load', function () {
-                    setTimeout(dismissPreloader, 3500);
+                    setTimeout(dismissPreloader, 0);
                 });
             }
+            // Absolute safety max wait 800ms
+            setTimeout(dismissPreloader, 800);
         })();
     </script>
 

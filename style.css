@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.55s ease, visibility 0.55s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
     opacity: 1;
     visibility: visible;
     overflow: hidden;
@@ -33,7 +33,7 @@
     background-repeat: repeat;
     background-size: 200px 200px;
     opacity: 0;
-    animation: stars-fade 2s ease-in-out forwards;
+    animation: stars-fade 0.4s ease-in-out forwards;
 }
 
 @keyframes stars-fade {
@@ -58,7 +58,7 @@
     letter-spacing: 6px;
     opacity: 0;
     transform: translateY(10px);
-    animation: welcome-fade 1.0s ease forwards 0.4s;
+    animation: welcome-fade 0.2s ease forwards 0.1s;
 }
 
 @keyframes welcome-fade {
@@ -78,8 +78,8 @@
     display: inline-block;
     opacity: 0;
     transform: translateY(20px) scale(0.8);
-    animation: type-letter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    animation-delay: calc(0.8s + (var(--i) * 0.15s));
+    animation: type-letter 0.15s ease forwards;
+    animation-delay: calc(0.1s + (var(--i) * 0.04s));
 }
 
 .preloader-name .accent {
@@ -101,7 +101,7 @@
     border-radius: 99px;
     overflow: hidden;
     opacity: 0;
-    animation: welcome-fade 0.8s ease forwards 1.2s; /* Fade in bar slightly later */
+    animation: welcome-fade 0.2s ease forwards 0.15s;
 }
 
 /* Filling bar */
@@ -110,7 +110,7 @@
     width: 0%;
     background: #14b8a6;
     border-radius: 99px;
-    animation: preloader-fill 2.0s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+    animation: preloader-fill 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
 @keyframes preloader-fill {
