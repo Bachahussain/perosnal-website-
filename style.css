@@ -539,6 +539,7 @@ section {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
     color: var(--white);
     padding-left: 10%;
 }
@@ -2101,6 +2102,10 @@ textarea.form-input {
     .hero {
         padding-left: 5%;
         padding-right: 5%;
+        background-position: top center;
+        background-size: cover;
+        background-attachment: scroll;
+        min-height: 100svh;
     }
 
     .section-watermark {
