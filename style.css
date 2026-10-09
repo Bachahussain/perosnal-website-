@@ -1069,7 +1069,127 @@ textarea.form-input {
     box-shadow: 0 0 30px rgba(20, 184, 166, 0.1);
 }
 
+/* =====================================================
+   3D TECH SPHERE — desktop only, no-library
+   ===================================================== */
+
+/* Visually-hidden accessible tech list (screen readers only) */
+.sr-only-tech-list {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+    list-style: none;
+}
+
+/* Outer wrapper for the whole showcase slot */
+.tech-showcase-section {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Sphere section — shown on desktop, hidden on mobile */
+.sphere-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0 50px;
+    width: 100%;
+}
+
+/* Fixed-size square that provides CSS 3D perspective */
+.sphere-wrapper {
+    width: 420px;
+    height: 420px;
+    perspective: 800px;
+    position: relative;
+    cursor: grab;
+    user-select: none;
+}
+
+.sphere-wrapper:active {
+    cursor: grabbing;
+}
+
+/* The rotating scene — children are positioned with translate3d */
+.sphere-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Each technology pill/chip */
+.sphere-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* base translate centers the chip; JS adds the 3D offset */
+    transform-origin: center center;
+    background: var(--card-bg, rgba(30,41,59,0.6));
+    border: 1px solid rgba(20, 184, 166, 0.25);
+    color: var(--text-dark, #f8fafc);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 13px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    pointer-events: auto;
+    cursor: default;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    /* will-change avoids promoting every tag to its own layer */
+    will-change: transform, opacity;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    letter-spacing: 0.03em;
+}
+
+.sphere-tag:hover {
+    box-shadow: 0 0 16px rgba(20, 184, 166, 0.55), 0 0 4px rgba(20, 184, 166, 0.3);
+    border-color: var(--accent-teal, #14b8a6);
+    color: var(--accent-teal, #14b8a6);
+    z-index: 10;
+}
+
+/* Marquee: hidden on wide desktop (sphere shows instead) */
+@media (min-width: 1024px) {
+    #techMarquee {
+        display: none;
+    }
+    .sphere-section {
+        display: flex;
+    }
+}
+
+/* Sphere: hidden below 1024 px — marquee takes over */
+@media (max-width: 1023px) {
+    .sphere-section {
+        display: none;
+    }
+    #techMarquee {
+        display: block;
+    }
+}
+
+/* Reduced-motion: always show marquee, never sphere */
+@media (prefers-reduced-motion: reduce) {
+    .sphere-section {
+        display: none !important;
+    }
+    #techMarquee {
+        display: block !important;
+    }
+}
+
 /* Marquee */
+
 .marquee-container {
     width: 100%;
     overflow: hidden;

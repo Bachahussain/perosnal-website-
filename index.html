@@ -958,23 +958,43 @@
                 </div>
             </section>
 
-            <!-- Infinite Marquee Section -->
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    <div class="marquee-item"><span>/</span> Full Stack Development</div>
-                    <div class="marquee-item"><span>/</span> React & Next.js Expert</div>
-                    <div class="marquee-item"><span>/</span> Node.js Developer</div>
-                    <div class="marquee-item"><span>/</span> UI/UX Designer</div>
-                    <div class="marquee-item"><span>/</span> MongoDB & MySQL</div>
-                    <div class="marquee-item"><span>/</span> AI Integration</div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="marquee-item"><span>/</span> Full Stack Development</div>
-                    <div class="marquee-item"><span>/</span> React & Next.js Expert</div>
-                    <div class="marquee-item"><span>/</span> Node.js Developer</div>
-                    <div class="marquee-item"><span>/</span> UI/UX Designer</div>
-                    <div class="marquee-item"><span>/</span> MongoDB & MySQL</div>
-                    <div class="marquee-item"><span>/</span> AI Integration</div>
+                        <!-- Tech Stack Showcase: sphere on desktop, marquee on mobile -->
+            <div class="tech-showcase-section">
+
+                <!-- Screen-reader / SEO: plain list, visually hidden -->
+                <ul class="sr-only-tech-list" aria-label="Technologies I work with">
+                    <li>React</li><li>Next.js</li><li>Node.js</li><li>Express</li>
+                    <li>MongoDB</li><li>MySQL</li><li>REST APIs</li><li>JavaScript</li>
+                    <li>HTML5</li><li>CSS3</li><li>Tailwind</li><li>Git</li>
+                    <li>GitHub</li><li>Gemini AI</li><li>Firebase</li><li>TypeScript</li>
+                </ul>
+
+                <!-- 3D Sphere: desktop only (hidden on mobile via CSS) -->
+                <div class="sphere-section" aria-hidden="true">
+                    <div class="sphere-wrapper" id="techSphereWrapper">
+                        <div class="sphere-scene" id="techSphere"></div>
+                    </div>
                 </div>
+
+                <!-- Original Marquee: shown on mobile / reduced-motion -->
+                <div class="marquee-container" id="techMarquee">
+                    <div class="marquee-content">
+                        <div class="marquee-item"><span>/</span> Full Stack Development</div>
+                        <div class="marquee-item"><span>/</span> React &amp; Next.js Expert</div>
+                        <div class="marquee-item"><span>/</span> Node.js Developer</div>
+                        <div class="marquee-item"><span>/</span> UI/UX Designer</div>
+                        <div class="marquee-item"><span>/</span> MongoDB &amp; MySQL</div>
+                        <div class="marquee-item"><span>/</span> AI Integration</div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="marquee-item"><span>/</span> Full Stack Development</div>
+                        <div class="marquee-item"><span>/</span> React &amp; Next.js Expert</div>
+                        <div class="marquee-item"><span>/</span> Node.js Developer</div>
+                        <div class="marquee-item"><span>/</span> UI/UX Designer</div>
+                        <div class="marquee-item"><span>/</span> MongoDB &amp; MySQL</div>
+                        <div class="marquee-item"><span>/</span> AI Integration</div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Testimonials -->
