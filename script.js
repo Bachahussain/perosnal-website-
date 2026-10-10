@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     type();
 
-    // 2. Scroll Spy & Active Nav Highlight
-    const sections = document.querySelectorAll('section');
+    // 2. Navbar Scroll State & Scroll Spy
+    const topNavbar = document.getElementById('topNavbar');
+    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
     // 3. Scroll Progress Bar
@@ -39,33 +40,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTop = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
-        // Scroll spy
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        // Navbar shrink & glass density on scroll > 40px
+        if (topNavbar) {
+            if (scrollY > 40) {
+                topNavbar.classList.add('scrolled');
+            } else {
+                topNavbar.classList.remove('scrolled');
+            }
+        }
+
+        // Scroll spy with active indicator and aria-current
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            if (scrollY >= sectionTop - 140) {
                 current = section.getAttribute('id');
             }
         });
+
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
+            link.removeAttribute('aria-current');
+            const href = link.getAttribute('href');
+            if (href && (href === `#${current}` || href.endsWith(`#${current}`))) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
             }
         });
 
         // Scroll progress bar
         if (scrollProgress) {
-            const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
+            const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
             scrollProgress.style.width = scrollPercent + '%';
         }
 
         // Back to top visibility
         if (backToTop) {
-            if (window.scrollY > 500) {
+            if (scrollY > 500) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
@@ -119,25 +134,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Mobile Menu Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const sidebar = document.getElementById('sidebar');
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
+    // 8. Mobile Menu Toggle (Top Navbar Dropdown Panel)
+    const navHamburger = document.getElementById('navHamburger');
+    const navDropdownPanel = document.getElementById('navDropdownPanel');
+
+    function closeNavDropdown() {
+        if (!navDropdownPanel) return;
+        navDropdownPanel.classList.remove('active');
+        navDropdownPanel.setAttribute('aria-hidden', 'true');
+        if (navHamburger) {
+            navHamburger.classList.remove('active');
+            navHamburger.setAttribute('aria-expanded', 'false');
+        }
+        document.body.style.overflow = '';
+    }
+
+    function openNavDropdown() {
+        if (!navDropdownPanel) return;
+        navDropdownPanel.classList.add('active');
+        navDropdownPanel.setAttribute('aria-hidden', 'false');
+        if (navHamburger) {
+            navHamburger.classList.add('active');
+            navHamburger.setAttribute('aria-expanded', 'true');
+        }
+        document.body.style.overflow = 'hidden';
+    }
+
+    if (navHamburger && navDropdownPanel) {
+        navHamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navDropdownPanel.classList.contains('active');
+            if (isOpen) {
+                closeNavDropdown();
+            } else {
+                openNavDropdown();
+            }
         });
-        navLinks.forEach(link => {
+
+        // Close on link click inside dropdown
+        navDropdownPanel.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('active');
-                    const icon = mobileToggle.querySelector('i');
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-xmark');
-                }
+                closeNavDropdown();
             });
+        });
+
+        // Close on click outside
+        document.addEventListener('click', (e) => {
+            if (navDropdownPanel.classList.contains('active')) {
+                if (!navDropdownPanel.contains(e.target) && !navHamburger.contains(e.target)) {
+                    closeNavDropdown();
+                }
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navDropdownPanel.classList.contains('active')) {
+                closeNavDropdown();
+            }
         });
     }
 
@@ -291,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 13. Theme Toggle (now in sidebar)
+    // 13. Theme Toggle (Top Navbar)
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     if (themeToggle) {
