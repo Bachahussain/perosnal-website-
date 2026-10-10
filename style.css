@@ -315,6 +315,11 @@ ul {
     left: 0;
     width: 100%;
     height: var(--navbar-height);
+    min-height: var(--navbar-height);
+    max-height: var(--navbar-height);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     background: rgba(15, 23, 42, 0.78);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -322,12 +327,14 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: height 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, box-shadow 0.3s ease;
+    transition: height 0.3s cubic-bezier(0.22, 1, 0.36, 1), min-height 0.3s ease, max-height 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .top-navbar.scrolled {
     height: var(--navbar-height-scrolled);
+    min-height: var(--navbar-height-scrolled);
+    max-height: var(--navbar-height-scrolled);
     background: rgba(10, 15, 29, 0.95);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 166, 81, 0.08);
 }
@@ -356,11 +363,13 @@ ul {
 .navbar-inner-container {
     width: 100%;
     max-width: 1320px;
+    height: 100%;
     padding: 0 24px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
 }
 
 /* Brand Block (Left) */
@@ -428,11 +437,13 @@ ul {
 .navbar-nav-center {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .nav-3d-list {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
     gap: 8px;
     list-style: none;
     margin: 0;
@@ -443,18 +454,19 @@ ul {
 .nav-3d-key {
     position: relative;
     height: 40px;
-    padding: 0 16px;
+    padding: 0 14px;
     border-radius: 9999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 7px;
     font-family: var(--font-nav);
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
+    letter-spacing: 0.05em;
+    white-space: nowrap !important;
+    flex-shrink: 0;
     color: #e2e8f0;
     text-decoration: none;
     background: rgba(30, 41, 59, 0.65);
@@ -501,6 +513,7 @@ ul {
 .nav-key-label {
     position: relative;
     z-index: 2;
+    white-space: nowrap !important;
     transition: color 0.2s ease;
 }
 
@@ -663,7 +676,7 @@ ul {
 
 [data-theme="dark"] .theme-icon-sun {
     display: inline-block;
-    color: var(--af-green-light);
+    color: #ffffff;
 }
 [data-theme="dark"] .theme-icon-moon {
     display: none;
@@ -876,7 +889,7 @@ section {
         linear-gradient(90deg, rgba(5,10,20,0.92) 0%, rgba(5,10,20,0.75) 40%, rgba(5,10,20,0.15) 75%, rgba(5,10,20,0) 100%),
         url('./background-image.png');
     background-size: cover;
-    background-position: 72% 12%;
+    background-position: 72% 0%;
     background-repeat: no-repeat;
     background-attachment: scroll;
     color: var(--white);
@@ -895,14 +908,11 @@ section {
     display: inline-block;
     text-shadow: 
         0px -1px 1px #5eead4,
-        1px 1px 0px #0f9f8f,
-        2px 2px 0px #0d8a7c,
-        3px 3px 0px #0b7569,
-        4px 4px 0px #096056,
-        5px 5px 0px #074b43,
-        6px 6px 0px #053630,
-        7px 7px 0px #03211d,
-        8px 8px 12px rgba(0, 0, 0, 0.6);
+        1px 1px 0px #0d8a7c,
+        2px 2px 0px #096056,
+        3px 3px 0px #053630,
+        4px 4px 0px #021a17,
+        5px 5px 8px rgba(0, 0, 0, 0.85);
 }
 
 .typing-text {
@@ -914,8 +924,10 @@ section {
 .cursor {
     display: inline-block;
     width: 3px;
+    height: 1.15em;
     background-color: var(--accent-teal);
     margin-left: 5px;
+    vertical-align: -2px;
     animation: blink 0.7s infinite;
 }
 
@@ -931,14 +943,25 @@ section {
     }
 }
 
-.hero-location-edu {
+.hero-location-edu,
+.hero-quote {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
     font-size: 1.2rem;
-    color: #94a3b8;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
     margin-bottom: 30px;
+}
+
+.hero-quote {
+    display: block;
+    font-style: italic;
+    max-width: 600px;
+    margin-top: -15px;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .hero-info-item {

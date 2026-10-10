@@ -8,25 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Typing Animation
     const typingElement = document.getElementById('typing-element');
     const roles = ['Full Stack Web Developer', 'React & Node.js Expert', 'Next.js Developer', 'Freelancer'];
-    let roleIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 150;
+    let roleIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 90;
 
     function type() {
+        if (!typingElement) return;
         const currentRole = roles[roleIndex];
         if (isDeleting) {
             typingElement.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--; typeSpeed = 100;
+            charIndex--;
+            typeSpeed = 50;
         } else {
             typingElement.textContent = currentRole.substring(0, charIndex + 1);
-            charIndex++; typeSpeed = 200;
+            charIndex++;
+            typeSpeed = 90;
         }
         if (!isDeleting && charIndex === currentRole.length) {
-            isDeleting = true; typeSpeed = 1500;
+            isDeleting = true;
+            typeSpeed = 1600;
         } else if (isDeleting && charIndex === 0) {
-            isDeleting = false; roleIndex = (roleIndex + 1) % roles.length; typeSpeed = 500;
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 350;
         }
         setTimeout(type, typeSpeed);
     }
-    type();
+    setTimeout(type, 300);
 
     // 2. Navbar Scroll State & Scroll Spy
     const topNavbar = document.getElementById('topNavbar');
