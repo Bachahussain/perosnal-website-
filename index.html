@@ -21,11 +21,19 @@
     <!-- Boxicons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 
+    <!-- Three.js Import Map for Lazy 3D Model Loading -->
+    <script type="importmap">
+    { "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    } }
+    </script>
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=11">
 
     <!-- Preloader: Fast instant loader -->
     <script>
@@ -863,97 +871,384 @@
                 </div>
 
                 <div class="portfolio-grid fade-up">
-                    <!-- PUNJ-AFG Connect -->
-                    <div class="portfolio-item">
-                        <a href="https://afg-student-community.vercel.app" target="_blank">
-                            <img src="afg_community_project.png" alt="PUNJ-AFG Connect Portfolio">
-                            <div class="portfolio-overlay">
-                                <h3>PUNJ-AFG Connect</h3>
-                                <p>Full Stack | Next.js · Firebase · Community Platform</p>
-                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
-                                    Project →</span>
+                    <!-- 1. PUNJ-AFG Connect -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="PUNJ-AFG Connect"
+                         data-category="Full Stack"
+                         data-tech="Next.js, Firebase, React"
+                         data-image="afg_community_project.png"
+                         data-live="https://afg-student-community.vercel.app"
+                         data-repo="https://github.com/Bachahussain"
+                         data-desc="Community platform connecting students across Punjab and Afghanistan.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">afg-student-community.vercel.app</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="afg_community_project.png" alt="PUNJ-AFG Connect Screenshot" loading="lazy">
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                    <!-- Gemstone Store -->
-                    <div class="portfolio-item">
-                        <a href="https://bachahussain.github.io/gem_store/" target="_blank">
-                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800"
-                                alt="Gemstone Store">
-                            <div class="portfolio-overlay">
-                                <h3>Gemstone Online Store</h3>
-                                <p>Web Design | HTML, CSS, JS</p>
-                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
-                                    Project →</span>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">Next.js</span>
+                                <span class="floating-chip chip-2">Firebase</span>
+                                <span class="floating-chip chip-3">React</span>
                             </div>
-                        </a>
-                    </div>
-                    <!-- Digital Agency Website -->
-                    <div class="portfolio-item">
-                        <a href="https://bachahussain.github.io/Digital-Agency-/" target="_blank">
-                            <img src="digital-agency.png" alt="Digital Agency Website">
-                            <div class="portfolio-overlay">
-                                <h3>Digital Agency Website</h3>
-                                <p>Web Design | HTML, CSS, JS</p>
-                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
-                                    Project →</span>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Full Stack</span>
+                            <h3 class="project-card-title">PUNJ-AFG Connect</h3>
+                            <p class="project-card-desc">Community platform connecting students across Punjab and Afghanistan.</p>
+                            <div class="project-card-actions">
+                                <a href="https://afg-student-community.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-live-demo">
+                                    <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of PUNJ-AFG Connect">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <!-- Gym Management System -->
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800"
-                            alt="Gym Management System">
-                        <div class="portfolio-overlay">
-                            <h3>Gym Management System</h3>
-                            <p>Full Stack | JavaScript</p>
                         </div>
                     </div>
-                    <!-- Personal Portfolio -->
-                    <div class="portfolio-item">
-                        <a href="https://bachahussain.github.io/Portfolio/" target="_blank">
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
-                                alt="Personal Portfolio">
-                            <div class="portfolio-overlay">
-                                <h3>Personal Portfolio Website</h3>
-                                <p>Web Design | HTML, CSS, JS</p>
-                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
-                                    Project →</span>
+
+                    <!-- 2. Gemstone Store -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="Gemstone Online Store"
+                         data-category="Web Design"
+                         data-tech="HTML5, CSS3, JavaScript"
+                         data-image="gemstone.jpg.png"
+                         data-live="https://bachahussain.github.io/gem_store/"
+                         data-repo="https://github.com/Bachahussain/gem_store"
+                         data-desc="Luxury gemstone showcase and interactive digital jewelry store.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">bachahussain.github.io/gem_store</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="gemstone.jpg.png" alt="Gemstone Online Store Screenshot" loading="lazy">
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                    <!-- Database Project -->
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800"
-                            alt="Library management">
-                        <div class="portfolio-overlay">
-                            <h3>Digital Library Database</h3>
-                            <p>Database | MySQL</p>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">HTML5</span>
+                                <span class="floating-chip chip-2">JavaScript</span>
+                                <span class="floating-chip chip-3">CSS3</span>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Web Design</span>
+                            <h3 class="project-card-title">Gemstone Online Store</h3>
+                            <p class="project-card-desc">Luxury gemstone showcase and interactive digital jewelry store.</p>
+                            <div class="project-card-actions">
+                                <a href="https://bachahussain.github.io/gem_store/" target="_blank" rel="noopener noreferrer" class="btn-live-demo">
+                                    <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of Gemstone Online Store">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain/gem_store" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Ecommerce Online Store -->
-                    <div class="portfolio-item">
-                        <a href="https://pak-afghan-marketplace.vercel.app/" target="_blank">
-                            <img src="e.jpg.png" alt="Pak Afghan Online Store">
-                            <div class="portfolio-overlay">
-                                <h3>Pak Afghan Online Store</h3>
-                                <p>Full Stack | E-commerce Platform</p>
-                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
-                                    Project →</span>
+
+                    <!-- 3. Digital Agency Website -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="Digital Agency Website"
+                         data-category="Web Design"
+                         data-tech="HTML5, CSS3, JavaScript"
+                         data-image="digital-agency.png"
+                         data-live="https://bachahussain.github.io/Digital-Agency-/"
+                         data-repo="https://github.com/Bachahussain/Digital-Agency-"
+                         data-desc="Creative digital agency landing page with responsive layouts.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">bachahussain.github.io/Digital-Agency</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="digital-agency.png" alt="Digital Agency Website Screenshot" loading="lazy">
+                                </div>
                             </div>
-                        </a>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">HTML5</span>
+                                <span class="floating-chip chip-2">CSS3</span>
+                                <span class="floating-chip chip-3">Design</span>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Web Design</span>
+                            <h3 class="project-card-title">Digital Agency Website</h3>
+                            <p class="project-card-desc">Creative digital agency landing page with responsive layouts.</p>
+                            <div class="project-card-actions">
+                                <a href="https://bachahussain.github.io/Digital-Agency-/" target="_blank" rel="noopener noreferrer" class="btn-live-demo">
+                                    <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of Digital Agency Website">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain/Digital-Agency-" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Statistics & Analytics Dashboard -->
-                    <div class="portfolio-item">
-                        <a href="https://statistic-dishboard-kv315wp6v-bachahussains-projects.vercel.app/" target="_blank">
-                            <img src="dashboard.png" alt="Statistics & Analytics Dashboard">
-                            <div class="portfolio-overlay">
-                                <h3>Statistics & Analytics Dashboard</h3>
-                                <p>Web Design | Static Dashboard · Data Visualization</p>
-                                <span style="font-size: 0.8rem; color: var(--accent-teal); margin-top: 5px;">View Live
-                                    Project →</span>
+
+                    <!-- 4. Gym Management System -->
+                    <!-- REPLACE WITH A REAL SCREENSHOT OF THE PROJECT -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="Gym Management System"
+                         data-category="Full Stack"
+                         data-tech="JavaScript, Node.js, Express"
+                         data-image="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800"
+                         data-live=""
+                         data-repo="https://github.com/Bachahussain"
+                         data-desc="Fitness center management platform for member tracking and bookings.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">gym-management.system</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800" alt="Gym Management System Screenshot" loading="lazy">
+                                </div>
                             </div>
-                        </a>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">Node.js</span>
+                                <span class="floating-chip chip-2">Express</span>
+                                <span class="floating-chip chip-3">Full Stack</span>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Full Stack</span>
+                            <h3 class="project-card-title">Gym Management System</h3>
+                            <p class="project-card-desc">Fitness center management platform for member tracking and bookings.</p>
+                            <div class="project-card-actions">
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of Gym Management System">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Personal Portfolio -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="Personal Portfolio Website"
+                         data-category="Web Design"
+                         data-tech="HTML5, CSS3, JavaScript"
+                         data-image="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
+                         data-live="https://bachahussain.github.io/Portfolio/"
+                         data-repo="https://github.com/Bachahussain/Portfolio"
+                         data-desc="Responsive personal developer portfolio with modern UI design.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">bachahussain.github.io/Portfolio</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800" alt="Personal Portfolio Screenshot" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">HTML5</span>
+                                <span class="floating-chip chip-2">CSS3</span>
+                                <span class="floating-chip chip-3">Portfolio</span>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Web Design</span>
+                            <h3 class="project-card-title">Personal Portfolio Website</h3>
+                            <p class="project-card-desc">Responsive personal developer portfolio with modern UI design.</p>
+                            <div class="project-card-actions">
+                                <a href="https://bachahussain.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" class="btn-live-demo">
+                                    <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of Personal Portfolio Website">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain/Portfolio" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Database Project -->
+                    <!-- REPLACE WITH A REAL SCREENSHOT OF THE PROJECT -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="Digital Library Database"
+                         data-category="Database"
+                         data-tech="MySQL, SQL, Database Architecture"
+                         data-image="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800"
+                         data-live=""
+                         data-repo="https://github.com/Bachahussain"
+                         data-desc="Structured relational database system for books, members, and loans.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">library-database.pu.edu.pk</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800" alt="Digital Library Database Screenshot" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">MySQL</span>
+                                <span class="floating-chip chip-2">Database</span>
+                                <span class="floating-chip chip-3">SQL</span>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Database</span>
+                            <h3 class="project-card-title">Digital Library Database</h3>
+                            <p class="project-card-desc">Structured relational database system for books, members, and loans.</p>
+                            <div class="project-card-actions">
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of Digital Library Database">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Ecommerce Online Store -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="Pak Afghan Online Store"
+                         data-category="Full Stack"
+                         data-tech="Next.js, Node.js, MongoDB"
+                         data-image="e.jpg.png"
+                         data-live="https://pak-afghan-marketplace.vercel.app/"
+                         data-repo="https://github.com/Bachahussain"
+                         data-desc="Cross-border e-commerce marketplace with catalog and cart flows.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">pak-afghan-marketplace.vercel.app</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="e.jpg.png" alt="Pak Afghan Online Store Screenshot" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">Next.js</span>
+                                <span class="floating-chip chip-2">MongoDB</span>
+                                <span class="floating-chip chip-3">Node.js</span>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Full Stack</span>
+                            <h3 class="project-card-title">Pak Afghan Online Store</h3>
+                            <p class="project-card-desc">Cross-border e-commerce marketplace with catalog and cart flows.</p>
+                            <div class="project-card-actions">
+                                <a href="https://pak-afghan-marketplace.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live-demo">
+                                    <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of Pak Afghan Online Store">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Statistics & Analytics Dashboard -->
+                    <div class="portfolio-item modern-project-card"
+                         data-title="Statistics & Analytics Dashboard"
+                         data-category="Web Design"
+                         data-tech="React, Tailwind, Analytics"
+                         data-image="dashboard.png"
+                         data-live="https://statistic-dishboard-kv315wp6v-bachahussains-projects.vercel.app/"
+                         data-repo="https://github.com/Bachahussain"
+                         data-desc="Web metrics analytics dashboard featuring KPI graphs and widgets.">
+                        <div class="device-stage">
+                            <div class="device-glow"></div>
+                            <div class="device-frame">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">statistic-dashboard.vercel.app</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <img src="dashboard.png" alt="Statistics & Analytics Dashboard Screenshot" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="floating-tech-chips" aria-hidden="true">
+                                <span class="floating-chip chip-1">React</span>
+                                <span class="floating-chip chip-2">Tailwind</span>
+                                <span class="floating-chip chip-3">Analytics</span>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <span class="project-card-category">Web Design</span>
+                            <h3 class="project-card-title">Statistics & Analytics Dashboard</h3>
+                            <p class="project-card-desc">Web metrics analytics dashboard featuring KPI graphs and widgets.</p>
+                            <div class="project-card-actions">
+                                <a href="https://statistic-dishboard-kv315wp6v-bachahussains-projects.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live-demo">
+                                    <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button type="button" class="btn-3d-view" aria-label="Open 3D Model View of Statistics & Analytics Dashboard">
+                                    <i class="bx bx-cube-alt"></i> <span>3D View</span>
+                                </button>
+                                <a href="https://github.com/Bachahussain" target="_blank" rel="noopener noreferrer" class="btn-github-link" title="View Source on GitHub" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1204,6 +1499,46 @@
         </main>
     </div>
 
+    <!-- 3D Laptop Model View Modal -->
+    <div id="modelViewModal" class="model-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
+        <div class="model-modal-backdrop" data-close-modal></div>
+        <div class="model-modal-dialog">
+            <header class="model-modal-header">
+                <div class="model-modal-info">
+                    <span id="modalProjectCategory" class="model-modal-category">Category</span>
+                    <h3 id="modalProjectTitle" class="model-modal-title">Project Title</h3>
+                    <div id="modalProjectTech" class="model-modal-tech-chips"></div>
+                </div>
+                <button type="button" class="model-modal-close" data-close-modal aria-label="Close 3D View">
+                    <i class="fas fa-times"></i>
+                </button>
+            </header>
+            <div class="model-modal-body">
+                <div id="modelCanvasContainer" class="model-canvas-container">
+                    <div class="model-canvas-hint">
+                        <i class="fas fa-arrows-alt"></i> <span>Drag to rotate &middot; Scroll to zoom</span>
+                    </div>
+                    <div id="modelLoadingSpinner" class="model-loading-spinner">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        <span>Loading 3D Experience...</span>
+                    </div>
+                </div>
+                <!-- Fallback Lightbox (for no-WebGL / reduced-motion / import failure) -->
+                <div id="modelFallbackLightbox" class="model-fallback-lightbox" style="display: none;">
+                    <img id="fallbackLightboxImg" src="" alt="Project Screenshot">
+                </div>
+            </div>
+            <footer class="model-modal-footer">
+                <a id="modalLiveBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-live-demo modal-live-link">
+                    <span>Open Live Project</span> <i class="fas fa-external-link-alt"></i>
+                </a>
+                <button type="button" class="modal-secondary-btn" data-close-modal>
+                    Close
+                </button>
+            </footer>
+        </div>
+    </div>
+
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- Lottie Animation Web Player -->
@@ -1214,7 +1549,9 @@
     <!-- Three.js for Project Galaxy -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- Custom JS -->
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=11"></script>
+    <!-- Lazy Loaded 3D Model View Module -->
+    <script type="module" src="model-view.js?v=1"></script>
 </body>
 
 </html>

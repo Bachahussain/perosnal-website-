@@ -196,11 +196,21 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            const filterValue = btn.textContent.toLowerCase();
+            const filterValue = btn.textContent.toLowerCase().trim();
             portfolioItems.forEach(item => {
-                const category = item.querySelector('p').textContent.toLowerCase();
+                // Reset any active parallax transform variables on filter change
+                const stage = item.querySelector('.device-stage');
+                if (stage) {
+                    stage.style.setProperty('--rx', '0deg');
+                    stage.style.setProperty('--ry', '0deg');
+                }
+
+                const category = (item.dataset.category || 
+                                  (item.querySelector('.project-card-category') ? item.querySelector('.project-card-category').textContent : '') ||
+                                  (item.querySelector('p') ? item.querySelector('p').textContent : '')).toLowerCase();
+
                 if (filterValue === 'all' || category.includes(filterValue)) {
-                    item.style.display = 'block';
+                    item.style.display = 'flex';
                     item.classList.add('fade-up');
                     setTimeout(() => item.classList.add('visible'), 10);
                 } else {
@@ -224,18 +234,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 12. Card Tilt Effect
-    portfolioItems.forEach(item => {
-        item.addEventListener('mousemove', (e) => {
-            const { left, top, width, height } = item.getBoundingClientRect();
-            const x = (e.clientX - left) / width;
-            const y = (e.clientY - top) / height;
-            item.style.transform = `perspective(1000px) rotateX(${(y - 0.5) * 10}deg) rotateY(${(x - 0.5) * -10}deg) scale3d(1.02,1.02,1.02)`;
+    // 12. Floating Device Stage Pointer Parallax (Desktop only, fine pointer & hover)
+    const supportsParallax = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (supportsParallax && !prefersReducedMotion) {
+        const stages = document.querySelectorAll('.device-stage');
+        const MAX_PARALLAX_DEG = 6; // Maximum 6 degrees per axis
+
+        stages.forEach(stage => {
+            let cachedRect = null;
+            let rafId = null;
+            let targetRx = 0;
+            let targetRy = 0;
+
+            function updateParallax() {
+                stage.style.setProperty('--rx', `${targetRx.toFixed(2)}deg`);
+                stage.style.setProperty('--ry', `${targetRy.toFixed(2)}deg`);
+                rafId = null;
+            }
+
+            stage.addEventListener('pointerenter', () => {
+                cachedRect = stage.getBoundingClientRect();
+            });
+
+            stage.addEventListener('pointermove', (e) => {
+                if (!cachedRect) {
+                    cachedRect = stage.getBoundingClientRect();
+                }
+                const mouseX = e.clientX - cachedRect.left;
+                const mouseY = e.clientY - cachedRect.top;
+                const centerX = cachedRect.width / 2;
+                const centerY = cachedRect.height / 2;
+
+                // Normalized cursor offset: -1.0 to 1.0
+                const normX = Math.max(-1, Math.min(1, (mouseX - centerX) / centerX));
+                const normY = Math.max(-1, Math.min(1, (mouseY - centerY) / centerY));
+
+                targetRx = -normY * MAX_PARALLAX_DEG;
+                targetRy = normX * MAX_PARALLAX_DEG;
+
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updateParallax);
+                }
+            });
+
+            stage.addEventListener('pointerleave', () => {
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
+                cachedRect = null;
+                stage.style.setProperty('--rx', '0deg');
+                stage.style.setProperty('--ry', '0deg');
+            });
         });
-        item.addEventListener('mouseleave', () => {
-            item.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
-        });
-    });
+    }
 
     // 13. Theme Toggle (now in sidebar)
     const themeToggle = document.getElementById('theme-toggle');
