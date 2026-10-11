@@ -5,7 +5,44 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
-    // 1. Typing Animation
+    // 1. Name & Role Typing Animation
+    // A) Repeating Name Typing ("I'm Bacha Hussain")
+    const nameBack = document.getElementById('name-typing-back');
+    const nameFront = document.getElementById('name-typing-front');
+    const nameText = "I'm Bacha Hussain";
+    let nameCharIndex = 0;
+    let nameIsDeleting = false;
+
+    function typeName() {
+        if (!nameBack && !nameFront) return;
+        
+        let currentText = "";
+        if (nameIsDeleting) {
+            nameCharIndex--;
+            currentText = nameText.substring(0, nameCharIndex);
+        } else {
+            nameCharIndex++;
+            currentText = nameText.substring(0, nameCharIndex);
+        }
+
+        if (nameBack) nameBack.textContent = currentText;
+        if (nameFront) nameFront.textContent = currentText;
+
+        let nextSpeed = nameIsDeleting ? 60 : 120;
+
+        if (!nameIsDeleting && nameCharIndex === nameText.length) {
+            nextSpeed = 3500; // Hold complete name for 3.5s
+            nameIsDeleting = true;
+        } else if (nameIsDeleting && nameCharIndex === 0) {
+            nameIsDeleting = false;
+            nextSpeed = 600; // Pause before re-typing
+        }
+
+        setTimeout(typeName, nextSpeed);
+    }
+    setTimeout(typeName, 400);
+
+    // B) Role Typing Animation
     const typingElement = document.getElementById('typing-element');
     const roles = ['Full Stack Web Developer', 'React & Node.js Expert', 'Next.js Developer', 'Freelancer'];
     let roleIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 90;

@@ -886,16 +886,24 @@ section {
     align-items: flex-start;
     background-color: #0f172a;
     background-image:
-        linear-gradient(90deg, rgba(5,10,20,0.92) 0%, rgba(5,10,20,0.75) 40%, rgba(5,10,20,0.15) 75%, rgba(5,10,20,0) 100%),
+        linear-gradient(90deg, rgba(5,10,20,0.96) 0%, rgba(5,10,20,0.85) 45%, rgba(5,10,20,0.2) 75%, rgba(5,10,20,0) 100%),
         url('./background-image.png');
     background-size: cover;
-    background-position: 72% 0%;
+    background-position: 80% 0%;
     background-repeat: no-repeat;
     background-attachment: scroll;
     color: var(--white);
     padding-top: calc(var(--navbar-height) + 24px);
     padding-bottom: 40px;
-    padding-left: 10%;
+    padding-left: 8%;
+    padding-right: 5%;
+}
+
+.hero .fade-up {
+    max-width: 620px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 /* ========================================================
@@ -906,9 +914,21 @@ section {
     display: inline-block;
     margin: 0 0 12px 0;
     font-family: 'Pacifico', 'Lobster', cursive;
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: clamp(2.5rem, 5.5vw, 4.8rem);
     line-height: 1.15;
     letter-spacing: 0.01em;
+    min-height: 1.25em;
+    max-width: 100%;
+}
+
+.name-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.9em;
+    background: #ff2d75;
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: blink 0.7s infinite;
 }
 
 .rn-back {
