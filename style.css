@@ -898,87 +898,182 @@ section {
     padding-left: 10%;
 }
 
-.hero h1 {
-    font-size: clamp(2.6rem, 5vw, 4.4rem);
-    margin-bottom: 10px;
-}
-
-.hero .name {
-    color: var(--accent-teal);
+/* ========================================================
+   GLOSSY 3D RAINBOW SCRIPT NAME ("I'm Bacha Hussain")
+   ======================================================== */
+.rainbow-name {
+    position: relative;
     display: inline-block;
-    text-shadow: 
-        0px -1px 1px #5eead4,
-        1px 1px 0px #0d8a7c,
-        2px 2px 0px #096056,
-        3px 3px 0px #053630,
-        4px 4px 0px #021a17,
-        5px 5px 8px rgba(0, 0, 0, 0.85);
+    margin: 0 0 12px 0;
+    font-family: 'Pacifico', 'Lobster', cursive;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
 }
 
+.rn-back {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+    color: #0a1a3f;
+    -webkit-text-stroke: 8px #0a1a3f;
+    text-shadow: 
+        1px 1px 0 #12306b, 
+        2px 2px 0 #12306b, 
+        3px 3px 0 #0f2a5e,
+        4px 4px 0 #0f2a5e, 
+        5px 5px 0 #0c2350, 
+        6px 6px 0 #0c2350,
+        8px 12px 20px rgba(0, 0, 0, 0.55);
+    width: 100%;
+    height: 100%;
+}
+
+.rn-front {
+    position: relative;
+    display: block;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 48%),
+        linear-gradient(100deg, #ff2d75 0%, #ff9500 16%, #ffe14d 32%, #34e27a 48%, #18d5ff 64%, #3a7bff 80%, #b24bf3 92%, #ff2d75 100%);
+    background-size: 100% 100%, 200% 100%;
+    background-repeat: no-repeat, repeat-x;
+    background-position: 0 0, 0% 50%;
+    will-change: background-position;
+    animation: rainbowShift 8s linear infinite;
+}
+
+@keyframes rainbowShift {
+    from { background-position: 0 0, 0% 50%; }
+    to   { background-position: 0 0, 200% 50%; }
+}
+
+/* ========================================================
+   HERO SUPPORTING TEXT (SORA FONT)
+   ======================================================== */
 .typing-text {
-    font-size: 2rem;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+    color: #ffffff;
     margin-bottom: 20px;
-    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+#typing-element {
+    background-image: linear-gradient(90deg, #00e5ff, #2ee59d, #ffe14d, #ff7ab6, #00e5ff);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 12px rgba(46, 229, 157, 0.45));
+    will-change: background-position;
+    animation: roleGradientShift 6s linear infinite;
+}
+
+@keyframes roleGradientShift {
+    from { background-position: 0% 50%; }
+    to   { background-position: 200% 50%; }
 }
 
 .cursor {
     display: inline-block;
     width: 3px;
     height: 1.15em;
-    background-color: var(--accent-teal);
+    background: linear-gradient(180deg, #00e5ff, #2ee59d);
+    filter: drop-shadow(0 0 8px rgba(46, 229, 157, 0.6));
     margin-left: 5px;
     vertical-align: -2px;
     animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
 
-    0%,
-    100% {
-        opacity: 1;
+/* Respect reduced-motion: pause rainbow + role animations, show static rainbow */
+@media (prefers-reduced-motion: reduce) {
+    .rn-front {
+        animation: none;
+        background-position: 0 0, 50% 50%;
+        will-change: auto;
     }
-
-    50% {
-        opacity: 0;
+    #typing-element {
+        animation: none;
+        background-position: 0% 50%;
+        will-change: auto;
     }
 }
 
-.hero-location-edu,
-.hero-quote {
+
+.hero-location-edu {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9) !important;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-    margin-bottom: 30px;
-}
-
-.hero-quote {
-    display: block;
-    font-style: italic;
-    max-width: 600px;
-    margin-top: -15px;
-    font-size: 1rem;
-    line-height: 1.6;
+    gap: 12px;
+    margin-bottom: 24px;
 }
 
 .hero-info-item {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: 
+        linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)),
+        linear-gradient(135deg, #00e5ff, #ff7ab6);
+    border-radius: 999px;
+    padding: 8px 16px;
+    color: #EAF2FF;
+    font-family: 'Sora', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
-.hero-info-icon {
-    color: var(--accent-teal);
+/* Location Icon: Pink to Orange gradient */
+.hero-info-item:first-child .hero-info-icon {
+    background: linear-gradient(135deg, #ff2d75, #ff9500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.15em;
-    vertical-align: middle;
+    display: inline-block;
 }
 
-.hero-info-dot {
-    color: #94a3b8;
-    margin: 0 4px;
+/* Graduation Icon: Cyan to Green gradient */
+.hero-info-item:last-child .hero-info-icon {
+    background: linear-gradient(135deg, #18d5ff, #34e27a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.15em;
+    display: inline-block;
+}
+
+/* Hero Quote */
+.hero-quote {
+    font-family: 'Sora', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #D6E4FF;
+    max-width: 620px;
+    margin-top: 0;
+    margin-bottom: 28px;
+    padding-left: 16px;
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(to bottom, #00e5ff 0%, #34e27a 33%, #ffe14d 66%, #ff2d75 100%) 1;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .cta-button {
@@ -2176,12 +2271,15 @@ textarea.form-input {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(20, 184, 166, 0.1);
-    padding: 6px 15px;
-    border-radius: 20px;
+    background: rgba(46, 229, 157, 0.08);
+    padding: 6px 16px;
+    border-radius: 999px;
     font-size: 0.85rem;
-    color: var(--accent-teal);
-    border: 1px solid rgba(20, 184, 166, 0.2);
+    font-family: 'Sora', sans-serif;
+    font-weight: 500;
+    color: #2ee59d;
+    border: 1px solid rgba(46, 229, 157, 0.28);
+    box-shadow: 0 0 15px rgba(46, 229, 157, 0.15), inset 0 0 8px rgba(46, 229, 157, 0.08);
     margin-bottom: 20px;
     position: relative;
     z-index: 2;
@@ -2190,7 +2288,7 @@ textarea.form-input {
 .pulse-dot {
     width: 8px;
     height: 8px;
-    background: var(--accent-teal);
+    background: #2ee59d;
     border-radius: 50%;
     position: relative;
 }
@@ -2198,25 +2296,21 @@ textarea.form-input {
 .pulse-dot::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: var(--accent-teal);
+    inset: 0;
     border-radius: 50%;
-    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 0 0 rgba(46, 229, 157, 0.7);
+    animation: pulseRing 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes pulse {
+@keyframes pulseRing {
     0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
+        box-shadow: 0 0 0 0 rgba(46, 229, 157, 0.7);
     }
-
+    70% {
+        box-shadow: 0 0 0 8px rgba(46, 229, 157, 0);
+    }
     100% {
-        transform: translate(-50%, -50%) scale(2.5);
-        opacity: 0;
+        box-shadow: 0 0 0 0 rgba(46, 229, 157, 0);
     }
 }
 
