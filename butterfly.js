@@ -27,18 +27,11 @@
 
     // Schedule initialization when window is loaded & idle
     function onReady(fn) {
-        if (document.readyState === 'complete') {
-            triggerIdle(fn);
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(fn, 100);
         } else {
-            window.addEventListener('load', () => triggerIdle(fn), { once: true });
-        }
-    }
-
-    function triggerIdle(fn) {
-        if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(() => fn(), { timeout: 2500 });
-        } else {
-            setTimeout(fn, 200);
+            window.addEventListener('DOMContentLoaded', () => setTimeout(fn, 100), { once: true });
+            window.addEventListener('load', () => setTimeout(fn, 100), { once: true });
         }
     }
 
@@ -758,11 +751,13 @@
         // 16. SCHEDULE FIRST FLIGHT
         function scheduleInitialFlight() {
             const preloader = document.getElementById('preloader');
+            let attempts = 0;
             const checkPreloader = () => {
-                if (!preloader || preloader.classList.contains('preloader--hidden') || preloader.style.display === 'none') {
-                    setTimeout(startFlight, isDebug ? 200 : 2000);
+                attempts++;
+                if (!preloader || preloader.classList.contains('preloader--hidden') || preloader.style.display === 'none' || attempts > 15) {
+                    setTimeout(startFlight, isDebug ? 200 : 800);
                 } else {
-                    setTimeout(checkPreloader, 200);
+                    setTimeout(checkPreloader, 150);
                 }
             };
             checkPreloader();
