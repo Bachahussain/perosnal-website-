@@ -809,7 +809,6 @@ ul {
 
 /* Consistent Centered Section Containers */
 .section-inner,
-.hero > div,
 .about-grid,
 .services-grid,
 .portfolio-grid,
@@ -914,6 +913,8 @@ section {
 .hero .fade-up {
     max-width: 620px;
     width: 100%;
+    margin-left: 0;
+    margin-right: auto;
     position: relative;
     z-index: 2;
 }
