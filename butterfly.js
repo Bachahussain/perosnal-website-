@@ -452,8 +452,8 @@
             camera.aspect = heroW / heroH;
             camera.updateProjectionMatrix();
 
-            // Wingspan: ~7% of hero width, clamped to 90 - 150px
-            currentWingspanPx = Math.max(90, Math.min(150, heroW * 0.07));
+            // Wingspan: increased size for prominent visibility (~16% of hero width, clamped to 220 - 380px)
+            currentWingspanPx = Math.max(220, Math.min(380, heroW * 0.16));
             window._butterflyWingspanPx = currentWingspanPx;
         }
 
