@@ -742,125 +742,142 @@ function initProjectGalaxy() {
    - IntersectionObserver + visibilitychange pause for performance
    - Desktop (≥1024 px) only; mobile keeps the marquee
    ================================================================ */
+/* ================================================================
+   3D TECH SPHERE WITH CENTER PROFILE — pure CSS transforms + vanilla JS
+   - Tech pills dynamically orbit 360 degrees around the center portrait photo
+   - When z > 0: tech chip orbits in FRONT of the photo (z-index > 40)
+   - When z < 0: tech chip orbits BEHIND the photo (z-index < 40) with depth blur
+   ================================================================ */
 (function initTechSphere() {
-
-    /* --- guard: skip if mobile or reduced-motion --- */
+    /* --- guard: skip if reduced-motion is requested --- */
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouchPrimary = window.matchMedia('(hover: none)').matches;
-    const isDesktop      = window.matchMedia('(min-width: 1024px)').matches;
-
-    if (prefersReduced || isTouchPrimary || !isDesktop) return;
+    if (prefersReduced) return;
 
     /* --- constants --- */
     const TECHS = [
-        'React','Next.js','Node.js','Express',
-        'MongoDB','MySQL','REST APIs','JavaScript',
-        'HTML5','CSS3','Tailwind','Git',
-        'GitHub','Gemini AI','Firebase','TypeScript'
+        'React', 'Next.js', 'Node.js', 'Express',
+        'MongoDB', 'MySQL', 'REST APIs', 'JavaScript',
+        'HTML5', 'CSS3', 'Tailwind', 'Git',
+        'GitHub', 'Gemini AI', 'Firebase', 'TypeScript'
     ];
-    const N          = TECHS.length;      // 16
-    const R          = 170;               // sphere radius px
-    const ROT_PERIOD = 40000;             // ms for one full auto revolution
-    const BASE_SPEED = (2 * Math.PI) / ROT_PERIOD; // rad/ms
 
-    /* depth → visual mapping */
-    const SCALE_MIN   = 0.6,   SCALE_MAX   = 1.2;
-    const OPACITY_MIN = 0.35,  OPACITY_MAX = 1.0;
+    const LG_TECHS = ['Node.js', 'JavaScript', 'React', 'Tailwind', 'MongoDB', 'MySQL', 'GitHub', 'TypeScript'];
+    const N = TECHS.length; // 16
+    const ROT_PERIOD = 32000; // ms for one full revolution
+    const BASE_SPEED = (2 * Math.PI) / ROT_PERIOD;
+
+    /* depth to visual mapping */
+    const SCALE_MIN = 0.68, SCALE_MAX = 1.18;
 
     /* --- DOM refs --- */
-    const scene   = document.getElementById('techSphere');
+    const scene = document.getElementById('techSphere');
     const wrapper = document.getElementById('techSphereWrapper');
     if (!scene || !wrapper) return;
 
-    /* --- build Fibonacci sphere positions --- */
-    // phi_i = acos(1 - 2*(i+0.5)/N)
-    // theta_i = PI*(1+sqrt(5))*(i+0.5)
-    const GOLDEN = Math.PI * (1 + Math.sqrt(5));
+    function getRadius() {
+        const w = wrapper.clientWidth || 450;
+        return w < 420 ? 150 : 210;
+    }
 
-    // items[i] = { el, x0, y0, z0, cx, cy, cz }
-    // x0/y0/z0 = current world coords (updated per frame)
-    const items = TECHS.map((label, i) => {
-        const phi   = Math.acos(1 - 2 * (i + 0.5) / N);
-        const theta = GOLDEN * (i + 0.5);
-        const x0 = R * Math.sin(phi) * Math.cos(theta);
-        const y0 = R * Math.sin(phi) * Math.sin(theta);
-        const z0 = R * Math.cos(phi);
+    let R = getRadius();
 
-        const el = document.createElement('span');
-        el.className   = 'sphere-tag';
-        el.textContent = label;
-        scene.appendChild(el);
-
-        return { el, x: x0, y: y0, z: z0, x0, y0, z0 };
+    window.addEventListener('resize', () => {
+        R = getRadius();
+        recalcPositions();
     });
 
-    /* --- rotation state --- */
-    // We rotate around Y (horizontal) and X (vertical) axes.
-    // angY / angX are the current accumulated rotation angles.
-    let angY = 0, angX = 0.25; // slight initial tilt so items aren't stacked
+    const GOLDEN = Math.PI * (1 + Math.sqrt(5));
 
-    // Auto-rotation velocities (rad/ms)
+    function createFibonacciCoords(radius) {
+        return TECHS.map((label, i) => {
+            const phi = Math.acos(1 - 2 * (i + 0.5) / N);
+            const theta = GOLDEN * (i + 0.5);
+            return {
+                label,
+                x0: radius * Math.sin(phi) * Math.cos(theta),
+                y0: radius * Math.sin(phi) * Math.sin(theta),
+                z0: radius * Math.cos(phi)
+            };
+        });
+    }
+
+    let coords = createFibonacciCoords(R);
+    scene.innerHTML = '';
+
+    const items = coords.map((c, i) => {
+        const el = document.createElement('span');
+        el.className = 'sphere-tag' + (LG_TECHS.includes(c.label) ? ' sphere-tag-lg' : '');
+        el.textContent = c.label;
+        scene.appendChild(el);
+        return { el, x0: c.x0, y0: c.y0, z0: c.z0, x: c.x0, y: c.y0, z: c.z0 };
+    });
+
+    function recalcPositions() {
+        const newCoords = createFibonacciCoords(R);
+        for (let i = 0; i < N; i++) {
+            items[i].x0 = newCoords[i].x0;
+            items[i].y0 = newCoords[i].y0;
+            items[i].z0 = newCoords[i].z0;
+        }
+    }
+
+    let angY = 0, angX = 0.28;
     let velY = BASE_SPEED;
-    let velX = BASE_SPEED * 0.1;
-
-    // Target velocities (mouse nudge eases toward these)
+    let velX = BASE_SPEED * 0.12;
     let tgtVelY = velY;
     let tgtVelX = velX;
 
-    /* --- state flags --- */
-    let paused        = false;  // IntersectionObserver / tab hidden
-    let hoveredItem   = false;  // true while mouse is over a chip
-    let rafId         = null;
-    let lastTime      = null;
+    let paused = false;
+    let hoveredItem = false;
+    let rafId = null;
+    let lastTime = null;
 
-    /* --- helper: rotate a 3-vector by angY (Y-axis) then angX (X-axis) --- */
     function rotateYX(x, y, z, ry, rx) {
-        // Y-axis rotation
         const cosY = Math.cos(ry), sinY = Math.sin(ry);
-        let x1 =  cosY * x + sinY * z;
+        let x1 = cosY * x + sinY * z;
         let z1 = -sinY * x + cosY * z;
-        let y1 =  y;
-        // X-axis rotation
+        let y1 = y;
+
         const cosX = Math.cos(rx), sinX = Math.sin(rx);
-        let y2 =  cosX * y1 - sinX * z1;
-        let z2 =  sinX * y1 + cosX * z1;
+        let y2 = cosX * y1 - sinX * z1;
+        let z2 = sinX * y1 + cosX * z1;
         return { x: x1, y: y2, z: z2 };
     }
 
-    /* --- render one frame --- */
     function render(dt) {
         if (!hoveredItem) {
-            // Ease velocities toward targets
             velY += (tgtVelY - velY) * 0.05;
             velX += (tgtVelX - velX) * 0.05;
-
             angY += velY * dt;
             angX += velX * dt;
         }
 
-        // Rotate all points and apply CSS transforms
         for (let i = 0; i < N; i++) {
             const item = items[i];
             const { x, y, z } = rotateYX(item.x0, item.y0, item.z0, angY, angX);
-
-            // Cache rotated coords for next frame (not strictly needed since
-            // we always rotate from x0/y0/z0, but store for debuggability)
             item.x = x; item.y = y; item.z = z;
 
-            // Depth: z ranges -R..+R; normalize to 0..1 (1 = closest to viewer)
-            const depth = (z + R) / (2 * R);               // 0 = back, 1 = front
-            const scale   = SCALE_MIN + depth * (SCALE_MAX - SCALE_MIN);
-            const opacity = OPACITY_MIN + depth * (OPACITY_MAX - OPACITY_MIN);
+            const depth = (z + R) / (2 * R);
+            const scale = SCALE_MIN + depth * (SCALE_MAX - SCALE_MIN);
 
-            // translate3d moves chip from center (top:50%,left:50%) to its sphere pos
-            // We negate y because CSS y-axis is inverted
-            item.el.style.transform = `translate3d(${x}px,${-y}px,${z}px) translate(-50%,-50%) scale(${scale.toFixed(3)})`;
-            item.el.style.opacity   = opacity.toFixed(3);
-            item.el.style.zIndex    = Math.round(depth * 100);
+            item.el.style.transform = `translate3d(${x.toFixed(1)}px,${(-y).toFixed(1)}px,${z.toFixed(1)}px) translate(-50%,-50%) scale(${scale.toFixed(3)})`;
+
+            // Crossing around the portrait photo:
+            // Center photo is at zIndex: 40
+            if (z >= 0) {
+                // IN FRONT of the photo
+                item.el.style.zIndex = Math.round(45 + depth * 55);
+                item.el.style.opacity = Math.min(1, 0.78 + depth * 0.22).toFixed(3);
+                item.el.style.filter = 'none';
+            } else {
+                // BEHIND the photo
+                item.el.style.zIndex = Math.max(1, Math.round(depth * 35));
+                item.el.style.opacity = (0.28 + depth * 0.42).toFixed(3);
+                item.el.style.filter = 'blur(' + ((1 - depth) * 1.5).toFixed(1) + 'px)';
+            }
         }
     }
 
-    /* --- rAF loop --- */
     function loop(ts) {
         if (paused || hoveredItem) {
             lastTime = null;
@@ -868,7 +885,7 @@ function initProjectGalaxy() {
             return;
         }
         if (lastTime === null) lastTime = ts;
-        const dt = Math.min(ts - lastTime, 50); // cap at 50 ms to avoid huge jumps
+        const dt = Math.min(ts - lastTime, 50);
         lastTime = ts;
         render(dt);
         rafId = requestAnimationFrame(loop);
@@ -877,58 +894,57 @@ function initProjectGalaxy() {
     function startLoop() {
         if (!rafId) rafId = requestAnimationFrame(loop);
     }
-    function stopLoop() {
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null; lastTime = null; }
-    }
 
-    /* --- IntersectionObserver: pause when sphere is off-screen --- */
     const observer = new IntersectionObserver(entries => {
         paused = !entries[0].isIntersecting;
-        if (!paused) startLoop(); // resume when back in view
+        if (!paused) startLoop();
     }, { threshold: 0.05 });
     observer.observe(wrapper);
 
-    /* --- Tab visibility: pause when tab is hidden --- */
     document.addEventListener('visibilitychange', () => {
         paused = document.hidden;
         if (!paused) startLoop();
     });
 
-    /* --- Mouse interaction on the wrapper --- */
     let mouseX = 0, mouseY = 0;
-    const MOUSE_INFLUENCE = 0.0004; // max extra rad/ms per pixel-fraction
+    const MOUSE_INFLUENCE = 0.00045;
 
     wrapper.addEventListener('mousemove', e => {
         const rect = wrapper.getBoundingClientRect();
-        // Normalised -0.5 .. 0.5 from center
-        mouseX = (e.clientX - rect.left - rect.width  / 2) / rect.width;
-        mouseY = (e.clientY - rect.top  - rect.height / 2) / rect.height;
-
-        // Nudge: mouse X shifts Y-rotation speed, mouse Y shifts X-rotation speed
+        mouseX = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        mouseY = (e.clientY - rect.top - rect.height / 2) / rect.height;
         tgtVelY = BASE_SPEED + mouseX * MOUSE_INFLUENCE * 1000;
-        tgtVelX = BASE_SPEED * 0.1 - mouseY * MOUSE_INFLUENCE * 500;
+        tgtVelX = BASE_SPEED * 0.12 - mouseY * MOUSE_INFLUENCE * 500;
     });
+
+    wrapper.addEventListener('touchmove', e => {
+        if (e.touches && e.touches.length > 0) {
+            const touch = e.touches[0];
+            const rect = wrapper.getBoundingClientRect();
+            mouseX = (touch.clientX - rect.left - rect.width / 2) / rect.width;
+            mouseY = (touch.clientY - rect.top - rect.height / 2) / rect.height;
+            tgtVelY = BASE_SPEED + mouseX * MOUSE_INFLUENCE * 1000;
+            tgtVelX = BASE_SPEED * 0.12 - mouseY * MOUSE_INFLUENCE * 500;
+        }
+    }, { passive: true });
 
     wrapper.addEventListener('mouseleave', () => {
-        // Ease back to auto rotation
         tgtVelY = BASE_SPEED;
-        tgtVelX = BASE_SPEED * 0.1;
+        tgtVelX = BASE_SPEED * 0.12;
     });
 
-    /* --- Hover on individual chip: pause rotation, add glow via CSS --- */
     scene.addEventListener('mouseover', e => {
         if (e.target.classList.contains('sphere-tag')) {
             hoveredItem = true;
         }
     });
+
     scene.addEventListener('mouseout', e => {
         if (e.target.classList.contains('sphere-tag')) {
             hoveredItem = false;
-            lastTime = null; // avoid dt spike on resume
+            lastTime = null;
         }
     });
 
-    /* --- kick off --- */
     startLoop();
-
 })();
