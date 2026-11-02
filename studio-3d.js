@@ -193,7 +193,7 @@
     });
 
     // B. Interactive Hotspots
-    const hotspots = document.querySelectorAll('.studio-hotspot');
+    const hotspots = document.querySelectorAll('.studio-hotspot, .studio-framed-portrait-layer');
     hotspots.forEach(spot => {
       spot.addEventListener('click', () => {
         const action = spot.getAttribute('data-action');
@@ -301,8 +301,16 @@
 
     function openBioModal() {
       const html = `
-        <div class="case-study-category">About Bacha Hussain</div>
-        <h2 class="case-study-title">Full Stack Web Developer</h2>
+        <div class="bio-modal-header">
+          <img src="background-image.png" alt="Bacha Hussain" class="bio-modal-avatar">
+          <div>
+            <div class="case-study-category">Official Verified Profile</div>
+            <h2 class="case-study-title" style="margin: 4px 0 0 0; font-size: 1.65rem;">Bacha Hussain</h2>
+            <div style="font-size: 0.85rem; color: #f7d070; font-family: monospace; margin-top: 4px;">
+              Full Stack Web Developer • PUCIT Lahore
+            </div>
+          </div>
+        </div>
         <p class="case-study-desc">
           I am a passionate software engineer based in Lahore, Pakistan, currently pursuing my Bachelor of Computer Science at 
           <strong>Punjab University College of Information Technology (PUCIT)</strong>. I specialize in building scalable, 
