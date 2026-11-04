@@ -642,3 +642,385 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 18px rgba(212, 175, 55, 0.35);
   flex-shrink: 0;
 }
+
+/* ==========================================================================
+   UNIFIED LUXURY 3D TOP NAVIGATION BAR (REPLACES OLD DOUBLE BARS & STRIPE)
+   ========================================================================== */
+.studio-unified-navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  height: 72px !important;
+  min-height: 72px !important;
+  max-height: 72px !important;
+  background: rgba(12, 10, 8, 0.94) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.22) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.studio-unified-navbar::after {
+  display: none !important;
+  content: none !important;
+}
+
+.studio-unified-navbar.scrolled {
+  background: rgba(9, 8, 7, 0.98) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+.studio-navbar-container {
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+}
+
+/* LEFT: Clean Brand Typography (No selfie, no duplicate) */
+.studio-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.studio-brand-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+  color: #0e0c0a;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.5px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.studio-brand-link:hover .studio-brand-badge {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.studio-brand-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.studio-brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.studio-brand-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #f59e0b;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* CENTER: 3D Spatial Waypoints Navigation (Prominent, High-Contrast 3D Pills) */
+.studio-waypoints-nav {
+  display: flex !important;
+  align-items: center;
+  gap: 6px;
+  background: rgba(22, 18, 14, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 5px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.studio-waypoint-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: perspective(600px) translateZ(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.studio-waypoint-btn i {
+  font-size: 0.8rem;
+  color: #f59e0b;
+  transition: transform 0.28s ease, color 0.28s ease;
+}
+
+.studio-waypoint-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: perspective(600px) translateY(-2px) translateZ(8px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.studio-waypoint-btn:hover i {
+  color: #fbbf24;
+  transform: scale(1.18);
+}
+
+.studio-waypoint-btn.active {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+  color: #1c1917 !important;
+  font-weight: 700 !important;
+  transform: perspective(600px) translateZ(10px) !important;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+.studio-waypoint-btn.active i {
+  color: #b45309 !important;
+}
+
+/* RIGHT: Controls & Actions */
+.studio-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.studio-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  transform: perspective(500px) translateZ(0);
+}
+
+.studio-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fbbf24;
+  transform: perspective(500px) translateY(-2px) translateZ(6px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.studio-icon-btn.playing {
+  background: rgba(245, 158, 11, 0.3);
+  border-color: #f59e0b;
+  color: #fde68a;
+  animation: studioPulseGlow 1.8s infinite ease-in-out;
+}
+
+.studio-nav-cv {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fef3c7;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  transform: perspective(500px) translateZ(0);
+}
+
+.studio-nav-cv:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b;
+  color: #ffffff;
+  transform: perspective(500px) translateY(-2px) translateZ(6px);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+
+.studio-nav-hire {
+  padding: 9px 20px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #0e0c0a;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: perspective(500px) translateZ(0);
+}
+
+.studio-nav-hire:hover {
+  transform: perspective(500px) translateY(-2px) translateZ(10px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #000000;
+}
+
+.studio-mobile-hamburger {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.studio-mobile-hamburger .hamburger-bar {
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.studio-mobile-menu {
+  display: none;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: rgba(14, 12, 10, 0.98);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 20px 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+}
+
+.studio-mobile-menu.active {
+  display: block;
+}
+
+.studio-mobile-section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f59e0b;
+  margin-bottom: 10px;
+}
+
+.studio-mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.studio-mobile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.studio-mobile-link {
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  font-size: 0.78rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 3D Hotspots (Elevated Perspective Animations) */
+.studio-hotspot {
+  position: absolute;
+  z-index: 30;
+  cursor: pointer;
+  perspective: 800px;
+}
+
+.studio-hotspot-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(18, 15, 12, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #fef3c7;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7), 0 0 16px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  transform: perspective(600px) translateZ(0);
+}
+
+.studio-hotspot:hover .studio-hotspot-inner {
+  transform: perspective(600px) translateY(-4px) translateZ(14px) scale(1.08);
+  border-color: #fbbf24;
+  background: rgba(26, 22, 18, 0.98);
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 28px rgba(245, 158, 11, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.studio-hotspot-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 12px #f59e0b;
+  animation: hotspotPulse 1.8s infinite alternate ease-in-out;
+}
+
+@media (max-width: 1100px) {
+  .studio-waypoints-nav {
+    display: none !important;
+  }
+  .studio-mobile-hamburger {
+    display: flex;
+  }
+}
+
+/* Adjust Studio Hero Padding for Fixed Header */
+.studio-hero-section {
+  padding-top: 72px !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+}

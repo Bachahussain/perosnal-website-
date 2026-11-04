@@ -341,23 +341,8 @@ ul {
 
 /* 3px Bottom Flag Stripe: Black, Red, Green with faint inner highlight for black */
 .top-navbar::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(
-        to right,
-        var(--af-black) 0%,
-        var(--af-black) 33.333%,
-        var(--af-red) 33.333%,
-        var(--af-red) 66.666%,
-        var(--af-green) 66.666%,
-        var(--af-green) 100%
-    );
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
-    z-index: 10;
+    content: none !important;
+    display: none !important;
 }
 
 .navbar-inner-container {

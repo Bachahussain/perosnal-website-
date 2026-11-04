@@ -154,73 +154,58 @@
             <i class="fas fa-comments"></i>
         </button>
 
-        <!-- Top Navigation Bar with Afghanistan Flag 3D System -->
-        <header class="top-navbar" id="topNavbar" role="banner">
-            <div class="navbar-inner-container">
-                <!-- LEFT: Compact Brand Block -->
-                <a href="#home" class="navbar-brand-block" aria-label="Bacha Hussain - Home">
-                    <div class="navbar-profile-ring">
-                        <img src="profile.jpg.png" alt="Bacha Hussain" class="navbar-profile-img">
-                    </div>
-                    <div class="navbar-brand-text">
-                        <span class="navbar-brand-name">Bacha Hussain</span>
-                        <span class="navbar-brand-role">Full Stack Developer</span>
+        <!-- Unified Luxury 3D Virtual Studio Top Navigation Bar -->
+        <header class="top-navbar studio-unified-navbar" id="topNavbar" role="banner">
+            <div class="studio-navbar-container">
+                <!-- LEFT: Modern Minimalist Brand -->
+                <a href="#home" class="studio-brand-link" aria-label="Bacha Hussain - Home">
+                    <span class="studio-brand-badge">BH</span>
+                    <div class="studio-brand-meta">
+                        <span class="studio-brand-name">Bacha Hussain</span>
+                        <span class="studio-brand-tagline">Full Stack Developer • PUCIT</span>
                     </div>
                 </a>
 
-                <!-- CENTER: 6 3D Navigation Buttons with Flag Colors -->
-                <nav class="navbar-nav-center" aria-label="Main Navigation">
-                    <ul class="nav-3d-list">
-                        <li>
-                            <a href="#home" class="nav-link nav-3d-key active" data-color="green" data-tooltip="Home" aria-current="page">
-                                <i class="fas fa-house nav-key-icon"></i>
-                                <span class="nav-key-label">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#about" class="nav-link nav-3d-key" data-color="red" data-tooltip="About Me">
-                                <i class="fas fa-user nav-key-icon"></i>
-                                <span class="nav-key-label">About Me</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#services" class="nav-link nav-3d-key" data-color="black" data-tooltip="Services">
-                                <i class="fas fa-briefcase nav-key-icon"></i>
-                                <span class="nav-key-label">Services</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#portfolio" class="nav-link nav-3d-key" data-color="green" data-tooltip="Portfolio">
-                                <i class="fas fa-layer-group nav-key-icon"></i>
-                                <span class="nav-key-label">Portfolio</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#testimonials" class="nav-link nav-3d-key" data-color="red" data-tooltip="Feedback">
-                                <i class="fas fa-comment-dots nav-key-icon"></i>
-                                <span class="nav-key-label">Feedback</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="nav-link nav-3d-key" data-color="black" data-tooltip="Contact">
-                                <i class="fas fa-envelope nav-key-icon"></i>
-                                <span class="nav-key-label">Contact</span>
-                            </a>
-                        </li>
-                    </ul>
+                <!-- CENTER: 3D Studio Spatial Waypoint Navigation (Glassmorphic 3D Buttons) -->
+                <nav class="studio-waypoints-nav" aria-label="3D Studio Waypoints">
+                    <button class="studio-waypoint-btn active" data-waypoint="overview" title="Full Studio Overview">
+                        <i class="fas fa-compass"></i><span>Studio Overview</span>
+                    </button>
+                    <button class="studio-waypoint-btn" data-waypoint="projects" title="Inspect Projects Wall">
+                        <i class="fas fa-th-large"></i><span>Projects Wall</span>
+                    </button>
+                    <button class="studio-waypoint-btn" data-waypoint="portrait" title="Inspect About Me & Bio">
+                        <i class="fas fa-user-tie"></i><span>About &amp; Bio</span>
+                    </button>
+                    <button class="studio-waypoint-btn" data-waypoint="pucit" title="Inspect PUCIT Academic Degree">
+                        <i class="fas fa-graduation-cap"></i><span>PUCIT Degree</span>
+                    </button>
+                    <button class="studio-waypoint-btn" data-waypoint="desk" title="Inspect Workstation Tech Stack">
+                        <i class="fas fa-code"></i><span>Workstation</span>
+                    </button>
+                    <button class="studio-waypoint-btn" data-waypoint="lounge" title="Relaxing Lo-Fi Turntable">
+                        <i class="fas fa-record-vinyl"></i><span>Vinyl Lounge</span>
+                    </button>
                 </nav>
 
-                <!-- RIGHT: 3D Round Theme Toggle + "Hire Me" Button + Hamburger (mobile) -->
-                <div class="navbar-right-group">
-                    <button type="button" class="nav-theme-btn" id="theme-toggle" title="Switch Theme" aria-label="Switch Theme">
+                <!-- RIGHT: Actions, Theme, Music, CV & Contact -->
+                <div class="studio-navbar-actions">
+                    <button type="button" class="studio-icon-btn" id="headerMusicToggle" title="Toggle Relaxing Lo-Fi Music" aria-label="Toggle Ambient Sound">
+                        <i class="fas fa-music"></i>
+                    </button>
+                    <button type="button" class="studio-icon-btn" id="theme-toggle" title="Switch Dark/Light Theme" aria-label="Switch Theme">
                         <i class="fas fa-sun theme-icon-sun"></i>
                         <i class="fas fa-moon theme-icon-moon"></i>
                     </button>
-                    <a href="#contact" class="nav-hire-btn">
+                    <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="studio-nav-cv" title="Download Resume (CV)">
+                        <i class="fas fa-file-pdf"></i><span>CV</span>
+                    </a>
+                    <a href="#contact" class="studio-nav-hire">
                         <span>Hire Me</span>
                         <i class="fas fa-paper-plane"></i>
                     </a>
-                    <button type="button" class="nav-hamburger-btn" id="navHamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navDropdownPanel">
+                    <!-- Mobile Hamburger -->
+                    <button type="button" class="studio-mobile-hamburger" id="navHamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navDropdownPanel">
                         <span class="hamburger-bar"></span>
                         <span class="hamburger-bar"></span>
                         <span class="hamburger-bar"></span>
@@ -228,39 +213,27 @@
                 </div>
             </div>
 
-            <!-- Mobile Dropdown Panel (<768px) -->
-            <div class="navbar-dropdown-panel" id="navDropdownPanel" aria-hidden="true">
-                <div class="dropdown-keys-grid">
-                    <a href="#home" class="nav-link nav-3d-key active" data-color="green" aria-current="page">
-                        <i class="fas fa-house nav-key-icon"></i>
-                        <span class="nav-key-label">Home</span>
-                    </a>
-                    <a href="#about" class="nav-link nav-3d-key" data-color="red">
-                        <i class="fas fa-user nav-key-icon"></i>
-                        <span class="nav-key-label">About Me</span>
-                    </a>
-                    <a href="#services" class="nav-link nav-3d-key" data-color="black">
-                        <i class="fas fa-briefcase nav-key-icon"></i>
-                        <span class="nav-key-label">Services</span>
-                    </a>
-                    <a href="#portfolio" class="nav-link nav-3d-key" data-color="green">
-                        <i class="fas fa-layer-group nav-key-icon"></i>
-                        <span class="nav-key-label">Portfolio</span>
-                    </a>
-                    <a href="#testimonials" class="nav-link nav-3d-key" data-color="red">
-                        <i class="fas fa-comment-dots nav-key-icon"></i>
-                        <span class="nav-key-label">Feedback</span>
-                    </a>
-                    <a href="#contact" class="nav-link nav-3d-key" data-color="black">
-                        <i class="fas fa-envelope nav-key-icon"></i>
-                        <span class="nav-key-label">Contact</span>
-                    </a>
-                </div>
-                <div class="dropdown-hire-wrapper">
-                    <a href="#contact" class="nav-hire-btn dropdown-hire-btn">
-                        <span>Hire Me</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </a>
+            <!-- Mobile Navigation Drawer -->
+            <div class="studio-mobile-menu" id="navDropdownPanel" aria-hidden="true">
+                <div class="studio-mobile-waypoints">
+                    <div class="studio-mobile-section-label">3D Studio Waypoints</div>
+                    <div class="studio-mobile-grid">
+                        <button class="studio-waypoint-btn active" data-waypoint="overview"><i class="fas fa-compass"></i><span>Overview</span></button>
+                        <button class="studio-waypoint-btn" data-waypoint="projects"><i class="fas fa-th-large"></i><span>Projects Wall</span></button>
+                        <button class="studio-waypoint-btn" data-waypoint="portrait"><i class="fas fa-user-tie"></i><span>About &amp; Bio</span></button>
+                        <button class="studio-waypoint-btn" data-waypoint="pucit"><i class="fas fa-graduation-cap"></i><span>PUCIT Degree</span></button>
+                        <button class="studio-waypoint-btn" data-waypoint="desk"><i class="fas fa-code"></i><span>Workstation</span></button>
+                        <button class="studio-waypoint-btn" data-waypoint="lounge"><i class="fas fa-record-vinyl"></i><span>Vinyl Lounge</span></button>
+                    </div>
+                    <div class="studio-mobile-section-label" style="margin-top: 14px;">Explore Portfolio</div>
+                    <div class="studio-mobile-links">
+                        <a href="#about" class="studio-mobile-link"><i class="fas fa-user"></i> About Me</a>
+                        <a href="#experience" class="studio-mobile-link"><i class="fas fa-briefcase"></i> Experience</a>
+                        <a href="#services" class="studio-mobile-link"><i class="fas fa-cogs"></i> Services</a>
+                        <a href="#skills" class="studio-mobile-link"><i class="fas fa-layer-group"></i> Skills</a>
+                        <a href="#portfolio" class="studio-mobile-link"><i class="fas fa-laptop-code"></i> Projects</a>
+                        <a href="#contact" class="studio-mobile-link"><i class="fas fa-envelope"></i> Contact</a>
+                    </div>
                 </div>
             </div>
         </header>
@@ -268,75 +241,31 @@
         <!-- Main Content -->
         <main class="main-content">
 
-            <!-- Hero Section -->
-            <!-- ========================================================
-                 3D VIRTUAL DEVELOPER STUDIO HERO (ARSH KHACHATRIAN STYLE)
-                 ======================================================== -->
+            <!-- Hero Section: 3D Interactive Virtual Studio -->
             <section id="home" class="studio-hero-section">
-                <!-- Top Minimalist HUD Header -->
-                <div class="studio-top-hud">
-                    <div>
-                        <h1 class="studio-brand-title">
-                            Bacha Hussain <span class="studio-brand-role">· Full Stack Developer</span>
-                        </h1>
-                        <div class="studio-brand-subtitle">
-                            Interactive 3D Studio &amp; Exhibition • PUCIT Lahore
-                        </div>
-                    </div>
-
-                    <!-- Spatial Navigation Waypoints -->
-                    <nav class="studio-waypoints-nav" aria-label="Studio Waypoints">
-                        <button class="studio-waypoint-btn active" data-waypoint="overview">Studio Overview</button>
-                        <button class="studio-waypoint-btn" data-waypoint="projects">Projects Wall</button>
-                        <button class="studio-waypoint-btn" data-waypoint="portrait">Portrait &amp; Bio</button>
-                        <button class="studio-waypoint-btn" data-waypoint="pucit">PUCIT Degree</button>
-                        <button class="studio-waypoint-btn" data-waypoint="desk">Workstation</button>
-                        <button class="studio-waypoint-btn" data-waypoint="lounge">Vinyl Lounge</button>
-                    </nav>
-
-                    <!-- Top Right Quick Contact & Resume -->
-                    <div class="studio-top-actions">
-                        <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="studio-contact-pill" style="border-color: rgba(253, 230, 138, 0.4);">
-                            <i class="fas fa-file-pdf" style="margin-right: 6px;"></i>CV
-                        </a>
-                        <a href="#contact" class="studio-contact-pill">Get In Touch</a>
-                    </div>
-                </div>
-
-                <!-- 3D Viewport Stage -->
+                <!-- 3D Viewport Stage (Full Screen Immersive Canvas) -->
                 <div class="studio-viewport" id="studioViewport">
                     <div class="studio-canvas-container" id="studioCanvasContainer">
-                        <!-- High-Resolution Architectural 3D Studio Render -->
-                        <img src="studio-gallery-bg.jpg" alt="Bacha Hussain 3D Studio Experience" class="studio-render-img" id="studioRenderImg">
-
-                        <!-- Bacha Hussain Real Framed Portrait Layer (Live Overlaid Real Photo) -->
-                        <div class="studio-framed-portrait-layer" data-action="portrait" title="Click to view Bacha Hussain About & Bio">
-                            <div class="studio-frame-inner">
-                                <img src="background-image.png" alt="Bacha Hussain - Real Photo" class="studio-frame-real-photo">
-                                <div class="studio-frame-sheen"></div>
-                            </div>
-                            <div class="studio-plaque-tag">
-                                <span>Bacha Hussain</span>
-                            </div>
-                        </div>
+                        <!-- High-Resolution Architectural 3D Studio Render (with Real Framed Portrait of Bacha Hussain) -->
+                        <img src="studio-gallery-bg.jpg" alt="Bacha Hussain 3D Virtual Studio Experience" class="studio-render-img" id="studioRenderImg">
 
                         <!-- Three.js Ambient Particle Overlay -->
                         <canvas class="studio-particles-canvas" id="studioParticlesCanvas"></canvas>
 
                         <!-- Clickable 3D Interactive Hotspots -->
                         <!-- 1. Projects Gallery Wall -->
-                        <div class="studio-hotspot hotspot-projects" data-action="projects" title="Click to inspect Projects Wall & Case Studies">
+                        <div class="studio-hotspot hotspot-projects" data-action="projects" title="Click to inspect Projects Wall &amp; Case Studies">
                             <div class="studio-hotspot-inner">
                                 <span class="studio-hotspot-dot"></span>
                                 <span>Projects &amp; Case Studies</span>
                             </div>
                         </div>
 
-                        <!-- 2. Bacha Hussain's Framed Portrait -->
-                        <div class="studio-hotspot hotspot-portrait" data-action="portrait" title="Click to view About Me & Bio">
+                        <!-- 2. Framed Portrait on Terracotta Wall -->
+                        <div class="studio-hotspot hotspot-portrait" data-action="portrait" title="Click to view About Me &amp; Bio">
                             <div class="studio-hotspot-inner">
                                 <span class="studio-hotspot-dot"></span>
-                                <span>Bacha Hussain · About</span>
+                                <span>About &amp; Bio</span>
                             </div>
                         </div>
 

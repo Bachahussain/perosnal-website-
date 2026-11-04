@@ -219,7 +219,9 @@
       });
     });
 
-    // C. Ambient Sound Toggle Button
+    // C. Ambient Sound Toggle Button & Header Controls
+    const headerMusicBtn = document.getElementById('headerMusicToggle');
+
     function toggleMusic() {
       if (loFi.isPlaying) {
         loFi.stop();
@@ -227,17 +229,58 @@
           audioBtn.classList.remove('playing');
           audioBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
         }
+        if (headerMusicBtn) {
+          headerMusicBtn.classList.remove('playing');
+          headerMusicBtn.innerHTML = '<i class="fas fa-music"></i>';
+        }
       } else {
         loFi.play();
         if (audioBtn) {
           audioBtn.classList.add('playing');
           audioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
         }
+        if (headerMusicBtn) {
+          headerMusicBtn.classList.add('playing');
+          headerMusicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
       }
     }
 
     if (audioBtn) {
       audioBtn.addEventListener('click', toggleMusic);
+    }
+    if (headerMusicBtn) {
+      headerMusicBtn.addEventListener('click', toggleMusic);
+    }
+
+    // Mobile Hamburger & Drawer
+    const navHamburger = document.getElementById('navHamburger');
+    const navDropdownPanel = document.getElementById('navDropdownPanel');
+    if (navHamburger && navDropdownPanel) {
+      navHamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navDropdownPanel.classList.toggle('active');
+        const isActive = navDropdownPanel.classList.contains('active');
+        navHamburger.classList.toggle('active', isActive);
+        navHamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!navDropdownPanel.contains(e.target) && !navHamburger.contains(e.target)) {
+          navDropdownPanel.classList.remove('active');
+          navHamburger.classList.remove('active');
+          navHamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close menu when any waypoint or link clicked inside drawer
+      navDropdownPanel.querySelectorAll('button, a').forEach(item => {
+        item.addEventListener('click', () => {
+          navDropdownPanel.classList.remove('active');
+          navHamburger.classList.remove('active');
+          navHamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
     }
 
     // D. Modal Opening Functions
