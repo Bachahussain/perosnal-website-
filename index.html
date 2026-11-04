@@ -166,69 +166,73 @@
                     </div>
                 </a>
 
-                <!-- CENTER: Tactile 3D Pill Key Navigation (.nav-3d-key system) -->
+                <!-- CENTER: Circular 3D Navigation Buttons with Soft Glow -->
                 <nav class="navbar-nav-center studio-3d-key-nav" aria-label="Studio 3D Navigation">
-                    <ul class="nav-3d-list">
+                    <ul class="nav-3d-circles-list">
+                        <!-- 1. Home icon (active state - glowing yellow with brown house) -->
                         <li>
-                            <button type="button" class="nav-link nav-3d-key active studio-waypoint-btn" data-color="green" data-waypoint="overview" title="Full Studio Overview">
-                                <i class="fas fa-house nav-key-icon"></i>
-                                <span class="nav-key-label">Overview</span>
+                            <button type="button" class="nav-circle-btn active-home studio-waypoint-btn" data-waypoint="overview" title="Home - Studio Overview">
+                                <i class="fas fa-house"></i>
                             </button>
                         </li>
+                        <!-- 2. Stack icon (glowing green layers) -->
                         <li>
-                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="projects" title="Projects Gallery Wall">
-                                <i class="fas fa-layer-group nav-key-icon"></i>
-                                <span class="nav-key-label">Projects</span>
+                            <button type="button" class="nav-circle-btn glow-green studio-waypoint-btn" data-waypoint="projects" title="Projects & Case Studies">
+                                <i class="fas fa-layer-group"></i>
                             </button>
                         </li>
+                        <!-- 3. Profile icon (glowing red person) -->
                         <li>
-                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="red" data-waypoint="portrait" title="About & Bio">
-                                <i class="fas fa-user nav-key-icon"></i>
-                                <span class="nav-key-label">About</span>
+                            <button type="button" class="nav-circle-btn glow-red studio-waypoint-btn" data-waypoint="portrait" title="About & Bio">
+                                <i class="fas fa-user"></i>
                             </button>
                         </li>
+                        <!-- 4. Code icon </> (white on dark) -->
                         <li>
-                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="black" data-waypoint="desk" title="Workstation Tech Stack">
-                                <i class="fas fa-code nav-key-icon"></i>
-                                <span class="nav-key-label">Workstation</span>
+                            <button type="button" class="nav-circle-btn glow-white studio-waypoint-btn" data-waypoint="desk" title="Workstation Tech Stack">
+                                <i class="fas fa-code"></i>
                             </button>
                         </li>
+                        <!-- 5. Music Note icon (glowing green) -->
                         <li>
-                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="lounge" title="Relaxing Lo-Fi Turntable">
-                                <i class="fas fa-music nav-key-icon"></i>
-                                <span class="nav-key-label">Lounge</span>
+                            <button type="button" class="nav-circle-btn glow-green studio-waypoint-btn" data-waypoint="lounge" id="navMusicBtn" title="Relaxing Lo-Fi Turntable">
+                                <i class="fas fa-music"></i>
                             </button>
                         </li>
+                        <!-- 6. Motorcycle icon (glowing red) -->
                         <li>
-                            <button type="button" class="nav-link nav-3d-key" data-color="red" id="navMotorcycleDriveBtn" title="Drive Motorcycle Across Room">
-                                <i class="fas fa-motorcycle nav-key-icon"></i>
-                                <span class="nav-key-label">Motorcycle</span>
+                            <button type="button" class="nav-circle-btn glow-red" id="navMotorcycleDriveBtn" title="Cruise Motorcycle Across Room">
+                                <i class="fas fa-motorcycle"></i>
                             </button>
                         </li>
+                        <!-- 7. Email envelope (white) -->
                         <li>
-                            <a href="#contact" class="nav-link nav-3d-key" data-color="black" title="Contact Me">
-                                <i class="fas fa-envelope nav-key-icon"></i>
-                                <span class="nav-key-label">Contact</span>
+                            <a href="#contact" class="nav-circle-btn glow-white" title="Contact & Email">
+                                <i class="fas fa-envelope"></i>
                             </a>
+                        </li>
+                        <!-- 8. Second Music icon -->
+                        <li>
+                            <button type="button" class="nav-circle-btn glow-amber" id="headerMusicToggle" title="Toggle Lo-Fi Music">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </li>
+                        <!-- 9. Settings gear icon -->
+                        <li>
+                            <button type="button" class="nav-circle-btn glow-neutral" id="theme-toggle" title="Settings & Theme">
+                                <i class="fas fa-cog"></i>
+                            </button>
                         </li>
                     </ul>
                 </nav>
 
-                <!-- RIGHT: Music, CV, Hire Me & Theme -->
+                <!-- RIGHT: CV Button (Light Beige Pill) & Hire Me Button (Bright Orange Pill) -->
                 <div class="studio-navbar-actions">
-                    <button type="button" class="studio-icon-btn" id="headerMusicToggle" title="Toggle Relaxing Lo-Fi Music" aria-label="Toggle Lo-Fi Ambient Sound">
-                        <i class="fas fa-music"></i>
-                    </button>
-                    <button type="button" class="studio-icon-btn" id="theme-toggle" title="Switch Theme" aria-label="Switch Theme">
-                        <i class="fas fa-sun theme-icon-sun"></i>
-                        <i class="fas fa-moon theme-icon-moon"></i>
-                    </button>
-                    <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="studio-nav-cv" title="Download Resume (CV)">
-                        <i class="fas fa-file-pdf"></i><span>CV</span>
+                    <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="studio-nav-cv-pill" title="Download Official Resume (PDF)">
+                        <i class="fas fa-file-alt"></i><span>CV</span>
                     </a>
-                    <a href="#contact" class="studio-nav-hire">
-                        <span>Hire Me</span>
-                        <i class="fas fa-paper-plane"></i>
+                    <a href="#contact" class="studio-nav-hire-orange">
+                        <i class="fas fa-paper-plane"></i><span>HIRE ME</span>
                     </a>
                     <button type="button" class="studio-mobile-hamburger" id="navHamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navDropdownPanel">
                         <span class="hamburger-bar"></span>
@@ -328,22 +332,33 @@
                     </div>
                 </div>
 
-                <!-- Bottom HUD: Camera Status & Music Toggle -->
+                <!-- Bottom HUD: WhatsApp Floating Button, Camera Status, Audio Toggle & Teal Chat Bubble -->
                 <div class="studio-bottom-hud">
-                    <div class="studio-camera-status">
-                        <span class="studio-status-pulse"></span>
-                        <span class="studio-status-text">Camera: <strong id="studioCurrentViewName">Overview</strong></span>
-                        <span style="color: rgba(255,255,255,0.2);">|</span>
-                        <a href="#about" class="studio-scroll-hint">
-                            <span>Scroll for full portfolio</span>
-                            <i class="fas fa-chevron-down"></i>
+                    <!-- Left: Green WhatsApp Button & Camera Status -->
+                    <div class="studio-bottom-left-group">
+                        <a href="https://wa.me/923126838112" target="_blank" rel="noreferrer" class="studio-whatsapp-floating-btn" title="Chat on WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
+                        <div class="studio-camera-status">
+                            <span class="studio-status-pulse"></span>
+                            <span class="studio-status-text">Camera: <strong id="studioCurrentViewName">Overview</strong></span>
+                            <span style="color: rgba(255,255,255,0.2);">|</span>
+                            <a href="#about" class="studio-scroll-hint">
+                                <span>Scroll for full portfolio</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Ambient Music Controller (Arsh Khachatrian style bottom-right icon) -->
-                    <button class="studio-audio-btn" id="studioAudioBtn" title="Toggle Relaxing Ambient Lo-Fi Music" aria-label="Toggle Ambient Audio">
-                        <i class="fas fa-volume-mute"></i>
-                    </button>
+                    <!-- Right: Audio Toggle & Teal Chat Bubble Button -->
+                    <div class="studio-bottom-right-group">
+                        <button class="studio-audio-btn" id="studioAudioBtn" title="Toggle Relaxing Ambient Lo-Fi Music" aria-label="Toggle Ambient Audio">
+                            <i class="fas fa-volume-mute"></i>
+                        </button>
+                        <a href="#contact" class="studio-teal-chat-bubble-btn" title="Open Direct Chat">
+                            <i class="fas fa-comments"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Slide-out Case Study Modal / Drawer -->

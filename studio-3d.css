@@ -1653,3 +1653,202 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   CIRCULAR 3D BUTTONS ROW (EXACT REFERENCE RECREATION)
+   ========================================================================== */
+.nav-3d-circles-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-circle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 18, 14, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #d1d5db;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+
+.nav-circle-btn:hover {
+  transform: translateY(-2px) scale(1.08);
+}
+
+/* 1. Home active - glowing yellow with brown house */
+.nav-circle-btn.active-home,
+.nav-circle-btn.active {
+  background: #fbbf24 !important;
+  color: #451a03 !important;
+  border-color: #fde68a !important;
+  box-shadow: 0 0 18px rgba(251, 191, 36, 0.7), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  transform: scale(1.08);
+}
+
+/* 2. Green glowing icons */
+.nav-circle-btn.glow-green {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.35);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.25);
+}
+.nav-circle-btn.glow-green:hover {
+  border-color: #34d399;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.55);
+}
+
+/* 3. Red glowing icons */
+.nav-circle-btn.glow-red {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.35);
+  box-shadow: 0 0 10px rgba(248, 113, 113, 0.25);
+}
+.nav-circle-btn.glow-red:hover {
+  border-color: #f87171;
+  box-shadow: 0 0 16px rgba(248, 113, 113, 0.55);
+}
+
+/* 4. White / Dark Code icon */
+.nav-circle-btn.glow-white {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.nav-circle-btn.glow-white:hover {
+  border-color: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+}
+
+/* 8. Amber Lo-Fi audio icon */
+.nav-circle-btn.glow-amber {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.35);
+}
+.nav-circle-btn.glow-amber:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.5);
+}
+
+/* 9. Settings icon */
+.nav-circle-btn.glow-neutral {
+  color: #9ca3af;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.nav-circle-btn.glow-neutral:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* CV Button: Light Beige Pill */
+.studio-nav-cv-pill {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: #f4eee2;
+  color: #1c1815;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: all 0.22s ease;
+}
+.studio-nav-cv-pill:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  color: #000000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* Hire Me Button: Bright Orange Pill with Dark Text */
+.studio-nav-hire-orange {
+  padding: 8px 20px;
+  border-radius: 9999px;
+  background: #f59e0b;
+  color: #120e0a;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5);
+  transition: all 0.22s ease;
+}
+.studio-nav-hire-orange:hover {
+  background: #fbbf24;
+  transform: translateY(-2px);
+  color: #000000;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.65);
+}
+
+/* Bottom Left & Right HUD Groups */
+.studio-bottom-left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.studio-bottom-right-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Floating WhatsApp Button */
+.studio-whatsapp-floating-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.studio-whatsapp-floating-btn:hover {
+  transform: scale(1.1);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.65);
+}
+
+/* Floating Teal Chat Bubble Button */
+.studio-teal-chat-bubble-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #00897b;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 137, 123, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.studio-teal-chat-bubble-btn:hover {
+  transform: scale(1.1);
+  color: #ffffff;
+  background: #00796b;
+  box-shadow: 0 12px 30px rgba(0, 137, 123, 0.65);
+}
