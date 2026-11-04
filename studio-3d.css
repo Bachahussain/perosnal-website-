@@ -1201,3 +1201,455 @@
   left: 68%;
   z-index: 35;
 }
+
+
+/* ==========================================================================
+   ROOM 02: 3D INTERACTIVE ENGINEERING LAB & SPATIAL BIOGRAPHY
+   ========================================================================== */
+.room-3d-lab-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 15%, #1c1712 0%, #100d0a 55%, #080605 100%);
+  padding: 110px 24px 90px;
+  overflow: hidden;
+  color: #f3f4f6;
+  border-top: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.room-portal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15);
+}
+
+.room-3d-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.room-3d-title span {
+  background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 60%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.room-3d-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: #9ca3af;
+  max-width: 720px;
+  line-height: 1.65;
+  margin-bottom: 45px;
+}
+
+/* 3D Parallax Holo Stage Container */
+.room-3d-stage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 36px;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* 3D Interactive Holographic Chassis (Left Column) */
+.room-holo-chassis {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.room-holo-card {
+  position: relative;
+  background: rgba(26, 21, 17, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+}
+
+.room-holo-card:hover {
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Portrait Halo Stage */
+.room-portrait-stage {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  transform: translateZ(35px);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.room-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 84% 20%;
+  transition: transform 0.6s ease;
+}
+
+.room-holo-card:hover .room-portrait-img {
+  transform: scale(1.05);
+}
+
+.room-portrait-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+}
+
+.room-status-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: rgba(10, 8, 7, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.room-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: hotspotPulse 1.8s infinite alternate;
+}
+
+/* 3D Floating Code Capsule */
+.room-3d-code-box {
+  background: #090807;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 18px;
+  transform: translateZ(50px);
+  margin-bottom: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.room-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.room-code-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.room-code-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.room-code-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.room-code-body {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* 3D Chips */
+.room-3d-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  transform: translateZ(60px);
+  margin-bottom: 24px;
+}
+
+.room-3d-chip {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #d1d5db;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+}
+
+.room-3d-chip:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: #f59e0b;
+  color: #fde68a;
+  transform: translateY(-2px);
+}
+
+/* CV Actions in Room 2 */
+.room-cv-actions {
+  display: flex;
+  gap: 12px;
+  transform: translateZ(70px);
+}
+
+.room-btn-cv {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #0e0c0a;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.25s ease;
+}
+
+.room-btn-cv:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 26px rgba(245, 158, 11, 0.55);
+  color: #000000;
+}
+
+.room-btn-hire {
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.room-btn-hire:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* RIGHT COLUMN: 3D Capabilities & Philosophy Grid */
+.room-capabilities-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 3D Capabilities Matrix Grid */
+.room-capabilities-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.room-cap-card {
+  position: relative;
+  background: rgba(26, 21, 17, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.room-cap-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 24px rgba(245, 158, 11, 0.2);
+}
+
+.room-cap-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.room-cap-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.room-cap-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.room-cap-techs {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.room-cap-tech {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fde68a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 3D Stats Pedestals */
+.room-stats-pedestals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.room-stat-pedestal {
+  background: rgba(26, 21, 17, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease;
+}
+
+.room-stat-pedestal:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.room-stat-icon {
+  font-size: 1.25rem;
+  color: #f59e0b;
+  margin-bottom: 8px;
+}
+
+.room-stat-value {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.room-stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Philosophy 3D Quote Box */
+.room-philosophy-card {
+  background: rgba(26, 21, 17, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 26px 30px;
+  position: relative;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
+}
+
+.room-philosophy-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #e5e7eb;
+  line-height: 1.7;
+  border-left: 3px solid #f59e0b;
+  padding-left: 18px;
+  margin-bottom: 12px;
+}
+
+.room-philosophy-author {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #fbbf24;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding-left: 21px;
+}
+
+@media (max-width: 1024px) {
+  .room-3d-stage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .room-capabilities-matrix {
+    grid-template-columns: 1fr;
+  }
+  .room-stats-pedestals {
+    grid-template-columns: 1fr;
+  }
+}

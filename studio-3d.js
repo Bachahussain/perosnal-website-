@@ -370,8 +370,11 @@
           </div>
         </div>
         <div class="case-study-actions" style="margin-top: 20px;">
-          <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="btn-case-live">
-            <i class="fas fa-file-pdf"></i> <span>Download Resume (CV)</span>
+          <a href="#about" onclick="document.getElementById('studioModalOverlay').classList.remove('active'); document.body.style.overflow=''; const ab = document.getElementById('about'); if(ab) ab.scrollIntoView({behavior:'smooth'});" class="btn-case-live" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #000; font-weight: 700;">
+            <i class="fas fa-door-open"></i> <span>Enter Room 02: Lab</span>
+          </a>
+          <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="btn-case-repo">
+            <i class="fas fa-file-pdf"></i> <span>Download CV</span>
           </a>
           <a href="#contact" onclick="document.getElementById('studioModalOverlay').classList.remove('active'); document.body.style.overflow='';" class="btn-case-repo">
             <span>Hire Me</span>
@@ -461,6 +464,9 @@
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
           renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+      }
+    }
         
     // ========================================================
     // MOTORCYCLE DRIVING INTERACTION (VESPA SCOOTER)
@@ -525,4 +531,52 @@
     if (navMotorcycleBtn) navMotorcycleBtn.addEventListener('click', driveMotorcycle);
     if (mobileMotorcycleBtn) mobileMotorcycleBtn.addEventListener('click', driveMotorcycle);
 
-});
+    // ========================================================
+    // ROOM 02: 3D HOLOGRAPHIC PARALLAX TILT & SPATIAL LAB
+    // ========================================================
+    const holoChassis = document.getElementById('roomHoloChassis');
+    const holoCard = document.getElementById('roomHoloCard');
+
+    if (holoChassis && holoCard) {
+      holoChassis.addEventListener('mousemove', (e) => {
+        const rect = holoChassis.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateY = ((x - centerX) / centerX) * 12;
+        const rotateX = -((y - centerY) / centerY) * 12;
+        holoCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(18px)`;
+      });
+
+      holoChassis.addEventListener('mouseleave', () => {
+        holoCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+    }
+
+    // Interactive 3D micro-tilt for capabilities cards
+    const capCards = document.querySelectorAll('.room-cap-card');
+    capCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateY = ((x - centerX) / centerX) * 8;
+        const rotateX = -((y - centerY) / centerY) * 8;
+        card.style.transform = `perspective(800px) translateY(-5px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0px) rotateX(0deg) rotateY(0deg)';
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

@@ -382,183 +382,187 @@
                 </div>
             </div>
 
-            <!-- About Section -->
-            <section id="about">
-                <div class="section-watermark">About</div>
-                <header class="section-header fade-up">
-                    <h2 class="section-title">About Me</h2>
-                </header>
-
-                <div class="about-grid fade-up">
-                    <!-- Animating Cartoon (Lottie) -->
-                    <div class="about-image">
-                        <div id="lottie-cartoon" style="width: 100%; height: 400px;"></div>
+            <!-- ========================================================
+                 ROOM 02: 3D INTERACTIVE ENGINEERING LAB & SPATIAL BIOGRAPHY
+                 ======================================================== -->
+            <section id="about" class="room-3d-lab-section">
+                <!-- Connected Room Transition Portal -->
+                <div class="container" style="max-width: 1440px; margin: 0 auto;">
+                    <div class="room-portal-badge">
+                        <i class="fas fa-door-open"></i> ROOM 02 : THE ENGINEERING LAB &amp; STORY
                     </div>
+                    <h2 class="room-3d-title">
+                        Building <span>Full-Stack Systems</span> with Architectural Precision
+                    </h2>
+                    <p class="room-3d-subtitle">
+                        I am a results-driven Full Stack Web Developer pursuing my Bachelor of Computer Science at 
+                        <strong style="color: #fbbf24;">Punjab University (PUCIT), Lahore</strong>. Specializing in high-concurrency web applications, 
+                        cloud APIs, and AI integrations that combine peak performance with immersive experiences.
+                    </p>
 
-                    <div class="about-content">
-                        <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--text-dark);">Building <span
-                                style="color: var(--accent-teal);">Full Stack</span> Web <span
-                                style="color: var(--accent-teal);">Applications</span></h3>
+                    <!-- 3D Interactive Spatial Laboratory Stage -->
+                    <div class="room-3d-stage-grid">
+                        <!-- LEFT STAGE: 3D Interactive Holographic Persona & CV -->
+                        <div class="room-holo-chassis" id="roomHoloChassis">
+                            <div class="room-holo-card" id="roomHoloCard">
+                                <!-- Real Developer Photo on 3D Pedestal -->
+                                <div class="room-portrait-stage">
+                                    <img src="background-image.png" alt="Bacha Hussain - Full Stack Developer" class="room-portrait-img">
+                                    <div class="room-portrait-glare"></div>
+                                    <div class="room-status-badge">
+                                        <span class="room-status-dot"></span>
+                                        <span>Available for Full-Stack Roles</span>
+                                    </div>
+                                </div>
 
-                        <p style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 20px; line-height: 1.8;">
-                            I am a results-driven <strong>Full Stack Web Developer</strong> currently pursuing my
-                            Bachelor of Computer Science at <span
-                                style="color: var(--accent-teal); font-weight: 600;">Punjab University, Lahore</span>. I
-                            specialize in building complete web applications using modern
-                            technologies.
-                        </p>
+                                <!-- 3D Interactive Terminal Code Capsule -->
+                                <div class="room-3d-code-box">
+                                    <div class="room-code-header">
+                                        <div class="room-code-dots">
+                                            <span class="room-code-dot" style="background: #ef4444;"></span>
+                                            <span class="room-code-dot" style="background: #f59e0b;"></span>
+                                            <span class="room-code-dot" style="background: #10b981;"></span>
+                                        </div>
+                                        <span class="room-code-title">developer.js</span>
+                                    </div>
+                                    <pre class="room-code-body"><code><span style="color: #60a5fa;">const</span> <span style="color: #fde68a;">engineer</span> = {
+  <span style="color: #a7f3d0;">name</span>: <span style="color: #fca5a5;">'Bacha Hussain'</span>,
+  <span style="color: #a7f3d0;">university</span>: <span style="color: #fca5a5;">'PUCIT (Punjab University, Lahore)'</span>,
+  <span style="color: #a7f3d0;">stack</span>: [<span style="color: #fca5a5;">'React'</span>, <span style="color: #fca5a5;">'Next.js'</span>, <span style="color: #fca5a5;">'Node.js'</span>, <span style="color: #fca5a5;">'MongoDB'</span>],
+  <span style="color: #a7f3d0;">ai</span>: <span style="color: #fca5a5;">'Google Gemini API & Realtime Systems'</span>,
+  <span style="color: #a7f3d0;">philosophy</span>: <span style="color: #fca5a5;">'Code for real-world impact'</span>
+};</code></pre>
+                                </div>
 
-                        <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem;">
-                            I build everything from pixel-perfect frontends to robust backend systems. Using
-                            <strong>React.js, Node.js, MongoDB, and Next.js</strong>, I create web applications that are
-                            fast, scalable, and visually stunning. My goal is to <em>deliver solutions that combine peak
-                                performance with beautiful user experiences.</em>
-                        </p>
+                                <!-- Floating 3D Capabilities Chips -->
+                                <div class="room-3d-chips">
+                                    <span class="room-3d-chip"><i class="fas fa-graduation-cap" style="color: #fbbf24;"></i> PUCIT Scholar</span>
+                                    <span class="room-3d-chip"><i class="fab fa-react" style="color: #38bdf8;"></i> React &amp; Next.js</span>
+                                    <span class="room-3d-chip"><i class="fab fa-node-js" style="color: #4ade80;"></i> Node.js REST APIs</span>
+                                    <span class="room-3d-chip"><i class="fas fa-brain" style="color: #c084fc;"></i> Gemini AI</span>
+                                </div>
 
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <i class="fas fa-graduation-cap"
-                                    style="color: var(--accent-teal); margin-bottom: 10px;"></i>
-                                <span class="stat-number">Punjab</span>
-                                <span class="stat-label">University Scholar</span>
-                            </div>
-                            <div class="stat-card">
-                                <i class="fas fa-code" style="color: var(--accent-teal); margin-bottom: 10px;"></i>
-                                <span class="stat-number">Full Stack</span>
-                                <span class="stat-label">Web Expert</span>
-                            </div>
-                            <div class="stat-card">
-                                <i class="fas fa-brain" style="color: var(--accent-teal); margin-bottom: 10px;"></i>
-                                <span class="stat-number">AI</span>
-                                <span class="stat-label">Integration</span>
+                                <!-- 3D CV & Hire Actions -->
+                                <div class="room-cv-actions">
+                                    <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="room-btn-cv" title="Download Official Resume (PDF)">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Download CV (PDF)</span>
+                                    </a>
+                                    <a href="#contact" class="room-btn-hire">
+                                        <span>Hire Me</span>
+                                        <i class="fas fa-paper-plane"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <div
-                            style="margin-top: 50px; background: rgba(20, 184, 166, 0.05); padding: 30px; border-radius: 20px; border-left: 5px solid var(--accent-teal);">
-                            <h4
-                                style="color: var(--text-dark); margin-bottom: 20px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-rocket"></i> Core Expertise
-                            </h4>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                                <div style="display: flex; gap: 12px; align-items: flex-start;">
-                                    <i class="fas fa-check-circle"
-                                        style="color: var(--accent-teal); margin-top: 5px;"></i>
-                                    <div>
-                                        <strong style="display: block; color: var(--text-dark);">Frontend
-                                            Development</strong>
-                                        <span style="font-size: 0.9rem; color: var(--text-muted);">React.js, Next.js,
-                                            Tailwind CSS, TypeScript.</span>
+                        <!-- RIGHT STAGE: 3D Capabilities Matrix, Stats & Philosophy -->
+                        <div class="room-capabilities-column">
+                            <!-- 4 3D Glass Capabilities Cards -->
+                            <div class="room-capabilities-matrix">
+                                <!-- Card 1: Frontend -->
+                                <div class="room-cap-card">
+                                    <div class="room-cap-icon-box" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">
+                                        <i class="fab fa-react"></i>
+                                    </div>
+                                    <h3 class="room-cap-title">Frontend Engineering</h3>
+                                    <p class="room-cap-desc">Pixel-perfect, high-performance user interfaces with smooth kinetic animations and 98+ Lighthouse scores.</p>
+                                    <div class="room-cap-techs">
+                                        <span class="room-cap-tech">React.js</span>
+                                        <span class="room-cap-tech">Next.js</span>
+                                        <span class="room-cap-tech">Tailwind CSS</span>
+                                        <span class="room-cap-tech">TypeScript</span>
                                     </div>
                                 </div>
-                                <div style="display: flex; gap: 12px; align-items: flex-start;">
-                                    <i class="fas fa-server" style="color: var(--accent-teal); margin-top: 5px;"></i>
-                                    <div>
-                                        <strong style="display: block; color: var(--text-dark);">Backend
-                                            Development</strong>
-                                        <span style="font-size: 0.9rem; color: var(--text-muted);">Node.js, Express.js,
-                                            REST APIs, Firebase.</span>
+
+                                <!-- Card 2: Backend -->
+                                <div class="room-cap-card">
+                                    <div class="room-cap-icon-box" style="background: rgba(74, 222, 128, 0.12); color: #4ade80; border-color: rgba(74, 222, 128, 0.3);">
+                                        <i class="fas fa-server"></i>
+                                    </div>
+                                    <h3 class="room-cap-title">Backend Architecture</h3>
+                                    <p class="room-cap-desc">Robust microservices, secure authentication, and resilient REST APIs engineered for horizontal scale.</p>
+                                    <div class="room-cap-techs">
+                                        <span class="room-cap-tech">Node.js</span>
+                                        <span class="room-cap-tech">Express.js</span>
+                                        <span class="room-cap-tech">REST APIs</span>
+                                        <span class="room-cap-tech">Firebase</span>
                                     </div>
                                 </div>
-                                <div style="display: flex; gap: 12px; align-items: flex-start;">
-                                    <i class="fas fa-database" style="color: var(--accent-teal); margin-top: 5px;"></i>
-                                    <div>
-                                        <strong style="display: block; color: var(--text-dark);">Database
-                                            Management</strong>
-                                        <span style="font-size: 0.9rem; color: var(--text-muted);">MongoDB, MySQL —
-                                            scalable data architecture.</span>
+
+                                <!-- Card 3: Databases -->
+                                <div class="room-cap-card">
+                                    <div class="room-cap-icon-box" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <h3 class="room-cap-title">Database &amp; Data Layer</h3>
+                                    <p class="room-cap-desc">Optimized document and relational data pipelines with indexing, aggregations, and caching.</p>
+                                    <div class="room-cap-techs">
+                                        <span class="room-cap-tech">MongoDB</span>
+                                        <span class="room-cap-tech">MySQL</span>
+                                        <span class="room-cap-tech">Firestore</span>
                                     </div>
                                 </div>
-                                <div style="display: flex; gap: 12px; align-items: flex-start;">
-                                    <i class="fas fa-robot" style="color: var(--accent-teal); margin-top: 5px;"></i>
-                                    <div>
-                                        <strong style="display: block; color: var(--text-dark);">AI Integration</strong>
-                                        <span style="font-size: 0.9rem; color: var(--text-muted);">Google Gemini, AI
-                                            chatbots, smart web apps.</span>
+
+                                <!-- Card 4: AI Integration -->
+                                <div class="room-cap-card">
+                                    <div class="room-cap-icon-box" style="background: rgba(192, 132, 252, 0.12); color: #c084fc; border-color: rgba(192, 132, 252, 0.3);">
+                                        <i class="fas fa-robot"></i>
                                     </div>
+                                    <h3 class="room-cap-title">Gemini AI Systems</h3>
+                                    <p class="room-cap-desc">Smart chatbots, automated generative pipelines, real-time multimodal assistants, and AI tooling.</p>
+                                    <div class="room-cap-techs">
+                                        <span class="room-cap-tech">Google Gemini</span>
+                                        <span class="room-cap-tech">AI Chatbots</span>
+                                        <span class="room-cap-tech">Automation</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3 3D Statistics Pedestals -->
+                            <div class="room-stats-pedestals">
+                                <div class="room-stat-pedestal">
+                                    <i class="fas fa-graduation-cap room-stat-icon"></i>
+                                    <div class="room-stat-value">PUCIT</div>
+                                    <div class="room-stat-label">University Scholar</div>
+                                </div>
+                                <div class="room-stat-pedestal">
+                                    <i class="fas fa-code room-stat-icon" style="color: #38bdf8;"></i>
+                                    <div class="room-stat-value">Full Stack</div>
+                                    <div class="room-stat-label">Production Expert</div>
+                                </div>
+                                <div class="room-stat-pedestal">
+                                    <i class="fas fa-brain room-stat-icon" style="color: #c084fc;"></i>
+                                    <div class="room-stat-value">Gemini AI</div>
+                                    <div class="room-stat-label">Smart Integrations</div>
+                                </div>
+                            </div>
+
+                            <!-- Behind the Scenes & Philosophy Card -->
+                            <div class="room-philosophy-card" id="story">
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f59e0b; box-shadow: 0 0 10px #f59e0b;"></span>
+                                    <span style="font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fbbf24;">
+                                        Behind the Scenes • Engineering Philosophy
+                                    </span>
+                                </div>
+                                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.8rem; color: #ffffff; margin-bottom: 12px;">
+                                    Nice to meet you. I'm <span style="color: #fbbf24;">Bacha</span>
+                                </h3>
+                                <p class="room-philosophy-quote">
+                                    "I believe that great code is more than just syntax — it's about solving real problems for real people. Every component I build and every API I design is a step toward creating meaningful, scalable digital experiences."
+                                </p>
+                                <p style="font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin-bottom: 8px;">
+                                    Beyond the screen, I am a lifelong learner. Whether it's exploring new frameworks at Punjab University or building community platforms, I stay driven by curiosity and the pursuit of excellence.
+                                </p>
+                                <div class="room-philosophy-author">
+                                    — Bacha Hussain · Full Stack Web Developer (PUCIT Lahore)
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!-- Personal Story Section -->
-            <section id="story" class="section-card" style="margin: 0 20px 100px; padding: 50px 40px;">
-                <div class="story-grid fade-up" style="align-items: center;">
-                    <div class="about-content">
-                        <div class="status-indicator"
-                            style="background: rgba(255,107,107,0.1); color: #ff6b6b; border-color: rgba(255,107,107,0.2);">
-                            <span class="pulse-dot" style="background: #ff6b6b;"></span>
-                            Behind the Scenes
-                        </div>
-                        <h2 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px;">
-                            Nice to meet you. <br> I'm <span class="name">Bacha</span>
-                        </h2>
-
-                        <div class="philosophy-text" style="font-size: 1.1rem; color: #94a3b8; line-height: 1.8;">
-                            <p style="margin-bottom: 25px;">
-                                "I believe that great code is more than just syntax — it's about solving real problems
-                                for real people. Every component I build and every API I design is a step toward
-                                creating meaningful digital experiences."
-                            </p>
-                            <p style="margin-bottom: 25px;">
-                                Beyond the screen, I am a lifelong learner. Whether it's exploring new frameworks at
-                                Punjab University or building community platforms, I stay driven by curiosity and the
-                                pursuit of excellence.
-                            </p>
-                            <p
-                                style="font-style: italic; border-left: 3px solid var(--accent-teal); padding-left: 20px; color: var(--white);">
-                                "Success is not just about being the best, it's about being better than you were
-                                yesterday."
-                            </p>
-                        </div>
-
-                        <!-- Professional Code Card -->
-                        <div class="code-card">
-                            <div class="code-header">
-                                <div class="code-controls">
-                                    <div class="control red"></div>
-                                    <div class="control yellow"></div>
-                                    <div class="control green"></div>
-                                </div>
-                                <div class="code-file">developer.js</div>
-                            </div>
-                            <pre><code class="code-body"><span class="code-comment">// Full Stack Web Developer</span>
-<span class="code-keyword">const</span> <span class="code-variable">developer</span> <span class="code-operator">=</span> <span class="code-bracket">{</span>
-  <span class="code-property">name</span><span class="code-operator">:</span> <span class="code-string">'Bacha Hussain'</span><span class="code-operator">,</span>
-  <span class="code-property">skills</span><span class="code-operator">:</span> <span class="code-bracket">[</span><span class="code-string">'React'</span><span class="code-operator">,</span> <span class="code-string">'Node.js'</span><span class="code-operator">,</span> <span class="code-string">'MongoDB'</span><span class="code-operator">,</span> <span class="code-string">'Next.js'</span><span class="code-bracket">]</span><span class="code-operator">,</span>
-  <span class="code-property">expertise</span><span class="code-operator">:</span> <span class="code-bracket">[</span><span class="code-string">'Full Stack'</span><span class="code-operator">,</span> <span class="code-string">'REST APIs'</span><span class="code-operator">,</span> <span class="code-string">'AI Apps'</span><span class="code-bracket">]</span><span class="code-operator">,</span>
-  <span class="code-property">learning</span><span class="code-operator">:</span> <span class="code-string">'Always'</span>
-<span class="code-bracket">}</span><span class="code-operator">;</span></code></pre>
-                        </div>
-                    </div>
-
-                    <!-- Premium Red Flower Accent CV Frame (Right Column) -->
-                    <div class="cv-frame-wrapper fade-up">
-                        <div class="cv-frame red-floral-frame">
-                            <div class="floral-corner top-left"><i class="fas fa-spa"></i></div>
-                            <div class="floral-corner top-right"><i class="fas fa-spa"></i></div>
-                            <div class="floral-corner bottom-left"><i class="fas fa-spa"></i></div>
-                            <div class="floral-corner bottom-right"><i class="fas fa-spa"></i></div>
-                            
-                            <div class="cv-frame-header">
-                                <span class="cv-frame-title">
-                                    <i class="fas fa-file-alt" style="color: #ff4757; margin-right: 8px;"></i>
-                                    Curriculum Vitae
-                                </span>
-                                <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="cv-download-btn red-btn" title="Download CV (PDF)">
-                                    <i class="fas fa-download"></i> PDF
-                                </a>
-                            </div>
-                            <div class="cv-image-container">
-                                <img src="cv-preview.png" alt="Bacha Hussain CV Preview" class="cv-preview-img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Career Journey Timeline Section -->
                     <section id="experience" class="py-5">
                         <div class="container">
