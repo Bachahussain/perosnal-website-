@@ -212,7 +212,7 @@
         } else if (action === 'turntable') {
           setWaypoint('lounge');
           toggleMusic();
-        } else if (action === 'vespa') {
+        } else if (action === 'vespa') { driveMotorcycle(); return; } else if (false) {
           const contactSec = document.getElementById('contact');
           if (contactSec) contactSec.scrollIntoView({ behavior: 'smooth' });
         }
@@ -461,14 +461,68 @@
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
           renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-      }
-    }
-  }
+        
+    // ========================================================
+    // MOTORCYCLE DRIVING INTERACTION (VESPA SCOOTER)
+    // ========================================================
+    const vespaActor = document.getElementById('studioVespaMotorcycle');
+    const vespaHotspot = document.getElementById('vespaHotspot');
+    const navMotorcycleBtn = document.getElementById('navMotorcycleDriveBtn');
+    const mobileMotorcycleBtn = document.getElementById('mobileMotorcycleBtn');
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+    function driveMotorcycle() {
+      if (vespaActor) {
+        vespaActor.classList.remove('driving');
+        void vespaActor.offsetWidth; // trigger reflow
+        vespaActor.classList.add('driving');
+      }
+
+      // Synthesize gentle vintage scooter engine throttle rev using Web Audio
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        const vCtx = new AudioCtx();
+        const now = vCtx.currentTime;
+        const osc = vCtx.createOscillator();
+        const gain = vCtx.createGain();
+        const filter = vCtx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(80, now);
+        osc.frequency.exponentialRampToValueAtTime(180, now + 0.6);
+        osc.frequency.exponentialRampToValueAtTime(120, now + 1.8);
+        osc.frequency.exponentialRampToValueAtTime(40, now + 2.4);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(350, now);
+        filter.frequency.exponentialRampToValueAtTime(750, now + 0.8);
+        filter.frequency.exponentialRampToValueAtTime(250, now + 2.4);
+
+        gain.gain.setValueAtTime(0.01, now);
+        gain.gain.linearRampToValueAtTime(0.12, now + 0.3);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 2.4);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(vCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 2.5);
+      } catch (e) {
+        // audio optional
+      }
+
+      // Smooth scroll to Contact after driving across the room
+      setTimeout(() => {
+        const contactSec = document.getElementById('contact');
+        if (contactSec) {
+          contactSec.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 1600);
+    }
+
+    if (vespaActor) vespaActor.addEventListener('click', driveMotorcycle);
+    if (vespaHotspot) vespaHotspot.addEventListener('click', driveMotorcycle);
+    if (navMotorcycleBtn) navMotorcycleBtn.addEventListener('click', driveMotorcycle);
+    if (mobileMotorcycleBtn) mobileMotorcycleBtn.addEventListener('click', driveMotorcycle);
+
+});

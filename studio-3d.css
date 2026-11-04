@@ -1024,3 +1024,180 @@
   height: 100vh !important;
   min-height: 100vh !important;
 }
+
+
+/* ==========================================================================
+   FLOATING WARM GLASS 3D HUD (MATCHES DAYLIGHT ROOM ENVIRONMENT)
+   ========================================================================== */
+.studio-unified-navbar {
+  position: fixed !important;
+  top: 14px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 0 16px !important;
+  pointer-events: none !important;
+}
+
+.studio-unified-navbar::after {
+  display: none !important;
+  content: none !important;
+}
+
+.studio-navbar-container {
+  pointer-events: auto !important;
+  width: auto !important;
+  max-width: 1480px !important;
+  background: rgba(28, 22, 17, 0.48) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 9999px !important;
+  padding: 6px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.studio-navbar-container:hover {
+  background: rgba(28, 22, 17, 0.68) !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Studio Hero Stage Fill Screen Without Heavy Dark Bar Offset */
+.studio-hero-section {
+  padding-top: 0 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+}
+
+/* 3D Key Navigation List in Studio HUD */
+.studio-3d-key-nav .nav-3d-list {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.studio-3d-key-nav .nav-3d-key {
+  height: 38px !important;
+  padding: 0 16px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  background: rgba(25, 21, 18, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #e5e7eb !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 3px 0 rgba(0, 0, 0, 0.55), 0 8px 14px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  cursor: pointer !important;
+  outline: none !important;
+  text-decoration: none !important;
+  transform: perspective(500px) translateZ(0) !important;
+}
+
+.studio-3d-key-nav .nav-3d-key:hover {
+  transform: perspective(500px) rotateX(8deg) translateY(-2px) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 5px 0 rgba(0, 0, 0, 0.7), 0 12px 20px rgba(0, 0, 0, 0.45) !important;
+  color: #ffffff !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+.studio-3d-key-nav .nav-3d-key:active {
+  transform: translateY(2px) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+.studio-3d-key-nav .nav-3d-key.active {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+  color: #1c1917 !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+.studio-3d-key-nav .nav-3d-key.active .nav-key-icon {
+  color: #b45309 !important;
+}
+
+/* ==========================================================================
+   ANIMATED 3D MOTORCYCLE (YELLOW VESPA SCOOTER IN ROOM)
+   ========================================================================== */
+.studio-vespa-animator {
+  position: absolute;
+  top: 59%;
+  left: 63%;
+  width: 25%;
+  height: 33%;
+  z-index: 25;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: vespaRumble 1.4s infinite ease-in-out;
+  transition: transform 0.4s ease;
+}
+
+.studio-vespa-animator:hover {
+  transform: scale(1.03);
+}
+
+.studio-vespa-animator.driving {
+  animation: vespaDriveRide 2.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards !important;
+}
+
+@keyframes vespaRumble {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(0.6px, -1px) rotate(0.2deg); }
+  50% { transform: translate(-0.6px, 0.6px) rotate(-0.2deg); }
+  75% { transform: translate(0.8px, -0.6px) rotate(0.1deg); }
+}
+
+@keyframes vespaDriveRide {
+  0% { transform: translate3d(0, 0, 0) scale(1); filter: drop-shadow(0 6px 14px rgba(0,0,0,0.4)); }
+  20% { transform: translate3d(-140px, 15px, 0) scale(1.08) rotate(-1deg); filter: drop-shadow(0 14px 26px rgba(0,0,0,0.55)); }
+  50% { transform: translate3d(-380px, 40px, 0) scale(1.22) rotate(1deg); filter: drop-shadow(0 22px 38px rgba(0,0,0,0.65)); }
+  80% { transform: translate3d(-560px, 58px, 0) scale(1.32) rotate(-0.5deg); filter: drop-shadow(0 28px 46px rgba(0,0,0,0.7)); }
+  100% { transform: translate3d(-750px, 75px, 0) scale(1.4) rotate(0deg); filter: drop-shadow(0 34px 54px rgba(0,0,0,0.75)); }
+}
+
+.vespa-headlight-glow {
+  position: absolute;
+  top: 18%;
+  left: 6%;
+  width: 140px;
+  height: 60px;
+  background: radial-gradient(ellipse at left, rgba(254, 240, 138, 0.7) 0%, rgba(254, 240, 138, 0.2) 45%, transparent 75%);
+  transform: rotate(-15deg);
+  opacity: 0.75;
+  pointer-events: none;
+  filter: blur(4px);
+  animation: headlightFlicker 2.5s infinite ease-in-out;
+}
+
+@keyframes headlightFlicker {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 0.95; }
+}
+
+.hotspot-vespa {
+  top: 68%;
+  left: 68%;
+  z-index: 35;
+}

@@ -154,46 +154,72 @@
             <i class="fas fa-comments"></i>
         </button>
 
-        <!-- Unified Luxury 3D Virtual Studio Top Navigation Bar -->
+        <!-- Floating Warm Glass 3D HUD Navigation (Matches Room Daylight Environment) -->
         <header class="top-navbar studio-unified-navbar" id="topNavbar" role="banner">
             <div class="studio-navbar-container">
-                <!-- LEFT: Modern Minimalist Brand -->
+                <!-- LEFT: Brand Tag -->
                 <a href="#home" class="studio-brand-link" aria-label="Bacha Hussain - Home">
                     <span class="studio-brand-badge">BH</span>
                     <div class="studio-brand-meta">
                         <span class="studio-brand-name">Bacha Hussain</span>
-                        <span class="studio-brand-tagline">Full Stack Developer • PUCIT</span>
+                        <span class="studio-brand-tagline">Full Stack Developer</span>
                     </div>
                 </a>
 
-                <!-- CENTER: 3D Studio Spatial Waypoint Navigation (Glassmorphic 3D Buttons) -->
-                <nav class="studio-waypoints-nav" aria-label="3D Studio Waypoints">
-                    <button class="studio-waypoint-btn active" data-waypoint="overview" title="Full Studio Overview">
-                        <i class="fas fa-compass"></i><span>Studio Overview</span>
-                    </button>
-                    <button class="studio-waypoint-btn" data-waypoint="projects" title="Inspect Projects Wall">
-                        <i class="fas fa-th-large"></i><span>Projects Wall</span>
-                    </button>
-                    <button class="studio-waypoint-btn" data-waypoint="portrait" title="Inspect About Me & Bio">
-                        <i class="fas fa-user-tie"></i><span>About &amp; Bio</span>
-                    </button>
-                    <button class="studio-waypoint-btn" data-waypoint="pucit" title="Inspect PUCIT Academic Degree">
-                        <i class="fas fa-graduation-cap"></i><span>PUCIT Degree</span>
-                    </button>
-                    <button class="studio-waypoint-btn" data-waypoint="desk" title="Inspect Workstation Tech Stack">
-                        <i class="fas fa-code"></i><span>Workstation</span>
-                    </button>
-                    <button class="studio-waypoint-btn" data-waypoint="lounge" title="Relaxing Lo-Fi Turntable">
-                        <i class="fas fa-record-vinyl"></i><span>Vinyl Lounge</span>
-                    </button>
+                <!-- CENTER: Tactile 3D Pill Key Navigation (.nav-3d-key system) -->
+                <nav class="navbar-nav-center studio-3d-key-nav" aria-label="Studio 3D Navigation">
+                    <ul class="nav-3d-list">
+                        <li>
+                            <button type="button" class="nav-link nav-3d-key active studio-waypoint-btn" data-color="green" data-waypoint="overview" title="Full Studio Overview">
+                                <i class="fas fa-house nav-key-icon"></i>
+                                <span class="nav-key-label">Overview</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="projects" title="Projects Gallery Wall">
+                                <i class="fas fa-layer-group nav-key-icon"></i>
+                                <span class="nav-key-label">Projects</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="red" data-waypoint="portrait" title="About & Bio">
+                                <i class="fas fa-user nav-key-icon"></i>
+                                <span class="nav-key-label">About</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="black" data-waypoint="desk" title="Workstation Tech Stack">
+                                <i class="fas fa-code nav-key-icon"></i>
+                                <span class="nav-key-label">Workstation</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="nav-link nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="lounge" title="Relaxing Lo-Fi Turntable">
+                                <i class="fas fa-music nav-key-icon"></i>
+                                <span class="nav-key-label">Lounge</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="nav-link nav-3d-key" data-color="red" id="navMotorcycleDriveBtn" title="Drive Motorcycle Across Room">
+                                <i class="fas fa-motorcycle nav-key-icon"></i>
+                                <span class="nav-key-label">Motorcycle</span>
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav-link nav-3d-key" data-color="black" title="Contact Me">
+                                <i class="fas fa-envelope nav-key-icon"></i>
+                                <span class="nav-key-label">Contact</span>
+                            </a>
+                        </li>
+                    </ul>
                 </nav>
 
-                <!-- RIGHT: Actions, Theme, Music, CV & Contact -->
+                <!-- RIGHT: Music, CV, Hire Me & Theme -->
                 <div class="studio-navbar-actions">
-                    <button type="button" class="studio-icon-btn" id="headerMusicToggle" title="Toggle Relaxing Lo-Fi Music" aria-label="Toggle Ambient Sound">
+                    <button type="button" class="studio-icon-btn" id="headerMusicToggle" title="Toggle Relaxing Lo-Fi Music" aria-label="Toggle Lo-Fi Ambient Sound">
                         <i class="fas fa-music"></i>
                     </button>
-                    <button type="button" class="studio-icon-btn" id="theme-toggle" title="Switch Dark/Light Theme" aria-label="Switch Theme">
+                    <button type="button" class="studio-icon-btn" id="theme-toggle" title="Switch Theme" aria-label="Switch Theme">
                         <i class="fas fa-sun theme-icon-sun"></i>
                         <i class="fas fa-moon theme-icon-moon"></i>
                     </button>
@@ -204,7 +230,6 @@
                         <span>Hire Me</span>
                         <i class="fas fa-paper-plane"></i>
                     </a>
-                    <!-- Mobile Hamburger -->
                     <button type="button" class="studio-mobile-hamburger" id="navHamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navDropdownPanel">
                         <span class="hamburger-bar"></span>
                         <span class="hamburger-bar"></span>
@@ -218,12 +243,12 @@
                 <div class="studio-mobile-waypoints">
                     <div class="studio-mobile-section-label">3D Studio Waypoints</div>
                     <div class="studio-mobile-grid">
-                        <button class="studio-waypoint-btn active" data-waypoint="overview"><i class="fas fa-compass"></i><span>Overview</span></button>
-                        <button class="studio-waypoint-btn" data-waypoint="projects"><i class="fas fa-th-large"></i><span>Projects Wall</span></button>
-                        <button class="studio-waypoint-btn" data-waypoint="portrait"><i class="fas fa-user-tie"></i><span>About &amp; Bio</span></button>
-                        <button class="studio-waypoint-btn" data-waypoint="pucit"><i class="fas fa-graduation-cap"></i><span>PUCIT Degree</span></button>
-                        <button class="studio-waypoint-btn" data-waypoint="desk"><i class="fas fa-code"></i><span>Workstation</span></button>
-                        <button class="studio-waypoint-btn" data-waypoint="lounge"><i class="fas fa-record-vinyl"></i><span>Vinyl Lounge</span></button>
+                        <button class="nav-3d-key active studio-waypoint-btn" data-color="green" data-waypoint="overview"><i class="fas fa-house"></i><span>Overview</span></button>
+                        <button class="nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="projects"><i class="fas fa-layer-group"></i><span>Projects</span></button>
+                        <button class="nav-3d-key studio-waypoint-btn" data-color="red" data-waypoint="portrait"><i class="fas fa-user"></i><span>About</span></button>
+                        <button class="nav-3d-key studio-waypoint-btn" data-color="black" data-waypoint="desk"><i class="fas fa-code"></i><span>Workstation</span></button>
+                        <button class="nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="lounge"><i class="fas fa-music"></i><span>Lounge</span></button>
+                        <button class="nav-3d-key" data-color="red" id="mobileMotorcycleBtn"><i class="fas fa-motorcycle"></i><span>Ride Vespa</span></button>
                     </div>
                     <div class="studio-mobile-section-label" style="margin-top: 14px;">Explore Portfolio</div>
                     <div class="studio-mobile-links">
@@ -269,13 +294,7 @@
                             </div>
                         </div>
 
-                        <!-- 3. Framed PUCIT Academic Degree -->
-                        <div class="studio-hotspot hotspot-pucit" data-action="pucit" title="Click to inspect PUCIT Degree">
-                            <div class="studio-hotspot-inner">
-                                <span class="studio-hotspot-dot"></span>
-                                <span>PUCIT Degree</span>
-                            </div>
-                        </div>
+                        
 
                         <!-- 4. Standing Workstation Desk -->
                         <div class="studio-hotspot hotspot-desk" data-action="desk" title="Click to inspect Tech Stack & Tools">
@@ -293,11 +312,17 @@
                             </div>
                         </div>
 
-                        <!-- 6. Vespa Transport -->
-                        <div class="studio-hotspot hotspot-vespa" data-action="vespa" title="Jump to Contact & Hire Me">
+                        
+                        <!-- Interactive Moving Motorcycle (Yellow Vespa Scooter) -->
+                        <div class="studio-vespa-animator" id="studioVespaMotorcycle" data-action="vespa" title="Click to drive motorcycle across the room!">
+                            <div class="vespa-headlight-glow"></div>
+                        </div>
+
+                        <!-- 6. Motorcycle Cruise Hotspot -->
+                        <div class="studio-hotspot hotspot-vespa" data-action="vespa" id="vespaHotspot" title="Click to drive motorcycle across the room!">
                             <div class="studio-hotspot-inner">
                                 <span class="studio-hotspot-dot"></span>
-                                <span>Hire Me · Contact</span>
+                                <span><i class="fas fa-motorcycle"></i> Cruise Motorcycle</span>
                             </div>
                         </div>
                     </div>
