@@ -154,87 +154,126 @@
             <i class="fas fa-comments"></i>
         </button>
 
-        <!-- Floating Warm Glass 3D HUD Navigation (Matches Room Daylight Environment) -->
-        <header class="top-navbar studio-unified-navbar" id="topNavbar" role="banner">
-            <div class="studio-navbar-container">
-                <!-- LEFT: Brand Tag -->
-                <a href="#home" class="studio-brand-link" aria-label="Bacha Hussain - Home">
-                    <span class="studio-brand-badge">BH</span>
-                    <div class="studio-brand-meta">
-                        <span class="studio-brand-name">Bacha Hussain</span>
-                        <span class="studio-brand-tagline">Full Stack Developer</span>
+                <!-- Accessible Skip to Content Link -->
+        <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+        <!-- Floating Professional Top Navigation Bar -->
+        <nav class="top-navbar" id="topNavbar" aria-label="Main">
+            <div class="nav-container">
+                <!-- A. BRAND: Amber BH Tile + Name + Subtitle -->
+                <a href="#home" class="nav-brand" aria-label="Bacha Hussain - Home">
+                    <span class="nav-brand-tile">BH</span>
+                    <div class="nav-brand-text">
+                        <span class="nav-brand-name">Bacha Hussain</span>
+                        <span class="nav-brand-sub">FULL STACK DEVELOPER</span>
                     </div>
                 </a>
 
-                <!-- CENTER: Circular 3D Navigation Buttons with Soft Glow -->
-                <nav class="navbar-nav-center studio-3d-key-nav" aria-label="Studio 3D Navigation">
-                    <ul class="nav-3d-circles-list">
-                        <!-- 1. Home icon (active state - glowing yellow with brown house) -->
-                        <li>
-                            <button type="button" class="nav-circle-btn active-home studio-waypoint-btn" data-waypoint="overview" title="Home - Studio Overview">
-                                <i class="fas fa-house"></i>
-                            </button>
-                        </li>
-                        <!-- 2. Stack icon (glowing green layers) -->
-                        <li>
-                            <button type="button" class="nav-circle-btn glow-green studio-waypoint-btn" data-waypoint="projects" title="Projects & Case Studies">
-                                <i class="fas fa-layer-group"></i>
-                            </button>
-                        </li>
-                        <!-- 3. Profile icon (glowing red person) -->
-                        <li>
-                            <button type="button" class="nav-circle-btn glow-red studio-waypoint-btn" data-waypoint="portrait" title="About & Bio">
-                                <i class="fas fa-user"></i>
-                            </button>
-                        </li>
-                        <!-- 4. Code icon </> (white on dark) -->
-                        <li>
-                            <button type="button" class="nav-circle-btn glow-white studio-waypoint-btn" data-waypoint="desk" title="Workstation Tech Stack">
-                                <i class="fas fa-code"></i>
-                            </button>
-                        </li>
-                        <!-- 5. Music Note icon (glowing green) -->
-                        <li>
-                            <button type="button" class="nav-circle-btn glow-green studio-waypoint-btn" data-waypoint="lounge" id="navMusicBtn" title="Relaxing Lo-Fi Turntable">
-                                <i class="fas fa-music"></i>
-                            </button>
-                        </li>
-                        <!-- 6. Motorcycle icon (glowing red) -->
-                        <li>
-                            <button type="button" class="nav-circle-btn glow-red" id="navMotorcycleDriveBtn" title="Cruise Motorcycle Across Room">
-                                <i class="fas fa-motorcycle"></i>
-                            </button>
-                        </li>
-                        <!-- 7. Email envelope (white) -->
-                        <li>
-                            <a href="#contact" class="nav-circle-btn glow-white" title="Contact & Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </li>
-                        <!-- 8. Second Music icon -->
-                        <li>
-                            <button type="button" class="nav-circle-btn glow-amber" id="headerMusicToggle" title="Toggle Lo-Fi Music">
-                                <i class="fas fa-volume-up"></i>
-                            </button>
-                        </li>
-                        <!-- 9. Settings gear icon -->
-                        <li>
-                            <button type="button" class="nav-circle-btn glow-neutral" id="theme-toggle" title="Settings & Theme">
-                                <i class="fas fa-cog"></i>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+                <!-- B. NAVIGATION: Five labelled links in page order -->
+                <ul class="nav-links-list" id="mainNavLinks">
+                    <li>
+                        <a href="#home" class="nav-link active" aria-current="page">
+                            <i class="fas fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="nav-link">
+                            <i class="fas fa-user"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services" class="nav-link">
+                            <i class="fas fa-cogs"></i>
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="nav-link">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
 
-                <!-- RIGHT: CV Button (Light Beige Pill) & Hire Me Button (Bright Orange Pill) -->
-                <div class="studio-navbar-actions">
-                    <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" class="studio-nav-cv-pill" title="Download Official Resume (PDF)">
-                        <i class="fas fa-file-alt"></i><span>CV</span>
+                <!-- C. SCENE CONTROLS: Speaker + Gear with Popover -->
+                <div class="nav-scene-controls">
+                    <div class="nav-tooltip-wrapper">
+                        <button type="button" class="nav-icon-btn" id="navSoundBtn" aria-label="Toggle ambient sound" aria-pressed="false">
+                            <i class="fas fa-volume-mute" id="navSoundIcon"></i>
+                        </button>
+                        <span class="nav-tooltip" role="tooltip">Toggle sound</span>
+                    </div>
+                    <div class="nav-tooltip-wrapper">
+                        <button type="button" class="nav-icon-btn" id="navSettingsBtn" aria-label="Scene settings" aria-haspopup="dialog" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <span class="nav-tooltip" role="tooltip">Scene settings</span>
+                    </div>
+
+                    <!-- Scene Settings Popover -->
+                    <div class="nav-scene-popover" id="sceneSettingsPopover" role="dialog" aria-label="Scene settings" aria-hidden="true">
+                        <div class="popover-header">
+                            <span class="popover-title">Scene settings</span>
+                            <button type="button" class="popover-close-btn" id="popoverCloseBtn" aria-label="Close settings">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="popover-body">
+                            <div class="popover-row">
+                                <div class="popover-label-group">
+                                    <span class="popover-label"><i class="fas fa-music"></i> Ambient Lo-Fi</span>
+                                    <span class="popover-desc">Synthesized chords</span>
+                                </div>
+                                <button type="button" class="popover-switch" id="popoverSoundToggle" role="switch" aria-checked="false" aria-label="Toggle ambient sound">
+                                    <span class="switch-knob"></span>
+                                </button>
+                            </div>
+                            <div class="popover-row">
+                                <div class="popover-label-group">
+                                    <span class="popover-label"><i class="fas fa-motorcycle"></i> Cruise Scooter</span>
+                                    <span class="popover-desc">Vespa ride & audio</span>
+                                </div>
+                                <button type="button" class="popover-action-btn" id="popoverVespaBtn">
+                                    Ride Vespa
+                                </button>
+                            </div>
+                            <div class="popover-row">
+                                <div class="popover-label-group">
+                                    <span class="popover-label"><i class="fas fa-cube"></i> 3D Motion</span>
+                                    <span class="popover-desc">Parallax & tilts</span>
+                                </div>
+                                <button type="button" class="popover-switch checked" id="popoverMotionToggle" role="switch" aria-checked="true" aria-label="Toggle 3D motion">
+                                    <span class="switch-knob"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- D. ACTIONS: Divider + CV + Book a call -->
+                <div class="nav-actions-group">
+                    <div class="nav-divider" aria-hidden="true"></div>
+                    <div class="nav-tooltip-wrapper nav-cv-wrapper">
+                        <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn-secondary" aria-label="Download CV (PDF)">
+                            <i class="fas fa-download"></i>
+                            <span class="nav-btn-text">CV</span>
+                        </a>
+                        <span class="nav-tooltip" role="tooltip">Download CV (PDF)</span>
+                    </div>
+                    <a href="#contact" class="nav-btn-primary" aria-label="Book a call">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Book a call</span>
                     </a>
-                    <a href="#contact" class="studio-nav-hire-orange">
-                        <i class="fas fa-paper-plane"></i><span>HIRE ME</span>
-                    </a>
-                    <button type="button" class="studio-mobile-hamburger" id="navHamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navDropdownPanel">
+                    <!-- Mobile Hamburger Button (<820px) -->
+                    <button type="button" class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobileMenu">
                         <span class="hamburger-bar"></span>
                         <span class="hamburger-bar"></span>
                         <span class="hamburger-bar"></span>
@@ -242,33 +281,76 @@
                 </div>
             </div>
 
-            <!-- Mobile Navigation Drawer -->
-            <div class="studio-mobile-menu" id="navDropdownPanel" aria-hidden="true">
-                <div class="studio-mobile-waypoints">
-                    <div class="studio-mobile-section-label">3D Studio Waypoints</div>
-                    <div class="studio-mobile-grid">
-                        <button class="nav-3d-key active studio-waypoint-btn" data-color="green" data-waypoint="overview"><i class="fas fa-house"></i><span>Overview</span></button>
-                        <button class="nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="projects"><i class="fas fa-layer-group"></i><span>Projects</span></button>
-                        <button class="nav-3d-key studio-waypoint-btn" data-color="red" data-waypoint="portrait"><i class="fas fa-user"></i><span>About</span></button>
-                        <button class="nav-3d-key studio-waypoint-btn" data-color="black" data-waypoint="desk"><i class="fas fa-code"></i><span>Workstation</span></button>
-                        <button class="nav-3d-key studio-waypoint-btn" data-color="green" data-waypoint="lounge"><i class="fas fa-music"></i><span>Lounge</span></button>
-                        <button class="nav-3d-key" data-color="red" id="mobileMotorcycleBtn"><i class="fas fa-motorcycle"></i><span>Ride Vespa</span></button>
+            <!-- Mobile Navigation Drawer Panel (<820px) -->
+            <div class="nav-mobile-menu" id="navMobileMenu" aria-hidden="true">
+                <div class="mobile-menu-inner">
+                    <ul class="mobile-links-list">
+                        <li>
+                            <a href="#home" class="mobile-link active" aria-current="page">
+                                <i class="fas fa-house"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="mobile-link">
+                                <i class="fas fa-user"></i>
+                                <span>About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="mobile-link">
+                                <i class="fas fa-cogs"></i>
+                                <span>Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="mobile-link">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="mobile-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="mobile-divider"></div>
+                    <div class="mobile-scene-controls">
+                        <div class="mobile-control-row">
+                            <span class="mobile-control-label"><i class="fas fa-music"></i> Ambient Sound</span>
+                            <button type="button" class="popover-switch" id="mobileSoundToggle" role="switch" aria-checked="false" aria-label="Toggle sound">
+                                <span class="switch-knob"></span>
+                            </button>
+                        </div>
+                        <div class="mobile-control-row">
+                            <span class="mobile-control-label"><i class="fas fa-motorcycle"></i> Cruise Scooter</span>
+                            <button type="button" class="popover-action-btn" id="mobileVespaBtn">Ride Vespa</button>
+                        </div>
+                        <div class="mobile-control-row">
+                            <span class="mobile-control-label"><i class="fas fa-cube"></i> 3D Motion</span>
+                            <button type="button" class="popover-switch checked" id="mobileMotionToggle" role="switch" aria-checked="true" aria-label="Toggle 3D motion">
+                                <span class="switch-knob"></span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="studio-mobile-section-label" style="margin-top: 14px;">Explore Portfolio</div>
-                    <div class="studio-mobile-links">
-                        <a href="#about" class="studio-mobile-link"><i class="fas fa-user"></i> About Me</a>
-                        <a href="#experience" class="studio-mobile-link"><i class="fas fa-briefcase"></i> Experience</a>
-                        <a href="#services" class="studio-mobile-link"><i class="fas fa-cogs"></i> Services</a>
-                        <a href="#skills" class="studio-mobile-link"><i class="fas fa-layer-group"></i> Skills</a>
-                        <a href="#portfolio" class="studio-mobile-link"><i class="fas fa-laptop-code"></i> Projects</a>
-                        <a href="#contact" class="studio-mobile-link"><i class="fas fa-envelope"></i> Contact</a>
+                    <div class="mobile-divider"></div>
+                    <div class="mobile-actions">
+                        <a href="cv.pdf" download="Bacha_Hussain_CV.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn-secondary mobile-btn-full" aria-label="Download CV (PDF)">
+                            <i class="fas fa-download"></i>
+                            <span>Download CV</span>
+                        </a>
+                        <a href="#contact" class="nav-btn-primary mobile-btn-full" aria-label="Book a call">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Book a call</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </header>
-
+        </nav>
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" id="main-content">
 
             <!-- Hero Section: 3D Interactive Virtual Studio -->
             <section id="home" class="studio-hero-section">

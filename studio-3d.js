@@ -220,68 +220,164 @@
     });
 
     // C. Ambient Sound Toggle Button & Header Controls
-    const headerMusicBtn = document.getElementById('headerMusicToggle');
+    // C. Rebuilt Ambient Sound & Scene Controls (Speaker, Popover, Settings)
+    const navSoundBtn = document.getElementById("navSoundBtn");
+    const navSoundIcon = document.getElementById("navSoundIcon");
+    const popoverSoundToggle = document.getElementById("popoverSoundToggle");
+    const mobileSoundToggle = document.getElementById("mobileSoundToggle");
+    const headerMusicBtn = document.getElementById("headerMusicToggle");
+
+    function updateAudioUI(isPlaying) {
+      if (audioBtn) {
+        audioBtn.classList.toggle("playing", isPlaying);
+        audioBtn.innerHTML = isPlaying ? "<i class=\"fas fa-volume-up\"></i>" : "<i class=\"fas fa-volume-mute\"></i>";
+      }
+      if (headerMusicBtn) {
+        headerMusicBtn.classList.toggle("playing", isPlaying);
+        headerMusicBtn.innerHTML = isPlaying ? "<i class=\"fas fa-volume-up\"></i>" : "<i class=\"fas fa-volume-mute\"></i>";
+      }
+      if (navSoundBtn) {
+        navSoundBtn.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+        navSoundBtn.setAttribute("aria-label", isPlaying ? "Sound: On" : "Sound: Off");
+      }
+      if (navSoundIcon) {
+        navSoundIcon.className = isPlaying ? "fas fa-volume-up" : "fas fa-volume-mute";
+      }
+      if (popoverSoundToggle) {
+        popoverSoundToggle.classList.toggle("checked", isPlaying);
+        popoverSoundToggle.setAttribute("aria-checked", isPlaying ? "true" : "false");
+      }
+      if (mobileSoundToggle) {
+        mobileSoundToggle.classList.toggle("checked", isPlaying);
+        mobileSoundToggle.setAttribute("aria-checked", isPlaying ? "true" : "false");
+      }
+    }
 
     function toggleMusic() {
       if (loFi.isPlaying) {
         loFi.stop();
-        if (audioBtn) {
-          audioBtn.classList.remove('playing');
-          audioBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-        }
-        if (headerMusicBtn) {
-          headerMusicBtn.classList.remove('playing');
-          headerMusicBtn.innerHTML = '<i class="fas fa-music"></i>';
-        }
+        updateAudioUI(false);
       } else {
         loFi.play();
-        if (audioBtn) {
-          audioBtn.classList.add('playing');
-          audioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-        }
-        if (headerMusicBtn) {
-          headerMusicBtn.classList.add('playing');
-          headerMusicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+        updateAudioUI(true);
+      }
+    }
+
+    if (audioBtn) audioBtn.addEventListener("click", toggleMusic);
+    if (headerMusicBtn) headerMusicBtn.addEventListener("click", toggleMusic);
+    if (navSoundBtn) navSoundBtn.addEventListener("click", toggleMusic);
+    if (popoverSoundToggle) popoverSoundToggle.addEventListener("click", toggleMusic);
+    if (mobileSoundToggle) mobileSoundToggle.addEventListener("click", toggleMusic);
+
+    // Scene Settings Popover Wiring
+    const navSettingsBtn = document.getElementById("navSettingsBtn");
+    const sceneSettingsPopover = document.getElementById("sceneSettingsPopover");
+    const popoverCloseBtn = document.getElementById("popoverCloseBtn");
+    const popoverVespaBtn = document.getElementById("popoverVespaBtn");
+    const mobileVespaBtn = document.getElementById("mobileVespaBtn");
+    const popoverMotionToggle = document.getElementById("popoverMotionToggle");
+    const mobileMotionToggle = document.getElementById("mobileMotionToggle");
+
+    function toggleScenePopover(forceState) {
+      if (!sceneSettingsPopover) return;
+      const willOpen = typeof forceState === "boolean" ? forceState : !sceneSettingsPopover.classList.contains("active");
+      sceneSettingsPopover.classList.toggle("active", willOpen);
+      sceneSettingsPopover.setAttribute("aria-hidden", willOpen ? "false" : "true");
+      if (navSettingsBtn) {
+        navSettingsBtn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      }
+    }
+
+    if (navSettingsBtn) {
+      navSettingsBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleScenePopover();
+      });
+    }
+
+    if (popoverCloseBtn) {
+      popoverCloseBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleScenePopover(false);
+      });
+    }
+
+    // 3D Motion Toggle
+    let motionEnabled = true;
+    function toggleMotion() {
+      motionEnabled = !motionEnabled;
+      const isChecked = motionEnabled;
+      if (popoverMotionToggle) {
+        popoverMotionToggle.classList.toggle("checked", isChecked);
+        popoverMotionToggle.setAttribute("aria-checked", isChecked ? "true" : "false");
+      }
+      if (mobileMotionToggle) {
+        mobileMotionToggle.classList.toggle("checked", isChecked);
+        mobileMotionToggle.setAttribute("aria-checked", isChecked ? "true" : "false");
+      }
+      if (canvasContainer) {
+        canvasContainer.style.transition = motionEnabled ? "transform 0.4s ease-out" : "none";
+        if (!motionEnabled) {
+          canvasContainer.style.transform = "scale(1) translate(0, 0)";
         }
       }
     }
 
-    if (audioBtn) {
-      audioBtn.addEventListener('click', toggleMusic);
-    }
-    if (headerMusicBtn) {
-      headerMusicBtn.addEventListener('click', toggleMusic);
+    if (popoverMotionToggle) popoverMotionToggle.addEventListener("click", toggleMotion);
+    if (mobileMotionToggle) mobileMotionToggle.addEventListener("click", toggleMotion);
+
+    // Mobile Hamburger & Drawer (<820px)
+    const navHamburger = document.getElementById("navHamburger");
+    const navMobileMenu = document.getElementById("navMobileMenu") || document.getElementById("navDropdownPanel");
+
+    function toggleMobileMenu(forceState) {
+      if (!navMobileMenu) return;
+      const willOpen = typeof forceState === "boolean" ? forceState : !navMobileMenu.classList.contains("active");
+      navMobileMenu.classList.toggle("active", willOpen);
+      navMobileMenu.setAttribute("aria-hidden", willOpen ? "false" : "true");
+      if (navHamburger) {
+        navHamburger.classList.toggle("active", willOpen);
+        navHamburger.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      }
     }
 
-    // Mobile Hamburger & Drawer
-    const navHamburger = document.getElementById('navHamburger');
-    const navDropdownPanel = document.getElementById('navDropdownPanel');
-    if (navHamburger && navDropdownPanel) {
-      navHamburger.addEventListener('click', (e) => {
+    if (navHamburger && navMobileMenu) {
+      navHamburger.addEventListener("click", (e) => {
         e.stopPropagation();
-        navDropdownPanel.classList.toggle('active');
-        const isActive = navDropdownPanel.classList.contains('active');
-        navHamburger.classList.toggle('active', isActive);
-        navHamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        toggleScenePopover(false);
+        toggleMobileMenu();
       });
 
-      document.addEventListener('click', (e) => {
-        if (!navDropdownPanel.contains(e.target) && !navHamburger.contains(e.target)) {
-          navDropdownPanel.classList.remove('active');
-          navHamburger.classList.remove('active');
-          navHamburger.setAttribute('aria-expanded', 'false');
+      // Close menu when any link is clicked inside drawer
+      navMobileMenu.querySelectorAll("a, button").forEach(item => {
+        if (item.id !== "mobileSoundToggle" && item.id !== "mobileMotionToggle") {
+          item.addEventListener("click", () => {
+            toggleMobileMenu(false);
+          });
         }
       });
-
-      // Close menu when any waypoint or link clicked inside drawer
-      navDropdownPanel.querySelectorAll('button, a').forEach(item => {
-        item.addEventListener('click', () => {
-          navDropdownPanel.classList.remove('active');
-          navHamburger.classList.remove('active');
-          navHamburger.setAttribute('aria-expanded', 'false');
-        });
-      });
     }
+
+    // Outside Click & Escape Key Handler for Popover and Mobile Menu
+    document.addEventListener("click", (e) => {
+      if (sceneSettingsPopover && sceneSettingsPopover.classList.contains("active")) {
+        if (!sceneSettingsPopover.contains(e.target) && !navSettingsBtn?.contains(e.target)) {
+          toggleScenePopover(false);
+        }
+      }
+      if (navMobileMenu && navMobileMenu.classList.contains("active")) {
+        if (!navMobileMenu.contains(e.target) && !navHamburger?.contains(e.target)) {
+          toggleMobileMenu(false);
+        }
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        toggleScenePopover(false);
+        toggleMobileMenu(false);
+      }
+    });
 
     // D. Modal Opening Functions
     function showModal(html) {
@@ -530,6 +626,8 @@
     if (vespaHotspot) vespaHotspot.addEventListener('click', driveMotorcycle);
     if (navMotorcycleBtn) navMotorcycleBtn.addEventListener('click', driveMotorcycle);
     if (mobileMotorcycleBtn) mobileMotorcycleBtn.addEventListener('click', driveMotorcycle);
+    const popoverVespa = document.getElementById('popoverVespaBtn');
+    if (popoverVespa) popoverVespa.addEventListener('click', driveMotorcycle);
 
     // ========================================================
     // ROOM 02: 3D HOLOGRAPHIC PARALLAX TILT & SPATIAL LAB

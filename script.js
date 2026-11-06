@@ -71,103 +71,108 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setTimeout(type, 300);
 
-    // 2. Navbar Scroll State & Scroll Spy
-    const topNavbar = document.getElementById('topNavbar');
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    // 2. Navbar Scroll Shrink & Scroll Spy
+    const topNavbar = document.getElementById("topNavbar");
+    const scrollProgress = document.getElementById("scroll-progress");
+    const backToTop = document.getElementById("back-to-top");
 
-    // 3. Scroll Progress Bar
-    const scrollProgress = document.getElementById('scroll-progress');
-
-    // 4. Back to Top Button
-    const backToTop = document.getElementById('back-to-top');
-
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
         const scrollY = window.scrollY || window.pageYOffset;
 
-        // Navbar shrink & glass density on scroll > 40px
+        // Navbar shrink on scroll > 40px (from 64px to 56px)
         if (topNavbar) {
             if (scrollY > 40) {
-                topNavbar.classList.add('scrolled');
+                topNavbar.classList.add("scrolled");
             } else {
-                topNavbar.classList.remove('scrolled');
+                topNavbar.classList.remove("scrolled");
             }
         }
-
-        // Scroll spy with active indicator and aria-current
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= sectionTop - 140) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            link.removeAttribute('aria-current');
-            const href = link.getAttribute('href');
-            if (href && (href === `#${current}` || href.endsWith(`#${current}`))) {
-                link.classList.add('active');
-                link.setAttribute('aria-current', 'page');
-            }
-        });
 
         // Scroll progress bar
         if (scrollProgress) {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
-            scrollProgress.style.width = scrollPercent + '%';
+            scrollProgress.style.width = scrollPercent + "%";
         }
 
         // Back to top visibility
         if (backToTop) {
             if (scrollY > 500) {
-                backToTop.classList.add('visible');
+                backToTop.classList.add("visible");
             } else {
-                backToTop.classList.remove('visible');
+                backToTop.classList.remove("visible");
             }
         }
-    });
+    }, { passive: true });
+
+    // Active Link State: Single IntersectionObserver watching 5 section IDs
+    const sectionIds = ["home", "about", "services", "portfolio", "contact"];
+    const observedSections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    function updateActiveNav(activeId) {
+        const allNavLinks = document.querySelectorAll(".nav-link, .mobile-link");
+        allNavLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === `#${activeId}`) {
+                link.classList.add("active");
+                link.setAttribute("aria-current", "page");
+            } else {
+                link.classList.remove("active");
+                link.removeAttribute("aria-current");
+            }
+        });
+    }
+
+    if ("IntersectionObserver" in window && observedSections.length > 0) {
+        const navSpyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateActiveNav(entry.target.id);
+                }
+            });
+        }, {
+            rootMargin: "-40% 0px -55% 0px",
+            threshold: 0
+        });
+
+        observedSections.forEach(sec => navSpyObserver.observe(sec));
+    }
 
     // Back to top click
     if (backToTop) {
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
 
     // 5. Fade-in on Scroll (Intersection Observer)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
+            if (entry.isIntersecting) entry.target.classList.add("visible");
         });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
-    // 6. Custom Cursor
-    const cursor = document.querySelector('.custom-cursor');
-    const follower = document.querySelector('.custom-cursor-follower');
+    // 6. Custom Cursor (Amber outer ring & Cream center dot with 1.5x hover)
+    const cursor = document.querySelector(".custom-cursor");
+    const follower = document.querySelector(".custom-cursor-follower");
+
     if (cursor && follower) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
-            follower.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
+            follower.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
         });
-        document.querySelectorAll('a, button, .portfolio-item').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursor.style.transform += ' scale(2)';
-                follower.style.transform += ' scale(1.5)';
-                cursor.style.background = 'rgba(20, 184, 166, 0.5)';
+
+        const interactiveTargets = document.querySelectorAll("a, button, [role=\"button\"], input, textarea, .portfolio-card, .portfolio-item");
+        interactiveTargets.forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                follower.classList.add("cursor-hover");
             });
-            link.addEventListener('mouseleave', () => {
-                cursor.style.transform = cursor.style.transform.replace(' scale(2)', '');
-                follower.style.transform = follower.style.transform.replace(' scale(1.5)', '');
-                cursor.style.background = 'var(--accent-teal)';
+            el.addEventListener("mouseleave", () => {
+                follower.classList.remove("cursor-hover");
             });
         });
     }
-
     // 7. Lottie Animation
     if (typeof lottie !== 'undefined' && document.getElementById('lottie-cartoon')) {
         lottie.loadAnimation({
@@ -179,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. Mobile Menu Toggle (Top Navbar Dropdown Panel)
     const navHamburger = document.getElementById('navHamburger');
-    const navDropdownPanel = document.getElementById('navDropdownPanel');
+    const navDropdownPanel = document.getElementById('navMobileMenu') || document.getElementById('navDropdownPanel');
 
     function closeNavDropdown() {
         if (!navDropdownPanel) return;
